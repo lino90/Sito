@@ -155,7 +155,7 @@
             opacity: 0; /* Nascosto di default */
             visibility: hidden;
             transform: translate(-50%, calc(-100% - 30px)); /* Centra e posiziona sopra il marker */
-            transition: opacity 0.3s, visibility 0.3s, transform 0.3s;
+            transition: opacity 0.3s, visibility 0s 0.3s, transform 0.3s;
             pointer-events: none; /* Non intercettare click quando è nascosto */
         }
         .custom-map-popup.show {
@@ -163,6 +163,7 @@
             visibility: visible;
             transform: translate(-50%, calc(-100% - 20px));
             pointer-events: auto;
+            transition-delay: 0s;
         }
         .custom-map-popup-content h3 {
             font-size: 1.2rem;
@@ -369,12 +370,12 @@ document.addEventListener('DOMContentLoaded', () => {
 <script>
 /**
  * Classe per creare una InfoWindow personalizzata, robusta e ancorata alla mappa.
- * Estende google.maps.OverlayView.
+ * Estende google.maps.OverlayView per un controllo completo.
  */
 class CustomMapPopup extends google.maps.OverlayView {
-    constructor(position, content) {
+    constructor() {
         super();
-        this.position = position;
+        this.position = null;
 
         // Crea il contenitore del popup
         this.container = document.createElement("div");
@@ -383,7 +384,6 @@ class CustomMapPopup extends google.maps.OverlayView {
         // Crea il contenuto interno
         this.contentDiv = document.createElement("div");
         this.contentDiv.className = "custom-map-popup-content";
-        this.contentDiv.innerHTML = content;
         this.container.appendChild(this.contentDiv);
 
         // Crea e aggiunge il pulsante di chiusura
@@ -408,8 +408,12 @@ class CustomMapPopup extends google.maps.OverlayView {
     }
 
     draw() {
-        if (!this.position) return;
-        const divPosition = this.getProjection().fromLatLngToDivPixel(this.position);
+        const projection = this.getProjection();
+        // Questo controllo è fondamentale: non fare nulla se la proiezione non è pronta.
+        if (!projection || !this.position) {
+            return;
+        }
+        const divPosition = projection.fromLatLngToDivPixel(this.position);
         this.container.style.left = divPosition.x + "px";
         this.container.style.top = divPosition.y + "px";
     }
@@ -453,9 +457,8 @@ function initMap() {
     });
 
     // Crea una sola istanza del popup da riutilizzare
-    const popup = new CustomMapPopup(new google.maps.LatLng(0, 0), "");
+    const popup = new CustomMapPopup();
     popup.setMap(map);
-    popup.hide(); // Nascondila all'inizio
     
     // Chiudi il popup quando si clicca sulla mappa
     map.addListener('click', () => {
