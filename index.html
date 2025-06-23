@@ -30,21 +30,37 @@
         }
         .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
 
-        /* ... Stili generali (invariati) ... */
-        header { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; padding: 20px 40px; background-color: white; box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 100; }
-        .logo { grid-column: 1; justify-self: start; line-height: 1; cursor: pointer; text-decoration: none; }
+        /* HEADER & LOGO */
+        header { 
+            display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; 
+            padding: 20px 40px; background-color: white; 
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 100; 
+        }
+        .logo { 
+            grid-column: 1; justify-self: start; line-height: 1; cursor: pointer;
+            text-decoration: none;
+        }
         .logo-line-1 { font-size: 2.2rem; font-weight: 700; color: var(--primary-blue); }
         .logo-line-1 span { color: var(--primary-pink); }
-        .logo-line-2 { font-size: 1rem; font-weight: 600; color: var(--primary-pink); letter-spacing: 0.03em; white-space: nowrap; display: block; padding-left: 2.25rem; margin-top: -0.5rem; }
+        .logo-line-2 { 
+            font-size: 1rem; font-weight: 600; color: var(--primary-pink); 
+            letter-spacing: 0.03em; white-space: nowrap; display: block; 
+            padding-left: 2.25rem;
+            margin-top: -0.5rem; 
+        }
         nav { grid-column: 2; }
         nav ul { list-style: none; margin: 0; padding: 0; display: flex; gap: 30px; }
         nav a { text-decoration: none; color: var(--primary-blue); font-weight: 600; transition: color 0.3s; }
         nav a:hover { color: var(--primary-pink); }
+        
+        /* HERO & SECTIONS */
         .hero-section { background: var(--background-gradient); padding: 80px 20px; text-align: center; }
         .hero-section h1 { font-size: 2.5rem; color: var(--primary-blue); margin-bottom: 20px; }
         .hero-section p { font-size: 1.1rem; color: #555; max-width: 700px; margin: 0 auto 40px auto; }
         section { padding: 60px 0; }
         .section-title { text-align: center; font-size: 2.2rem; color: var(--primary-blue); margin-bottom: 40px; }
+
+        /* CAROSELLO */
         .policies-carousel-wrapper { position: relative; padding: 0 50px; }
         .policies-carousel-viewport { overflow: hidden; padding: 20px 10px; }
         .policies-carousel { display: flex; gap: 30px; transition: transform 0.5s ease-in-out; }
@@ -58,6 +74,8 @@
         .carousel-arrow:hover:not(:disabled) { background-color: var(--primary-pink); color: white; border-color: var(--primary-pink); }
         .prev-arrow { left: 0; }
         .next-arrow { right: 0; }
+        
+        /* ALTRE SEZIONI */
         #chi-sono { background-color: var(--light-gray); }
         .about-content { display: flex; align-items: center; gap: 50px; }
         .about-text { flex: 1; }
@@ -78,6 +96,8 @@
         .whatsapp-btn:hover { background-color: #1EBE59; transform: translateY(-2px); }
         .whatsapp-btn i { font-size: 1.82em; }
         .hero-section .btn-primary, #chi-sono .btn-primary { flex-grow: 0; }
+        
+        /* SEZIONE TROVA AGENZIA */
         #trova-agenzia { background-color: var(--light-gray); }
         .agency-finder-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
         #map-container { position: relative; height: 550px; border-radius: 16px; overflow: hidden; box-shadow: 0 5px 20px var(--card-shadow); }
@@ -89,6 +109,8 @@
         .agency-card .agency-name { font-weight: 600; color: var(--primary-blue); text-transform: uppercase; font-size: 1.1rem; margin-bottom: 10px; }
         .agency-card p i { color: var(--primary-pink); margin-right: 10px; width: 20px; text-align: center; }
         .agency-card .btn { margin-top: 20px; flex-grow: 0; }
+
+        /* FOOTER */
         footer { background-color: var(--primary-blue); color: #e0e0e0; padding: 50px 0; font-size: 0.9rem; }
         .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
         .footer-col h4 { color: white; margin-bottom: 20px; font-size: 1.1rem; }
@@ -98,7 +120,7 @@
         .footer-col a:hover { color: var(--primary-pink); }
         .footer-bottom { text-align: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.2); font-size: 0.8rem; opacity: 0.8; }
 
-        /* ... Stili Pop-up IVASS (invariati) ... */
+        /* MODALE IVASS */
         .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(13, 44, 84, 0.7); backdrop-filter: blur(5px); display: flex; align-items: center; justify-content: center; z-index: 1000; visibility: hidden; opacity: 0; transition: opacity 0.3s ease, visibility 0s 0.3s; }
         .modal-overlay.show { visibility: visible; opacity: 1; transition-delay: 0s; }
         .modal-content { background: white; border-radius: 16px; max-width: 850px; width: 95%; box-shadow: 0 10px 40px rgba(0,0,0,0.2); position: relative; max-height: 90vh; display: flex; flex-direction: column; transform: scale(0.95) translateY(20px); transition: transform 0.3s ease, opacity 0.3s ease; opacity: 0; }
@@ -121,16 +143,74 @@
         .collaborators-table tbody tr:hover { background-color: #f7f9fc; }
         .collaborators-table tbody tr:last-child td { border-bottom: none; }
         
-        /* ... Stili InfoWindow personalizzata (invariati) ... */
-        .custom-infowindow { position: absolute; background: white; padding: 20px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15); width: 280px; z-index: 10; display: none; transform: translate(-50%, calc(-100% - 20px)); transition: opacity 0.3s, transform 0.3s; }
-        .custom-infowindow.show { display: block; }
-        .custom-infowindow h3 { font-size: 1.2rem; margin: 0 0 8px 0; color: var(--primary-blue); }
-        .custom-infowindow p { margin: 0 0 15px 0; font-size: 0.95rem; color: var(--text-color); line-height: 1.5; }
-        .custom-infowindow a { color: var(--primary-pink); font-weight: 700; text-decoration: none; transition: opacity 0.3s; }
-        .custom-infowindow a:hover { opacity: 0.8; }
-        .custom-infowindow .close-button { position: absolute; top: 8px; right: 8px; width: 24px; height: 24px; background: #f0f2f5; border: none; border-radius: 50%; cursor: pointer; font-size: 1rem; color: var(--text-color); line-height: 24px; text-align: center; transition: background-color 0.3s, color 0.3s; }
-        .custom-infowindow .close-button:hover { background-color: var(--primary-pink); color: white; }
-        .custom-infowindow::after { content: ''; position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); width: 0; height: 0; border-left: 10px solid transparent; border-right: 10px solid transparent; border-top: 10px solid white; }
+        /* POP-UP MAPPA PERSONALIZZATO */
+        .custom-map-popup {
+            position: absolute;
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+            width: 280px;
+            z-index: 10;
+            opacity: 0; /* Nascosto di default */
+            visibility: hidden;
+            transform: translate(-50%, calc(-100% - 30px)); /* Centra e posiziona sopra il marker */
+            transition: opacity 0.3s, visibility 0.3s, transform 0.3s;
+            pointer-events: none; /* Non intercettare click quando è nascosto */
+        }
+        .custom-map-popup.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translate(-50%, calc(-100% - 20px));
+            pointer-events: auto;
+        }
+        .custom-map-popup-content h3 {
+            font-size: 1.2rem;
+            margin: 0 0 8px 0;
+            color: var(--primary-blue);
+        }
+        .custom-map-popup-content p {
+            margin: 0 0 15px 0;
+            font-size: 0.95rem;
+            color: var(--text-color);
+            line-height: 1.5;
+        }
+        .custom-map-popup-content a {
+            color: var(--primary-pink);
+            font-weight: 700;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+        .custom-map-popup-content a:hover { opacity: 0.8; }
+        .custom-map-popup-close-button {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            width: 24px;
+            height: 24px;
+            background: #f0f2f5;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1rem;
+            color: var(--text-color);
+            line-height: 24px;
+            text-align: center;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .custom-map-popup-close-button:hover { background-color: var(--primary-pink); color: white; }
+        .custom-map-popup::after { /* Crea il "beccuccio" del pop-up */
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-top: 10px solid white;
+        }
         
         /* OTTIMIZZAZIONE MOBILE */
         @media (max-width: 992px) {
@@ -154,28 +234,48 @@
     </style>
 </head>
 <body>
-    <header><!-- ... contenuto invariato ... --></header>
+    <header>
+        <a href="#hero" class="logo">
+            <div class="logo-line-1">conforti<span>.</span></div>
+            <div class="logo-line-2">assıcurazıonı</div>
+        </a>
+        <nav><ul><li><a href="#polizze">Polizze</a></li><li><a href="#chi-sono">Chi Sono</a></li><li><a href="#contatti">Contatti</a></li><li><a href="#trova-agenzia">Sedi</a></li></ul></nav>
+        <div></div> <!-- Questo elemento vuoto bilancia la griglia per una centratura perfetta del menu -->
+    </header>
 
     <main>
-        <!-- ... sezioni invariate ... -->
+        <section id="hero" class="hero-section"><div class="container"><h1>La Tua Sicurezza è la Mia Priorità</h1><p>Come tuo agente di fiducia, ti guido nella scelta delle migliori soluzioni assicurative per proteggere ciò che ami. Trasparenza, competenza e professionalità al tuo servizio.</p><a href="#contatti" class="btn btn-primary">Richiedi un Preventivo Gratuito</a></div></section>
         
-        <!-- SEZIONE AGENZIE CON NUOVA STRUTTURA PER LA MAPPA -->
+        <section id="polizze"><div class="container"><h2 class="section-title">Le Mie Soluzioni per Te</h2>
+            <div class="policies-carousel-wrapper" role="region" aria-label="Carosello delle polizze">
+                <button class="carousel-arrow prev-arrow" aria-label="Polizza precedente"><i class="fa-solid fa-chevron-left"></i></button>
+                <div class="policies-carousel-viewport">
+                    <div class="policies-carousel" id="policiesCarousel" aria-live="polite">
+                        <div class="policy-card"><i class="fa-solid fa-car"></i><h3>Auto</h3><p>Protezione completa per il tuo veicolo, con garanzie personalizzabili per viaggiare sereno.</p></div>
+                        <div class="policy-card"><i class="fa-solid fa-house-chimney"></i><h3>Casa</h3><p>Metti al sicuro la tua abitazione e la tua famiglia da imprevisti come furto, incendio e danni.</p></div>
+                        <div class="policy-card"><i class="fa-solid fa-heart-pulse"></i><h3>Vita e Salute</h3><p>Pianifica il futuro e proteggi la tua salute e quella dei tuoi cari con soluzioni su misura.</p></div>
+                        <div class="policy-card"><i class="fa-solid fa-briefcase"></i><h3>Professionale</h3><p>Assicurazioni dedicate a professionisti e aziende per tutelare l'attività da ogni rischio.</p></div>
+                        <div class="policy-card"><i class="fa-solid fa-paw"></i><h3>Pet</h3><p>La migliore assistenza veterinaria e tutela per i tuoi amici a quattro zampe.</p></div>
+                        <div class="policy-card"><i class="fa-solid fa-file-signature"></i><h3>Cauzione</h3><p>Garanzie e fideiussioni per partecipare a gare d'appalto e adempiere a obblighi contrattuali.</p></div>
+                        <div class="policy-card"><i class="fa-solid fa-user-shield"></i><h3>Infortuni</h3><p>Proteggiti dagli imprevisti della vita quotidiana, sia sul lavoro che nel tempo libero.</p></div>
+                    </div>
+                </div>
+                <button class="carousel-arrow next-arrow" aria-label="Polizza successiva"><i class="fa-solid fa-chevron-right"></i></button>
+            </div>
+        </div></section>
+        
+        <section id="chi-sono"><div class="container"><h2 class="section-title">Chi Sono</h2><div class="about-content"><div class="about-image"></div><div class="about-text"><h3>Rocco Conforti</h3><p>Agente assicurativo professionista iscritto al RUI, Sezione A. Da 18 anni aiuto famiglie e professionisti a trovare la serenità attraverso soluzioni assicurative chiare e convenienti. La mia missione è offrire una consulenza trasparente e personalizzata.</p><p>Opero per le seguenti compagnie: ALLIANZ NEXT S.P.A. e BENE ASSICURAZIONI S.P.A. SOCIETÀ BENEFIT.</p><a href="#" id="open-ivass-modal" class="btn btn-primary">Vedi Dati Completi IVASS</a></div></div></div></section>
+        
+        <section id="contatti"><div class="container"><h2 class="section-title">Contattami</h2><div class="contact-container"><div class="contact-form-wrapper"><h3>Richiedi una consulenza</h3><form action="#" method="post" class="contact-form"><input type="text" name="nome" placeholder="Nome" required><input type="text" name="cognome" placeholder="Cognome" required><input type="email" name="email" placeholder="Email" required><input type="tel" name="telefono" placeholder="Telefono"><textarea name="messaggio" rows="5" placeholder="Il tuo messaggio..." required></textarea><div class="privacy-check"><input type="checkbox" id="privacy" name="privacy" required><label for="privacy">Dichiaro di aver letto e accettato la <a href="/privacy-policy.html" target="_blank">Privacy Policy</a> e acconsento al trattamento dei miei dati.</label></div><div class="form-buttons"><button type="submit" class="btn btn-primary">Invia Richiesta</button><a href="https://wa.me/393479311461" target="_blank" class="btn whatsapp-btn"><i class="fab fa-whatsapp"></i>Contattami su WhatsApp</a></div></form></div><div class="reclami-wrapper"><h3>Gestione Reclami</h3><p>La tua soddisfazione è la mia priorità. In caso di reclamo, è possibile contattare l'Agente <strong>Rocco Conforti</strong> scrivendo all'indirizzo e-mail <a href="mailto:rocco.conf@libero.it">rocco.conf@libero.it</a> oppure all'indirizzo PEC <a href="mailto:confortirocco@pec.it">confortirocco@pec.it</a>.</p><p>Il reclamo verrà gestito nel rispetto della normativa vigente. Ulteriori informazioni sulle modalità di presentazione di un reclamo sono sempre disponibili all'interno della documentazione precontrattuale.</p><p>Qualora non dovessi ritenerti soddisfatto dall'esito del reclamo o in caso di assenza di riscontro entro 45 giorni, potrai rivolgerti all'IVASS.</p></div></div></div></section>
+        
         <section id="trova-agenzia">
             <div class="container">
                 <h2 class="section-title">Trova le Nostre Sedi</h2>
                 <div class="agency-finder-grid">
                     <div id="map-container">
                         <div id="map"></div>
-                        <!-- FINESTRA INFO PERSONALIZZATA -->
-                        <div id="custom-infowindow" class="custom-infowindow">
-                            <button class="close-button">×</button>
-                            <h3 id="iw-title"></h3>
-                            <p id="iw-address"></p>
-                            <a id="iw-link" href="#" target="_blank">Ottieni Indicazioni</a>
-                        </div>
                     </div>
                     <div class="agency-cards-wrapper">
-                        <!-- Card Noci -->
                         <div class="agency-card">
                             <h3>Agenzia di Noci</h3>
                             <p class="agency-name">Rocco Conforti</p>
@@ -183,7 +283,6 @@
                             <p><i class="fa-solid fa-phone"></i> <a href="tel:+390804972013" style="text-decoration:none; color:inherit;">080 497 2013</a></p>
                             <a href="https://www.google.com/maps/dir/?api=1&destination=Via+Soldato+Raffaele+Tinelli+14,+70015+Noci+BA" target="_blank" class="btn btn-primary"><i class="fa-solid fa-map-location-dot"></i> Ottieni Indicazioni</a>
                         </div>
-                        <!-- Card Putignano -->
                         <div class="agency-card">
                             <h3>Agenzia di Putignano</h3>
                             <p class="agency-name">Vincenzo Montaruli</p>
@@ -197,10 +296,51 @@
         </section>
     </main>
     
-    <footer><!-- ... contenuto invariato ... --></footer>
+    <footer><div class="container"><div class="footer-grid"><div class="footer-col"><h4>Dati Identificativi Agente</h4><ul><li><strong>Agente:</strong> Rocco Conforti</li><li><strong>RUI:</strong> Sezione A - n. A000099409</li><li><strong>Data Iscrizione:</strong> 11/05/2007</li><li><strong>Sede Legale:</strong> Via Soldato Raffaele Tinelli 14, 70015 Noci (BA)</li><li><strong>P.IVA:</strong> 02144310725</li></ul></div><div class="footer-col"><h4>Contatti e Recapiti</h4><ul><li><i class="fa-solid fa-phone"></i> Tel: <a href="tel:+390804972013">080 497 2013</a></li><li><i class="fa-solid fa-envelope"></i> Email: <a href="mailto:rocco.conf@libero.it">rocco.conf@libero.it</a></li><li><i class="fa-solid fa-at"></i> PEC: <a href="mailto:confortirocco@pec.it">confortirocco@pec.it</a></li><li><i class="fa-solid fa-check"></i> Intermediario soggetto al controllo dell'IVASS.</li></ul></div><div class="footer-col"><h4>Informazioni e Policy</h4><ul><li><a href="/privacy-policy.html" target="_blank">Privacy Policy</a></li><li><a href="/cookie-policy.html" target="_blank">Cookie Policy</a></li><li><a href="#contatti">Reclami</a></li></ul></div></div><div class="footer-bottom"><p>L’attività di intermediazione assicurativa è svolta in conformità al Regolamento IVASS n. 40/2018. Le informazioni presenti su questo sito sono puramente illustrative, non costituiscono una proposta contrattuale e non sostituiscono in alcun modo la documentazione precontrattuale obbligatoria per legge, che verrà fornita prima della sottoscrizione di qualsiasi polizza.</p><p>© 2025 Rocco Conforti - Tutti i diritti riservati.</p></div></div></footer>
 
-    <!-- POP-UP IVASS (invariato) -->
-    <div id="ivass-modal" class="modal-overlay"><!-- ... contenuto invariato ... --></div>
+    <!-- POP-UP IVASS -->
+    <div id="ivass-modal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Dettagli Intermediario - RUI</h2>
+                <button class="modal-close-btn" aria-label="Chiudi finestra">×</button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-section">
+                    <h4>Dati Anagrafici e Iscrizione</h4>
+                    <div class="info-grid">
+                        <div class="info-item"><i class="fa-solid fa-user"></i><span><strong>Nominativo</strong>CONFORTI ROCCO</span></div>
+                        <div class="info-item"><i class="fa-solid fa-id-card"></i><span><strong>RUI (Sez. A)</strong>A000099409</span></div>
+                        <div class="info-item"><i class="fa-solid fa-calendar-check"></i><span><strong>Data Iscrizione</strong>11/05/2007</span></div>
+                        <div class="info-item"><i class="fa-solid fa-cake-candles"></i><span><strong>Data Nascita</strong>14/03/1966</span></div>
+                        <div class="info-item"><i class="fa-solid fa-map-pin"></i><span><strong>Luogo Nascita</strong>NOCI (BA)</span></div>
+                        <div class="info-item"><i class="fa-solid fa-briefcase"></i><span><strong>Operatività</strong>A titolo individuale</span></div>
+                    </div>
+                </div>
+                <div class="modal-section">
+                    <h4>Imprese per cui è svolta l'attività</h4>
+                    <div class="info-grid">
+                        <div class="info-item"><i class="fa-solid fa-handshake-simple"></i><span>ALLIANZ NEXT S.P.A.</span></div>
+                        <div class="info-item"><i class="fa-solid fa-handshake-simple"></i><span>BENE ASSICURAZIONI S.P.A. SOCIETÀ BENEFIT</span></div>
+                    </div>
+                </div>
+                <div class="modal-section">
+                    <h4>Lista Collaboratori (Iscritti in Sez. E)</h4>
+                    <table class="collaborators-table">
+                        <thead>
+                            <tr><th>Nominativo</th><th>Qualifica</th><th>Data Inizio Collaborazione</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>GENTILE ANNA MARIA</td><td>Collaboratore di Intermediario</td><td>13/06/2022</td></tr>
+                            <tr><td>MONTARULI VINCENZO</td><td>Collaboratore di Intermediario</td><td>13/01/2020</td></tr>
+                            <tr><td>CONFORTI PIETRO</td><td>Collaboratore di Intermediario</td><td>18/09/2023</td></tr>
+                            <tr><td>RESTA ADELAIDE</td><td>Collaboratore di Intermediario</td><td>03/11/2023</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
 <script>
@@ -224,11 +364,83 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 </script>
 
-<!-- SCRIPT GOOGLE MAPS CON COORDINATE CORRETTE -->
+<!-- SCRIPT GOOGLE MAPS CON FINESTRA INFO PERSONALIZZATA E ROBUSTA -->
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA0-3ZnJlH5qnDPlLIogkvI1NcKNbW5gtI&callback=initMap" async defer></script>
 <script>
+/**
+ * Classe per creare una InfoWindow personalizzata, robusta e ancorata alla mappa.
+ * Estende google.maps.OverlayView.
+ */
+class CustomMapPopup extends google.maps.OverlayView {
+    constructor(position, content) {
+        super();
+        this.position = position;
+
+        // Crea il contenitore del popup
+        this.container = document.createElement("div");
+        this.container.className = "custom-map-popup";
+
+        // Crea il contenuto interno
+        this.contentDiv = document.createElement("div");
+        this.contentDiv.className = "custom-map-popup-content";
+        this.contentDiv.innerHTML = content;
+        this.container.appendChild(this.contentDiv);
+
+        // Crea e aggiunge il pulsante di chiusura
+        const closeButton = document.createElement("button");
+        closeButton.className = "custom-map-popup-close-button";
+        closeButton.innerHTML = "×";
+        this.container.appendChild(closeButton);
+        
+        closeButton.onclick = () => {
+            this.hide();
+        };
+    }
+
+    onAdd() {
+        this.getPanes().floatPane.appendChild(this.container);
+    }
+
+    onRemove() {
+        if (this.container.parentElement) {
+            this.container.parentElement.removeChild(this.container);
+        }
+    }
+
+    draw() {
+        if (!this.position) return;
+        const divPosition = this.getProjection().fromLatLngToDivPixel(this.position);
+        this.container.style.left = divPosition.x + "px";
+        this.container.style.top = divPosition.y + "px";
+    }
+
+    show() {
+        if (this.container) {
+            this.container.classList.add("show");
+        }
+    }
+
+    hide() {
+        if (this.container) {
+            this.container.classList.remove("show");
+        }
+    }
+
+    setContent(content) {
+        this.contentDiv.innerHTML = content;
+    }
+
+    setPosition(position) {
+        this.position = position;
+        if (this.getProjection()) {
+            this.draw();
+        }
+    }
+}
+
+
 function initMap() {
-    // Coordinate precise per le sedi
+    // Coordinate corrette e precise
     const locations = [
         { lat: 40.796801, lng: 17.118301, title: 'Agenzia di Noci', address: 'Via Sold. Raffaele Tinelli, 14, 70015 Noci BA' },
         { lat: 40.852005, lng: 17.120535, title: 'Agenzia di Putignano', address: 'Via Derna, 39, 70017 Putignano BA' }
@@ -240,22 +452,15 @@ function initMap() {
         styles: [ { elementType: 'geometry', stylers: [{ color: '#f5f5f5' }] }, { elementType: 'labels.icon', stylers: [{ visibility: 'off' }] }, { elementType: 'labels.text.fill', stylers: [{ color: '#616161' }] }, { elementType: 'labels.text.stroke', stylers: [{ color: '#f5f5f5' }] }, { featureType: 'administrative.land_parcel', stylers: [{ visibility: 'off' }] }, { featureType: 'poi', elementType: 'labels.text', stylers: [{ visibility: 'off' }] }, { featureType: 'poi.park', elementType: 'geometry', stylers: [{ color: '#e5e5e5' }] }, { featureType: 'road', elementType: 'geometry', stylers: [{ color: '#ffffff' }] }, { featureType: 'road.arterial', elementType: 'labels.text.fill', stylers: [{ color: '#757575' }] }, { featureType: 'road.highway', elementType: 'geometry', stylers: [{ color: '#dadada' }] }, { featureType: 'road.highway', elementType: 'labels.text.fill', stylers: [{ color: '#616161' }] }, { featureType: 'road.local', elementType: 'labels.text.fill', stylers: [{ color: '#9e9e9e' }] }, { featureType: 'transit.line', elementType: 'geometry', stylers: [{ color: '#e5e5e5' }] }, { featureType: 'transit.station', elementType: 'geometry', stylers: [{ color: '#eeeeee' }] }, { featureType: 'water', elementType: 'geometry', stylers: [{ color: '#c9c9c9' }] }, { featureType: 'water', elementType: 'labels.text.fill', stylers: [{ color: '#9e9e9e' }] } ]
     });
 
-    // Riferimenti alla finestra info personalizzata
-    const infoWindowContainer = document.getElementById('custom-infowindow');
-    const iwTitle = document.getElementById('iw-title');
-    const iwAddress = document.getElementById('iw-address');
-    const iwLink = document.getElementById('iw-link');
-    const iwCloseBtn = infoWindowContainer.querySelector('.close-button');
-
-    // Funzione per chiudere la finestra info
-    const closeInfoWindow = () => {
-        infoWindowContainer.classList.remove('show');
-    };
+    // Crea una sola istanza del popup da riutilizzare
+    const popup = new CustomMapPopup(new google.maps.LatLng(0, 0), "");
+    popup.setMap(map);
+    popup.hide(); // Nascondila all'inizio
     
-    iwCloseBtn.addEventListener('click', closeInfoWindow);
-    map.addListener('click', closeInfoWindow);
-    map.addListener('drag', closeInfoWindow);
-    map.addListener('zoom_changed', closeInfoWindow);
+    // Chiudi il popup quando si clicca sulla mappa
+    map.addListener('click', () => {
+        popup.hide();
+    });
 
     locations.forEach(location => {
         const marker = new google.maps.Marker({
@@ -266,21 +471,18 @@ function initMap() {
         });
 
         marker.addListener('click', () => {
-            // Popola la finestra info personalizzata
-            iwTitle.textContent = location.title;
-            iwAddress.textContent = location.address;
-            iwLink.href = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(location.address)}`;
+            // Costruisci il contenuto HTML per il popup
+            const contentString = `
+                <h3>${location.title}</h3>
+                <p>${location.address}</p>
+                <a href="https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(location.address)}" target="_blank">Ottieni Indicazioni</a>`;
 
-            // Converte le coordinate geografiche in coordinate pixel sulla pagina
-            const projection = map.getProjection();
-            const pixelPosition = projection.fromLatLngToDivPixel(marker.getPosition());
+            // Aggiorna il contenuto e la posizione del popup
+            popup.setContent(contentString);
+            popup.setPosition(marker.getPosition());
             
-            // Posiziona la finestra info
-            infoWindowContainer.style.left = `${pixelPosition.x}px`;
-            infoWindowContainer.style.top = `${pixelPosition.y}px`;
-
-            // Mostra la finestra info
-            infoWindowContainer.classList.add('show');
+            // Mostra il popup
+            popup.show();
         });
     });
 }
