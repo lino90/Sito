@@ -143,36 +143,74 @@
         .collaborators-table tbody tr:hover { background-color: #f7f9fc; }
         .collaborators-table tbody tr:last-child td { border-bottom: none; }
         
-        /* STILI PER IL CONTENUTO DEL POP-UP DELLA MAPPA */
-        .gm-style-iw-d {
-            overflow: hidden !important; /* Rimuove la scrollbar di default di Google */
+        /* POP-UP MAPPA PERSONALIZZATO */
+        .custom-map-popup {
+            position: absolute;
+            background: white;
+            padding: 15px 20px 20px; /* MODIFICATO: Ridotto padding superiore */
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+            width: 280px;
+            z-index: 10;
+            opacity: 0; /* Nascosto di default */
+            visibility: hidden;
+            transform: translate(-50%, calc(-100% - 30px)); /* Centra e posiziona sopra il marker */
+            transition: opacity 0.3s, visibility 0.3s, transform 0.3s;
+            pointer-events: none; /* Non intercettare click quando è nascosto */
         }
-        .gm-style-iw-c {
-            padding: 0 !important; /* Rimuove il padding di default di Google */
-            border-radius: 12px !important;
+        .custom-map-popup.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translate(-50%, calc(-100% - 20px));
+            pointer-events: auto;
         }
-        .custom-iw-container {
-            font-family: 'Poppins', sans-serif;
-            padding: 20px;
-        }
-        .custom-iw-container h3 {
+        .custom-map-popup-content h3 {
             font-size: 1.2rem;
             margin: 0 0 8px 0;
             color: var(--primary-blue);
         }
-        .custom-iw-container p {
+        .custom-map-popup-content p {
             margin: 0 0 15px 0;
             font-size: 0.95rem;
             color: var(--text-color);
             line-height: 1.5;
         }
-        .custom-iw-container a {
+        .custom-map-popup-content a {
             color: var(--primary-pink);
             font-weight: 700;
             text-decoration: none;
             transition: opacity 0.3s;
         }
-        .custom-iw-container a:hover { opacity: 0.8; }
+        .custom-map-popup-content a:hover { opacity: 0.8; }
+        .custom-map-popup-close-button {
+            position: absolute;
+            top: 12px; /* MODIFICATO: Leggermente aggiustato per il nuovo padding */
+            right: 12px; /* MODIFICATO: Leggermente aggiustato per il nuovo padding */
+            width: 24px;
+            height: 24px;
+            background: #f0f2f5;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1rem;
+            color: var(--text-color);
+            line-height: 24px;
+            text-align: center;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .custom-map-popup-close-button:hover { background-color: var(--primary-pink); color: white; }
+        .custom-map-popup::after { /* Crea il "beccuccio" del pop-up */
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-top: 10px solid white;
+        }
         
         /* OTTIMIZZAZIONE MOBILE */
         @media (max-width: 992px) {
@@ -243,6 +281,7 @@
                             <p class="agency-name">Rocco Conforti</p>
                             <p><i class="fa-solid fa-location-dot"></i> Via Sold. Raffaele Tinelli, 14<br>70015 Noci (BA)</p>
                             <p><i class="fa-solid fa-phone"></i> <a href="tel:+390804972013" style="text-decoration:none; color:inherit;">080 497 2013</a></p>
+                            <p><i class="fa-solid fa-clock"></i> Lun-Ven: 09:00 - 13:00 / 16:30 - 19:30<br>Sab: 09:00 - 12:30</p>
                             <a href="https://www.google.com/maps/dir/?api=1&destination=Via+Soldato+Raffaele+Tinelli+14,+70015+Noci+BA" target="_blank" class="btn btn-primary"><i class="fa-solid fa-map-location-dot"></i> Ottieni Indicazioni</a>
                         </div>
                         <div class="agency-card">
@@ -250,6 +289,7 @@
                             <p class="agency-name">Vincenzo Montaruli</p>
                             <p><i class="fa-solid fa-location-dot"></i> Via Derna, 39<br>70017 Putignano (BA)</p>
                             <p><i class="fa-solid fa-phone"></i> <a href="tel:+390805247281" style="text-decoration:none; color:inherit;">080 524 7281</a></p>
+                            <p><i class="fa-solid fa-clock"></i> Lun-Ven: 09:00 - 13:00 / 16:30 - 19:30<br>Sab: 09:00 - 12:30</p>
                             <a href="https://www.google.com/maps/dir/?api=1&destination=Via+Derna+39,+70017+Putignano+BA" target="_blank" class="btn btn-primary"><i class="fa-solid fa-map-location-dot"></i> Ottieni Indicazioni</a>
                         </div>
                     </div>
@@ -326,9 +366,81 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 </script>
 
-<!-- SCRIPT GOOGLE MAPS CORRETTO E FUNZIONANTE -->
+<!-- SCRIPT GOOGLE MAPS CON FINESTRA INFO PERSONALIZZATA E ROBUSTA -->
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA0-3ZnJlH5qnDPlLIogkvI1NcKNbW5gtI&callback=initMap" async defer></script>
 <script>
+/**
+ * Classe per creare una InfoWindow personalizzata, robusta e ancorata alla mappa.
+ * Estende google.maps.OverlayView.
+ */
+class CustomMapPopup extends google.maps.OverlayView {
+    constructor(position, content) {
+        super();
+        this.position = position;
+
+        // Crea il contenitore del popup
+        this.container = document.createElement("div");
+        this.container.className = "custom-map-popup";
+
+        // Crea il contenuto interno
+        this.contentDiv = document.createElement("div");
+        this.contentDiv.className = "custom-map-popup-content";
+        this.contentDiv.innerHTML = content;
+        this.container.appendChild(this.contentDiv);
+
+        // Crea e aggiunge il pulsante di chiusura
+        const closeButton = document.createElement("button");
+        closeButton.className = "custom-map-popup-close-button";
+        closeButton.innerHTML = "×";
+        this.container.appendChild(closeButton);
+        
+        closeButton.onclick = () => {
+            this.hide();
+        };
+    }
+
+    onAdd() {
+        this.getPanes().floatPane.appendChild(this.container);
+    }
+
+    onRemove() {
+        if (this.container.parentElement) {
+            this.container.parentElement.removeChild(this.container);
+        }
+    }
+
+    draw() {
+        if (!this.position) return;
+        const divPosition = this.getProjection().fromLatLngToDivPixel(this.position);
+        this.container.style.left = divPosition.x + "px";
+        this.container.style.top = divPosition.y + "px";
+    }
+
+    show() {
+        if (this.container) {
+            this.container.classList.add("show");
+        }
+    }
+
+    hide() {
+        if (this.container) {
+            this.container.classList.remove("show");
+        }
+    }
+
+    setContent(content) {
+        this.contentDiv.innerHTML = content;
+    }
+
+    setPosition(position) {
+        this.position = position;
+        if (this.getProjection()) {
+            this.draw();
+        }
+    }
+}
+
+
 function initMap() {
     // Coordinate corrette e precise
     const locations = [
@@ -342,11 +454,17 @@ function initMap() {
         styles: [ { elementType: 'geometry', stylers: [{ color: '#f5f5f5' }] }, { elementType: 'labels.icon', stylers: [{ visibility: 'off' }] }, { elementType: 'labels.text.fill', stylers: [{ color: '#616161' }] }, { elementType: 'labels.text.stroke', stylers: [{ color: '#f5f5f5' }] }, { featureType: 'administrative.land_parcel', stylers: [{ visibility: 'off' }] }, { featureType: 'poi', elementType: 'labels.text', stylers: [{ visibility: 'off' }] }, { featureType: 'poi.park', elementType: 'geometry', stylers: [{ color: '#e5e5e5' }] }, { featureType: 'road', elementType: 'geometry', stylers: [{ color: '#ffffff' }] }, { featureType: 'road.arterial', elementType: 'labels.text.fill', stylers: [{ color: '#757575' }] }, { featureType: 'road.highway', elementType: 'geometry', stylers: [{ color: '#dadada' }] }, { featureType: 'road.highway', elementType: 'labels.text.fill', stylers: [{ color: '#616161' }] }, { featureType: 'road.local', elementType: 'labels.text.fill', stylers: [{ color: '#9e9e9e' }] }, { featureType: 'transit.line', elementType: 'geometry', stylers: [{ color: '#e5e5e5' }] }, { featureType: 'transit.station', elementType: 'geometry', stylers: [{ color: '#eeeeee' }] }, { featureType: 'water', elementType: 'geometry', stylers: [{ color: '#c9c9c9' }] }, { featureType: 'water', elementType: 'labels.text.fill', stylers: [{ color: '#9e9e9e' }] } ]
     });
 
-    // Crea una sola istanza del InfoWindow da riutilizzare
-    const infoWindow = new google.maps.InfoWindow();
+    // Crea una sola istanza del popup da riutilizzare
+    const popup = new CustomMapPopup(new google.maps.LatLng(0, 0), "");
+    popup.setMap(map);
+    popup.hide(); // Nascondila all'inizio
+    
+    // Chiudi il popup quando si clicca sulla mappa
+    map.addListener('click', () => {
+        popup.hide();
+    });
 
     locations.forEach(location => {
-        // Crea il segnaposto ("puntino") per ogni location
         const marker = new google.maps.Marker({
             position: { lat: location.lat, lng: location.lng },
             map: map,
@@ -354,19 +472,19 @@ function initMap() {
             icon: { path: google.maps.SymbolPath.CIRCLE, fillColor: '#d7127a', fillOpacity: 1, strokeColor: 'white', strokeWeight: 2, scale: 8 }
         });
 
-        // Aggiungi un evento click al segnaposto
         marker.addListener('click', () => {
-            // Costruisci il contenuto HTML personalizzato per il popup
+            // Costruisci il contenuto HTML per il popup
             const contentString = `
-                <div class="custom-iw-container">
-                    <h3>${location.title}</h3>
-                    <p>${location.address}</p>
-                    <a href="https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(location.address)}" target="_blank">Ottieni Indicazioni</a>
-                </div>`;
+                <h3>${location.title}</h3>
+                <p>${location.address}</p>
+                <a href="https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(location.address)}" target="_blank">Ottieni Indicazioni</a>`;
+
+            // Aggiorna il contenuto e la posizione del popup
+            popup.setContent(contentString);
+            popup.setPosition(marker.getPosition());
             
-            // Imposta il contenuto e apri il popup sul marker cliccato
-            infoWindow.setContent(contentString);
-            infoWindow.open(map, marker);
+            // Mostra il popup
+            popup.show();
         });
     });
 }
