@@ -60,7 +60,7 @@
         section { padding: 60px 0; }
         .section-title { text-align: center; font-size: 2.2rem; color: var(--primary-blue); margin-bottom: 40px; }
 
-        /* NUOVO APPROCCIO CAROSELLO */
+        /* CAROSELLO */
         .policies-carousel-wrapper { position: relative; padding: 0 50px; }
         .policies-carousel-viewport { overflow: hidden; padding: 20px 10px; }
         .policies-carousel { display: flex; gap: 30px; transition: transform 0.5s ease-in-out; }
@@ -97,18 +97,21 @@
         .whatsapp-btn i { font-size: 1.82em; }
         .hero-section .btn-primary, #chi-sono .btn-primary { flex-grow: 0; }
         
-        /* Stili per la sezione Trova Agenzia */
+        /* Stili per la sezione Trova Agenzia (AGGIORNATI) */
         #trova-agenzia { background-color: var(--light-gray); }
-        .agency-finder-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
-        #map-container { height: 550px; border-radius: 16px; overflow: hidden; box-shadow: 0 5px 20px var(--card-shadow); }
+        .agency-finder-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: flex-start; }
+        #map-container { height: 600px; border-radius: 16px; overflow: hidden; box-shadow: 0 5px 20px var(--card-shadow); }
         #map { width: 100%; height: 100%; }
         .agency-cards-wrapper { display: flex; flex-direction: column; gap: 25px; }
         .agency-card { background-color: white; padding: 30px; border-radius: 16px; box-shadow: 0 5px 20px var(--card-shadow); text-align: center; }
-        .agency-card h3 { color: var(--primary-blue); font-size: 1.5rem; margin-top: 0; margin-bottom: 15px; }
-        .agency-card p { margin: 5px 0; line-height: 1.6; color: var(--text-color); font-size: 1rem; }
-        .agency-card .agency-name { font-weight: 600; color: var(--primary-blue); text-transform: uppercase; font-size: 1.1rem; margin-bottom: 10px; }
-        .agency-card p i { color: var(--primary-pink); margin-right: 10px; width: 20px; text-align: center; }
-        .agency-card .btn { margin-top: 20px; flex-grow: 0; }
+        .agency-card h3 { color: var(--primary-blue); font-size: 1.8rem; font-weight: 700; margin-top: 0; margin-bottom: 10px; }
+        .agency-card .agency-name { font-weight: 700; color: var(--primary-blue); text-transform: uppercase; font-size: 1.1rem; margin-bottom: 25px; letter-spacing: 0.5px; }
+        .agency-card .contact-info { display: flex; flex-direction: column; gap: 15px; text-align: left; max-width: 300px; margin: 0 auto; }
+        .agency-card .contact-item { display: flex; align-items: center; gap: 15px; }
+        .agency-card .contact-item i { color: var(--primary-pink); font-size: 1.2rem; width: 20px; text-align: center; }
+        .agency-card .contact-item span { color: var(--text-color); font-size: 1rem; line-height: 1.5; }
+        .agency-card .contact-item a { color: inherit; text-decoration: none; }
+        .agency-card .btn { margin-top: 30px; flex-grow: 0; }
 
         footer { background-color: var(--primary-blue); color: #e0e0e0; padding: 50px 0; font-size: 0.9rem; }
         .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
@@ -119,56 +122,18 @@
         .footer-col a:hover { color: var(--primary-pink); }
         .footer-bottom { text-align: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.2); font-size: 0.8rem; opacity: 0.8; }
 
-        /* --- STILI PER LA FINESTRA INFO DI GOOGLE MAPS (CORRETTI E MIGLIORATI) --- */
-        .gm-style .gm-style-iw-c { /* Contenitore principale con freccia e pulsante chiusura */
-            padding: 0 !important;
-            border-radius: 12px !important;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15) !important;
-            max-width: none !important; /* Disabilita la larghezza massima di default */
-            min-width: 0 !important; /* Disabilita la larghezza minima di default */
-        }
-        .gm-style .gm-style-iw-d { /* Contenitore interno scrollabile */
-            overflow: hidden !important;
-            padding: 0 !important; /* <-- LA MODIFICA CHIAVE: Rimuove il padding interno di Google */
-        }
-        .gm-style .gm-style-iw-close-button { /* Posiziona il pulsante di chiusura per coerenza */
-            top: 10px !important;
-            right: 10px !important;
-            opacity: 0.8 !important;
-            transition: opacity 0.2s;
-        }
-        .gm-style .gm-style-iw-close-button:hover {
-            opacity: 1 !important;
-        }
+        /* STILI PER LA FINESTRA INFO DI GOOGLE MAPS */
+        .gm-style .gm-style-iw-c { padding: 0 !important; border-radius: 12px !important; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15) !important; max-width: none !important; min-width: 0 !important; }
+        .gm-style .gm-style-iw-d { overflow: hidden !important; padding: 0 !important; }
+        .gm-style .gm-style-iw-close-button { top: 10px !important; right: 10px !important; opacity: 0.8 !important; transition: opacity 0.2s; }
+        .gm-style .gm-style-iw-close-button:hover { opacity: 1 !important; }
+        .map-info-window { padding: 24px; font-family: 'Poppins', sans-serif; color: var(--text-color); }
+        .map-info-window h3 { font-size: 1.25rem; font-weight: 700; margin: 0 0 8px 0; color: var(--primary-blue); }
+        .map-info-window p { margin: 0 0 16px 0; font-size: 1rem; line-height: 1.5; }
+        .map-info-window a { color: var(--primary-pink); font-weight: 700; text-decoration: none; transition: opacity 0.3s; }
+        .map-info-window a:hover { opacity: 0.8; }
 
-        /* Stili per il nostro contenuto personalizzato all'interno del popup */
-        .map-info-window {
-            padding: 24px; /* Aggiungiamo il nostro padding controllato */
-            font-family: 'Poppins', sans-serif;
-            color: var(--text-color);
-        }
-        .map-info-window h3 {
-            font-size: 1.25rem; /* Leggermente più grande */
-            font-weight: 700;
-            margin: 0 0 8px 0;
-            color: var(--primary-blue);
-        }
-        .map-info-window p {
-            margin: 0 0 16px 0;
-            font-size: 1rem;
-            line-height: 1.5;
-        }
-        .map-info-window a {
-            color: var(--primary-pink);
-            font-weight: 700;
-            text-decoration: none;
-            transition: opacity 0.3s;
-        }
-        .map-info-window a:hover {
-            opacity: 0.8;
-        }
-
-        /* --- OTTIMIZZAZIONE MOBILE --- */
+        /* OTTIMIZZAZIONE MOBILE */
         @media (max-width: 992px) {
             html { scroll-padding-top: 80px; }
             header { display: flex; flex-direction: column; gap: 15px; padding-top: 25px; padding-bottom: 15px;}
@@ -220,9 +185,9 @@
             </div>
         </div></section>
         
-        <section id="chi-sono"><div class="container"><h2 class="section-title">Chi Sono</h2><div class="about-content"><div class="about-image"></div><div class="about-text"><h3>[Il Tuo Nome Cognome]</h3><p>Agente assicurativo professionista iscritto al RUI, Sezione A. Da [Numero] anni aiuto famiglie e professionisti a trovare la serenità attraverso soluzioni assicurative chiare e convenienti. La mia missione è offrire una consulenza trasparente e personalizzata.</p><p>Opero in [plurimandato/esclusiva] per le seguenti compagnie: [Elenco Compagnie Assicurative].</p><a href="#footer" class="btn btn-primary">Vedi Dati Completi IVASS</a></div></div></div></section>
+        <section id="chi-sono"><div class="container"><h2 class="section-title">Chi Sono</h2><div class="about-content"><div class="about-image"></div><div class="about-text"><h3>Rocco Conforti</h3><p>Agente assicurativo professionista iscritto al RUI, Sezione A. Da oltre 15 anni aiuto famiglie e professionisti a trovare la serenità attraverso soluzioni assicurative chiare e convenienti. La mia missione è offrire una consulenza trasparente e personalizzata.</p><p>Opero in plurimandato per le seguenti compagnie: ALLIANZ NEXT S.P.A. e BENE ASSICURAZIONI S.P.A.</p><a href="#footer" class="btn btn-primary">Vedi Dati Completi IVASS</a></div></div></div></section>
         
-        <section id="contatti"><div class="container"><h2 class="section-title">Contattami</h2><div class="contact-container"><div class="contact-form-wrapper"><h3>Richiedi una consulenza</h3><form action="#" method="post" class="contact-form"><input type="text" name="nome" placeholder="Nome" required><input type="text" name="cognome" placeholder="Cognome" required><input type="email" name="email" placeholder="Email" required><input type="tel" name="telefono" placeholder="Telefono"><textarea name="messaggio" rows="5" placeholder="Il tuo messaggio..." required></textarea><div class="privacy-check"><input type="checkbox" id="privacy" name="privacy" required><label for="privacy">Dichiaro di aver letto e accettato la <a href="/privacy-policy.html" target="_blank">Privacy Policy</a> e acconsento al trattamento dei miei dati.</label></div><div class="form-buttons"><button type="submit" class="btn btn-primary">Invia Richiesta</button><a href="https://wa.me/[IlTuoNumeroWhatsApp]" target="_blank" class="btn whatsapp-btn"><i class="fab fa-whatsapp"></i>Contattami su WhatsApp</a></div></form></div><div class="reclami-wrapper"><h3>Gestione Reclami</h3><p>La tua soddisfazione è la mia priorità. In caso di reclamo, è possibile contattare l'Agente <strong>[Il Tuo Nome Cognome]</strong> scrivendo all'indirizzo e-mail <a href="mailto:[la-tua-email@esempio.com]">[la-tua-email@esempio.com]</a> oppure all'indirizzo PEC <a href="mailto:[la-tua-pec@pec.it]">[la-tua-pec@pec.it]</a>.</p><p>Il reclamo verrà gestito nel rispetto della normativa vigente. Ulteriori informazioni sulle modalità di presentazione di un reclamo sono sempre disponibili all'interno della documentazione precontrattuale che viene consegnata prima della sottoscrizione di ogni polizza.</p><p>Qualora non dovessi ritenerti soddisfatto dall'esito del reclamo o in caso di assenza di riscontro entro 45 giorni, potrai rivolgerti all'IVASS.</p></div></div></div></section>
+        <section id="contatti"><div class="container"><h2 class="section-title">Contattami</h2><div class="contact-container"><div class="contact-form-wrapper"><h3>Richiedi una consulenza</h3><form action="#" method="post" class="contact-form"><input type="text" name="nome" placeholder="Nome" required><input type="text" name="cognome" placeholder="Cognome" required><input type="email" name="email" placeholder="Email" required><input type="tel" name="telefono" placeholder="Telefono"><textarea name="messaggio" rows="5" placeholder="Il tuo messaggio..." required></textarea><div class="privacy-check"><input type="checkbox" id="privacy" name="privacy" required><label for="privacy">Dichiaro di aver letto e accettato la <a href="/privacy-policy.html" target="_blank">Privacy Policy</a> e acconsento al trattamento dei miei dati.</label></div><div class="form-buttons"><button type="submit" class="btn btn-primary">Invia Richiesta</button><a href="https://wa.me/393479311461" target="_blank" class="btn whatsapp-btn"><i class="fab fa-whatsapp"></i>Contattami su WhatsApp</a></div></form></div><div class="reclami-wrapper"><h3>Gestione Reclami</h3><p>La tua soddisfazione è la mia priorità. In caso di reclamo, è possibile contattare l'Agente <strong>Rocco Conforti</strong> scrivendo all'indirizzo e-mail <a href="mailto:rocco.conf@libero.it">rocco.conf@libero.it</a> oppure all'indirizzo PEC <a href="mailto:confortirocco@pec.it">confortirocco@pec.it</a>.</p><p>Il reclamo verrà gestito nel rispetto della normativa vigente. Qualora non dovessi ritenerti soddisfatto dall'esito del reclamo o in caso di assenza di riscontro entro 45 giorni, potrai rivolgerti all'IVASS.</p></div></div></div></section>
         
         <section id="trova-agenzia">
             <div class="container">
@@ -233,18 +198,34 @@
                     </div>
                     <div class="agency-cards-wrapper">
                         <div class="agency-card">
-                            <h3>Agenzia di Putignano</h3>
+                            <h3>Agenzia di Noci</h3>
                             <p class="agency-name">Rocco Conforti</p>
-                            <p><i class="fa-solid fa-location-dot"></i> Via Derna 39/41<br>CAP: 70017 - Putignano (BA)</p>
-                            <p><i class="fa-solid fa-envelope"></i> <a href="mailto:confortirocco@pec.it" style="text-decoration:none; color:inherit;">confortirocco@pec.it</a></p>
-                            <a href="https://www.google.com/maps/dir/?api=1&destination=Via+Derna+39,+70017+Putignano+BA" target="_blank" class="btn btn-primary"><i class="fa-solid fa-map-location-dot"></i> Ottieni Indicazioni</a>
+                            <div class="contact-info">
+                                <div class="contact-item">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    <span>Via Sold. Raffaele Tinelli, 14<br>70015 Noci (BA)</span>
+                                </div>
+                                <div class="contact-item">
+                                    <i class="fa-solid fa-phone"></i>
+                                    <span><a href="tel:+390804972013">080 497 2013</a></span>
+                                </div>
+                            </div>
+                            <a href="https://www.google.com/maps/dir/?api=1&destination=Via+Soldato+Raffaele+Tinelli+14,+70015+Noci+BA" target="_blank" class="btn btn-primary"><i class="fa-solid fa-map-location-dot"></i> Ottieni Indicazioni</a>
                         </div>
                         <div class="agency-card">
-                            <h3>Agenzia di Noci</h3>
-                            <p class="agency-name">Bene Assicurazioni</p>
-                            <p><i class="fa-solid fa-location-dot"></i> Via J.F. Kennedy 29<br>CAP: 70015 - Noci (BA)</p>
-                            <p><i class="fa-solid fa-phone"></i> <a href="tel:+390804977465" style="text-decoration:none; color:inherit;">080 4977465</a></p>
-                            <a href="https://www.google.com/maps/dir/?api=1&destination=Via+John+Fitzgerald+Kennedy+29,+70015+Noci+BA" target="_blank" class="btn btn-primary"><i class="fa-solid fa-map-location-dot"></i> Ottieni Indicazioni</a>
+                            <h3>Agenzia di Putignano</h3>
+                            <p class="agency-name">Vincenzo Montaruli</p>
+                            <div class="contact-info">
+                                <div class="contact-item">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    <span>Via Derna, 39<br>70017 Putignano (BA)</span>
+                                </div>
+                                <div class="contact-item">
+                                    <i class="fa-solid fa-phone"></i>
+                                    <span><a href="tel:+390805247281">080 524 7281</a></span>
+                                </div>
+                            </div>
+                            <a href="https://www.google.com/maps/dir/?api=1&destination=Via+Derna+39,+70017+Putignano+BA" target="_blank" class="btn btn-primary"><i class="fa-solid fa-map-location-dot"></i> Ottieni Indicazioni</a>
                         </div>
                     </div>
                 </div>
@@ -253,7 +234,7 @@
 
     </main>
     
-    <footer><div class="container"><div class="footer-grid"><div class="footer-col"><h4>Dati Identificativi Agente</h4><ul><li><strong>Agente:</strong> [Il Tuo Nome Cognome]</li><li><strong>RUI:</strong> Sezione A - n. A000000000</li><li><strong>Data Iscrizione:</strong> [GG/MM/AAAA]</li><li><strong>Sede Legale:</strong> [Via, Numero Civico, CAP, Città (Prov)]</li><li><strong>P.IVA:</strong> [La Tua Partita IVA]</li></ul></div><div class="footer-col"><h4>Contatti e Recapiti</h4><ul><li><i class="fa-solid fa-phone"></i> Tel: <a href="tel:+39000000000">[Numero di Telefono]</a></li><li><i class="fa-solid fa-envelope"></i> Email: <a href="mailto:[la-tua-email@esempio.com]">[la-tua-email@esempio.com]</a></li><li><i class="fa-solid fa-at"></i> PEC: <a href="mailto:[la-tua-pec@pec.it]">[la-tua-pec@pec.it]</a></li><li><i class="fa-solid fa-check"></i> Intermediario soggetto al controllo dell'IVASS.</li></ul></div><div class="footer-col"><h4>Informazioni e Policy</h4><ul><li><a href="/privacy-policy.html" target="_blank">Privacy Policy</a></li><li><a href="/cookie-policy.html" target="_blank">Cookie Policy</a></li><li><a href="#contatti">Reclami</a></li></ul></div></div><div class="footer-bottom"><p>L’attività di intermediazione assicurativa è svolta in conformità al Regolamento IVASS n. 40/2018. Le informazioni presenti su questo sito sono puramente illustrative, non costituiscono una proposta contrattuale e non sostituiscono in alcun modo la documentazione precontrattuale obbligatoria per legge, che verrà fornita prima della sottoscrizione di qualsiasi polizza.</p><p>© 2024 [Il Tuo Nome Cognome] - Tutti i diritti riservati.</p></div></div></footer>
+    <footer id="footer"><div class="container"><div class="footer-grid"><div class="footer-col"><h4>Dati Identificativi Agente</h4><ul><li><strong>Agente:</strong> Rocco Conforti</li><li><strong>RUI:</strong> Sezione A - n. A000099409</li><li><strong>Data Iscrizione:</strong> 11/05/2007</li><li><strong>Sede Legale:</strong> Via Sold. Raffaele Tinelli 14, 70015 Noci (BA)</li><li><strong>P.IVA:</strong> 02144310725</li></ul></div><div class="footer-col"><h4>Contatti e Recapiti</h4><ul><li><i class="fa-solid fa-phone"></i> Tel: <a href="tel:+390804972013">080 497 2013</a></li><li><i class="fa-solid fa-envelope"></i> Email: <a href="mailto:rocco.conf@libero.it">rocco.conf@libero.it</a></li><li><i class="fa-solid fa-at"></i> PEC: <a href="mailto:confortirocco@pec.it">confortirocco@pec.it</a></li><li><i class="fa-solid fa-check"></i> Intermediario soggetto al controllo dell'IVASS.</li></ul></div><div class="footer-col"><h4>Informazioni e Policy</h4><ul><li><a href="/privacy-policy.html" target="_blank">Privacy Policy</a></li><li><a href="/cookie-policy.html" target="_blank">Cookie Policy</a></li><li><a href="#contatti">Reclami</a></li></ul></div></div><div class="footer-bottom"><p>L’attività di intermediazione assicurativa è svolta in conformità al Regolamento IVASS n. 40/2018. Le informazioni presenti su questo sito sono puramente illustrative e non costituiscono una proposta contrattuale e non sostituiscono in alcun modo la documentazione precontrattuale obbligatoria per legge, che verrà fornita prima della sottoscrizione di qualsiasi polizza.</p><p>© 2024 Rocco Conforti - Tutti i diritti riservati.</p></div></div></footer>
 
 <script>
 class FiniteCarousel {
@@ -350,13 +331,13 @@ document.addEventListener('DOMContentLoaded', () => {
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA0-3ZnJlH5qnDPlLIogkvI1NcKNbW5gtI&callback=initMap" async defer></script>
 <script>
 function initMap() {
-    // Coordinate delle due sedi (dal tuo nuovo file)
+    // Coordinate corrette per le nuove sedi
     const locations = [
-        { lat: 40.852440, lng: 17.119740, title: 'Agenzia di Putignano', address: 'Via Derna 39/41, 70017 Putignano (BA)' },
-        { lat: 40.795210, lng: 17.126830, title: 'Agenzia di Noci', address: 'Via J.F. Kennedy 29, 70015 Noci (BA)' }
+        { lat: 40.79680, lng: 17.11830, title: 'Agenzia di Noci', address: 'Via Sold. Raffaele Tinelli, 14, 70015 Noci (BA)' },
+        { lat: 40.85201, lng: 17.12054, title: 'Agenzia di Putignano', address: 'Via Derna, 39, 70017 Putignano (BA)' }
     ];
 
-    const mapCenter = { lat: 40.8238, lng: 17.1232 };
+    const mapCenter = { lat: 40.8244, lng: 17.11942 };
 
     const map = new google.maps.Map(document.getElementById('map'), {
         zoom: 12,
@@ -366,7 +347,6 @@ function initMap() {
         styles: [ { elementType: 'geometry', stylers: [{ color: '#f5f5f5' }] }, { elementType: 'labels.icon', stylers: [{ visibility: 'off' }] }, { elementType: 'labels.text.fill', stylers: [{ color: '#616161' }] }, { elementType: 'labels.text.stroke', stylers: [{ color: '#f5f5f5' }] }, { featureType: 'administrative.land_parcel', stylers: [{ visibility: 'off' }] }, { featureType: 'poi', elementType: 'labels.text', stylers: [{ visibility: 'off' }] }, { featureType: 'poi.park', elementType: 'geometry', stylers: [{ color: '#e5e5e5' }] }, { featureType: 'road', elementType: 'geometry', stylers: [{ color: '#ffffff' }] }, { featureType: 'road.arterial', elementType: 'labels.text.fill', stylers: [{ color: '#757575' }] }, { featureType: 'road.highway', elementType: 'geometry', stylers: [{ color: '#dadada' }] }, { featureType: 'road.highway', elementType: 'labels.text.fill', stylers: [{ color: '#616161' }] }, { featureType: 'road.local', elementType: 'labels.text.fill', stylers: [{ color: '#9e9e9e' }] }, { featureType: 'transit.line', elementType: 'geometry', stylers: [{ color: '#e5e5e5' }] }, { featureType: 'transit.station', elementType: 'geometry', stylers: [{ color: '#eeeeee' }] }, { featureType: 'water', elementType: 'geometry', stylers: [{ color: '#c9c9c9' }] }, { featureType: 'water', elementType: 'labels.text.fill', stylers: [{ color: '#9e9e9e' }] } ]
     });
     
-    // InfoWindow condiviso da riutilizzare per tutti i marker
     const infoWindow = new google.maps.InfoWindow();
 
     locations.forEach(location => {
@@ -385,7 +365,6 @@ function initMap() {
         });
         
         marker.addListener('click', () => {
-            // Contenuto HTML pulito che usa le classi CSS definite sopra
             const contentString = `
                 <div class="map-info-window">
                     <h3>${location.title}</h3>
