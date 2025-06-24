@@ -143,73 +143,38 @@
         .collaborators-table tbody tr:hover { background-color: #f7f9fc; }
         .collaborators-table tbody tr:last-child td { border-bottom: none; }
         
-        /* POP-UP MAPPA PERSONALIZZATO */
-        .custom-map-popup {
-            position: absolute;
-            background: white;
+        /* --- STILI PER LA NUOVA FINESTRA INFO DI GOOGLE MAPS --- */
+        .gm-style .gm-style-iw-c { /* Selettore per il contenitore della info window */
+            padding: 0 !important;
+            border-radius: 12px !important;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15) !important;
+        }
+        .gm-style .gm-style-iw-d { /* Selettore per l'area di contenuto scrollabile */
+            overflow: hidden !important;
+        }
+        .info-window-content {
             padding: 20px;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-            width: 280px;
-            z-index: 10;
-            opacity: 0; /* Nascosto di default */
-            visibility: hidden;
-            transform: translate(-50%, calc(-100% - 30px)); /* Centra e posiziona sopra il marker */
-            transition: opacity 0.3s, visibility 0.3s, transform 0.3s;
-            pointer-events: none; /* Non intercettare click quando è nascosto */
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-color);
         }
-        .custom-map-popup.show {
-            opacity: 1;
-            visibility: visible;
-            transform: translate(-50%, calc(-100% - 20px));
-            pointer-events: auto;
-        }
-        .custom-map-popup-content h3 {
+        .info-window-content h3 {
             font-size: 1.2rem;
             margin: 0 0 8px 0;
             color: var(--primary-blue);
         }
-        .custom-map-popup-content p {
+        .info-window-content p {
             margin: 0 0 15px 0;
             font-size: 0.95rem;
-            color: var(--text-color);
             line-height: 1.5;
         }
-        .custom-map-popup-content a {
+        .info-window-content a {
             color: var(--primary-pink);
             font-weight: 700;
             text-decoration: none;
             transition: opacity 0.3s;
         }
-        .custom-map-popup-content a:hover { opacity: 0.8; }
-        .custom-map-popup-close-button {
-            position: absolute;
-            top: 8px;
-            right: 8px;
-            width: 24px;
-            height: 24px;
-            background: #f0f2f5;
-            border: none;
-            border-radius: 50%;
-            cursor: pointer;
-            font-size: 1rem;
-            color: var(--text-color);
-            line-height: 24px;
-            text-align: center;
-            transition: background-color 0.3s, color 0.3s;
-        }
-        .custom-map-popup-close-button:hover { background-color: var(--primary-pink); color: white; }
-        .custom-map-popup::after { /* Crea il "beccuccio" del pop-up */
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 0;
-            height: 0;
-            border-left: 10px solid transparent;
-            border-right: 10px solid transparent;
-            border-top: 10px solid white;
+        .info-window-content a:hover {
+            opacity: 0.8;
         }
         
         /* OTTIMIZZAZIONE MOBILE */
@@ -366,133 +331,58 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 </script>
 
-<!-- SCRIPT GOOGLE MAPS CON FINESTRA INFO PERSONALIZZATA E ROBUSTA (CORRETTO) -->
+<!-- SCRIPT GOOGLE MAPS - NUOVO APPROCCIO SEMPLIFICATO E ROBUSTO -->
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA0-3ZnJlH5qnDPlLIogkvI1NcKNbW5gtI&callback=initMap" async defer></script>
 <script>
-/**
- * Classe per creare una InfoWindow personalizzata, robusta e ancorata alla mappa.
- * Estende google.maps.OverlayView.
- */
-class CustomMapPopup extends google.maps.OverlayView {
-    constructor(position, content) {
-        super();
-        this.position = position;
-
-        // Crea il contenitore del popup
-        this.container = document.createElement("div");
-        this.container.className = "custom-map-popup";
-
-        // Crea il contenuto interno
-        this.contentDiv = document.createElement("div");
-        this.contentDiv.className = "custom-map-popup-content";
-        this.contentDiv.innerHTML = content;
-        this.container.appendChild(this.contentDiv);
-
-        // Crea e aggiunge il pulsante di chiusura
-        const closeButton = document.createElement("button");
-        closeButton.className = "custom-map-popup-close-button";
-        closeButton.innerHTML = "×";
-        this.container.appendChild(closeButton);
-        
-        closeButton.onclick = () => {
-            this.hide();
-        };
-    }
-
-    onAdd() {
-        this.getPanes().floatPane.appendChild(this.container);
-    }
-
-    onRemove() {
-        if (this.container.parentElement) {
-            this.container.parentElement.removeChild(this.container);
-        }
-    }
-
-    draw() {
-        const projection = this.getProjection();
-        // --- MODIFICA CHIAVE ---
-        // Controlliamo che la proiezione esista prima di usarla.
-        // Se non esiste, la funzione termina e attende la prossima chiamata a draw().
-        if (!projection || !this.position) {
-            return;
-        }
-        // --- FINE MODIFICA ---
-        const divPosition = projection.fromLatLngToDivPixel(this.position);
-        this.container.style.left = divPosition.x + "px";
-        this.container.style.top = divPosition.y + "px";
-    }
-
-    show() {
-        if (this.container) {
-            this.container.classList.add("show");
-        }
-    }
-
-    hide() {
-        if (this.container) {
-            this.container.classList.remove("show");
-        }
-    }
-
-    setContent(content) {
-        this.contentDiv.innerHTML = content;
-    }
-
-    setPosition(position) {
-        this.position = position;
-        if (this.getProjection()) {
-            this.draw();
-        }
-    }
-}
-
-
 function initMap() {
-    // Coordinate corrette e precise
+    // Coordinate delle sedi
     const locations = [
         { lat: 40.796801, lng: 17.118301, title: 'Agenzia di Noci', address: 'Via Sold. Raffaele Tinelli, 14, 70015 Noci BA' },
         { lat: 40.852005, lng: 17.120535, title: 'Agenzia di Putignano', address: 'Via Derna, 39, 70017 Putignano BA' }
     ];
 
-    const mapCenter = { lat: 40.824403, lng: 17.119418 }; // Centro ricalcolato
+    const mapCenter = { lat: 40.824403, lng: 17.119418 };
     const map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 12, center: mapCenter, disableDefaultUI: true, zoomControl: true,
+        zoom: 12,
+        center: mapCenter,
+        disableDefaultUI: true,
+        zoomControl: true,
         styles: [ { elementType: 'geometry', stylers: [{ color: '#f5f5f5' }] }, { elementType: 'labels.icon', stylers: [{ visibility: 'off' }] }, { elementType: 'labels.text.fill', stylers: [{ color: '#616161' }] }, { elementType: 'labels.text.stroke', stylers: [{ color: '#f5f5f5' }] }, { featureType: 'administrative.land_parcel', stylers: [{ visibility: 'off' }] }, { featureType: 'poi', elementType: 'labels.text', stylers: [{ visibility: 'off' }] }, { featureType: 'poi.park', elementType: 'geometry', stylers: [{ color: '#e5e5e5' }] }, { featureType: 'road', elementType: 'geometry', stylers: [{ color: '#ffffff' }] }, { featureType: 'road.arterial', elementType: 'labels.text.fill', stylers: [{ color: '#757575' }] }, { featureType: 'road.highway', elementType: 'geometry', stylers: [{ color: '#dadada' }] }, { featureType: 'road.highway', elementType: 'labels.text.fill', stylers: [{ color: '#616161' }] }, { featureType: 'road.local', elementType: 'labels.text.fill', stylers: [{ color: '#9e9e9e' }] }, { featureType: 'transit.line', elementType: 'geometry', stylers: [{ color: '#e5e5e5' }] }, { featureType: 'transit.station', elementType: 'geometry', stylers: [{ color: '#eeeeee' }] }, { featureType: 'water', elementType: 'geometry', stylers: [{ color: '#c9c9c9' }] }, { featureType: 'water', elementType: 'labels.text.fill', stylers: [{ color: '#9e9e9e' }] } ]
     });
 
-    // Crea una sola istanza del popup da riutilizzare
-    // L'ordine ora è sicuro grazie alla modifica nella classe CustomMapPopup
-    const popup = new CustomMapPopup(new google.maps.LatLng(0, 0), "");
-    popup.setMap(map);
-    popup.hide(); // Nascondila all'inizio
-    
-    // Chiudi il popup quando si clicca sulla mappa
-    map.addListener('click', () => {
-        popup.hide();
-    });
+    // Creiamo UNA SOLA istanza di InfoWindow che riutilizzeremo per tutti i marker.
+    // Questo è più efficiente.
+    const infoWindow = new google.maps.InfoWindow();
 
+    // Creiamo i marker per ogni sede
     locations.forEach(location => {
         const marker = new google.maps.Marker({
             position: { lat: location.lat, lng: location.lng },
             map: map,
             title: location.title,
-            icon: { path: google.maps.SymbolPath.CIRCLE, fillColor: '#d7127a', fillOpacity: 1, strokeColor: 'white', strokeWeight: 2, scale: 8 }
+            icon: {
+                path: google.maps.SymbolPath.CIRCLE,
+                fillColor: '#d7127a',
+                fillOpacity: 1,
+                strokeColor: 'white',
+                strokeWeight: 2,
+                scale: 8
+            }
         });
 
+        // Aggiungiamo un listener per il click su ogni marker
         marker.addListener('click', () => {
-            // Costruisci il contenuto HTML per il popup
+            // Costruiamo il contenuto HTML per la InfoWindow
             const contentString = `
-                <h3>${location.title}</h3>
-                <p>${location.address}</p>
-                <a href="https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(location.address)}" target="_blank">Ottieni Indicazioni</a>`;
+                <div class="info-window-content">
+                    <h3>${location.title}</h3>
+                    <p>${location.address}</p>
+                    <a href="https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(location.address)}" target="_blank">Ottieni Indicazioni</a>
+                </div>`;
 
-            // Aggiorna il contenuto e la posizione del popup
-            popup.setContent(contentString);
-            popup.setPosition(marker.getPosition());
-            
-            // Mostra il popup
-            popup.show();
+            // Impostiamo il contenuto e apriamo la InfoWindow sul marker cliccato
+            infoWindow.setContent(contentString);
+            infoWindow.open(map, marker);
         });
     });
 }
