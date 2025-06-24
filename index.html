@@ -77,9 +77,13 @@
         
         /* ALTRE SEZIONI */
         #chi-sono { background-color: var(--light-gray); }
-        .about-content { display: flex; align-items: center; gap: 50px; }
-        .about-text { flex: 1; }
-        .about-image { flex-shrink: 0; width: 250px; height: 250px; border-radius: 50%; background-color: #ccc; background-image: url('https://via.placeholder.com/250'); background-size: cover; box-shadow: 0 5px 20px rgba(0,0,0,0.1); }
+        .about-content { display: flex; align-items: center; gap: 60px; }
+        .about-image { flex-shrink: 0; width: 300px; height: 300px; border-radius: 50%; background-color: #ccc; background-image: url('https://via.placeholder.com/300'); background-size: cover; box-shadow: 0 10px 30px rgba(13, 44, 84, 0.15); }
+        .about-text { flex: 1; display: flex; flex-direction: column; justify-content: center; }
+        .about-text h3 { color: var(--primary-blue); font-size: 2.2rem; margin: 0 0 8px 0; }
+        .about-subtitle { font-size: 1.1rem; font-weight: 600; color: var(--primary-pink); margin: 0 0 20px 0; }
+        .about-text p { max-width: 600px; line-height: 1.7; margin: 0 0 15px 0; }
+        .about-text .btn { margin-top: 20px; flex-grow: 0; }
         .contact-container { display: flex; gap: 50px; }
         .contact-form-wrapper, .reclami-wrapper { flex: 1; }
         .contact-form-wrapper h3, .reclami-wrapper h3 { color: var(--primary-blue); margin-bottom: 25px; font-size: 1.5rem; }
@@ -95,7 +99,7 @@
         .whatsapp-btn { background-color: var(--whatsapp-green); color: white; }
         .whatsapp-btn:hover { background-color: #1EBE59; transform: translateY(-2px); }
         .whatsapp-btn i { font-size: 1.82em; }
-        .hero-section .btn-primary, #chi-sono .btn-primary { flex-grow: 0; }
+        .hero-section .btn-primary { flex-grow: 0; }
         
         /* Stili per la sezione Trova Agenzia (AGGIORNATI) */
         #trova-agenzia { background-color: var(--light-gray); }
@@ -168,6 +172,8 @@
             nav { grid-column: unset; }
             header > div:last-of-type { display: none; }
             .about-content, .contact-container { flex-direction: column; text-align: center; }
+            .about-image { width: 200px; height: 200px; margin: 0 auto; }
+            .about-text { align-items: center; }
             .section-title { font-size: 1.9rem; }
             .policy-card { flex-basis: 100%; }
             .policies-carousel-wrapper { padding: 0 40px; }
@@ -211,7 +217,7 @@
             </div>
         </div></section>
         
-        <section id="chi-sono"><div class="container"><h2 class="section-title">Chi Sono</h2><div class="about-content"><div class="about-image"></div><div class="about-text"><h3>Rocco Conforti</h3><p>Agente assicurativo professionista iscritto al RUI, Sezione A. Da 18 anni aiuto famiglie e professionisti a trovare la serenità attraverso soluzioni assicurative chiare e convenienti. La mia missione è offrire una consulenza trasparente e personalizzata.</p><p>Opero per le seguenti compagnie: ALLIANZ NEXT S.P.A. e BENE ASSICURAZIONI S.P.A. SOCIETÀ BENEFIT.</p><a href="#" id="open-ivass-modal" class="btn btn-primary">Vedi Dati Completi IVASS</a></div></div></div></section>
+        <section id="chi-sono"><div class="container"><h2 class="section-title">Chi Sono</h2><div class="about-content"><div class="about-image"></div><div class="about-text"><h3>Rocco Conforti</h3><p class="about-subtitle">Agente assicurativo professionista iscritto al RUI, Sezione A.</p><p>Da 18 anni aiuto famiglie e professionisti a trovare la serenità attraverso soluzioni assicurative chiare e convenienti. La mia missione è offrire una consulenza trasparente e personalizzata.</p><p>Opero per le seguenti compagnie: ALLIANZ NEXT S.P.A. e BENE ASSICURAZIONI S.P.A. SOCIETÀ BENEFIT.</p><a href="#" id="open-ivass-modal" class="btn btn-primary">Vedi Dati Completi IVASS</a></div></div></div></section>
         
         <section id="contatti"><div class="container"><h2 class="section-title">Contattami</h2><div class="contact-container"><div class="contact-form-wrapper"><h3>Richiedi una consulenza</h3><form action="#" method="post" class="contact-form"><input type="text" name="nome" placeholder="Nome" required><input type="text" name="cognome" placeholder="Cognome" required><input type="email" name="email" placeholder="Email" required><input type="tel" name="telefono" placeholder="Telefono"><textarea name="messaggio" rows="5" placeholder="Il tuo messaggio..." required></textarea><div class="privacy-check"><input type="checkbox" id="privacy" name="privacy" required><label for="privacy">Dichiaro di aver letto e accettato la <a href="/privacy-policy.html" target="_blank">Privacy Policy</a> e acconsento al trattamento dei miei dati.</label></div><div class="form-buttons"><button type="submit" class="btn btn-primary">Invia Richiesta</button><a href="https://wa.me/393479311461" target="_blank" class="btn whatsapp-btn"><i class="fab fa-whatsapp"></i>Contattami su WhatsApp</a></div></form></div><div class="reclami-wrapper"><h3>Gestione Reclami</h3><p>La tua soddisfazione è la mia priorità. In caso di reclamo, è possibile contattare l'Agente <strong>Rocco Conforti</strong> scrivendo all'indirizzo e-mail <a href="mailto:rocco.conf@libero.it">rocco.conf@libero.it</a> oppure all'indirizzo PEC <a href="mailto:confortirocco@pec.it">confortirocco@pec.it</a>.</p><p>Il reclamo verrà gestito nel rispetto della normativa vigente. Ulteriori informazioni sulle modalità di presentazione di un reclamo sono sempre disponibili all'interno della documentazione precontrattuale.</p><p>Qualora non dovessi ritenerti soddisfatto dall'esito del reclamo o in caso di assenza di riscontro entro 45 giorni, potrai rivolgerti all'IVASS.</p></div></div></div></section>
         
