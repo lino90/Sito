@@ -281,6 +281,7 @@
                             <p class="agency-name">Rocco Conforti</p>
                             <p><i class="fa-solid fa-location-dot"></i> Via Sold. Raffaele Tinelli, 14<br>70015 Noci (BA)</p>
                             <p><i class="fa-solid fa-phone"></i> <a href="tel:+390804972013" style="text-decoration:none; color:inherit;">080 497 2013</a></p>
+                            <p><i class="fa-solid fa-clock"></i> Lun-Ven: 09:00-13:00 / 16:00-18:30<br>Sabato e Domenica: Chiuso</p>
                             <a href="https://www.google.com/maps/dir/?api=1&destination=Via+Soldato+Raffaele+Tinelli+14,+70015+Noci+BA" target="_blank" class="btn btn-primary"><i class="fa-solid fa-map-location-dot"></i> Ottieni Indicazioni</a>
                         </div>
                         <div class="agency-card">
@@ -288,6 +289,7 @@
                             <p class="agency-name">Vincenzo Montaruli</p>
                             <p><i class="fa-solid fa-location-dot"></i> Via Derna, 39<br>70017 Putignano (BA)</p>
                             <p><i class="fa-solid fa-phone"></i> <a href="tel:+390805247281" style="text-decoration:none; color:inherit;">080 524 7281</a></p>
+                            <p><i class="fa-solid fa-clock"></i> Lun-Ven: 09:00-13:00 / 16:30-19:00<br>Sabato e Domenica: Chiuso</p>
                             <a href="https://www.google.com/maps/dir/?api=1&destination=Via+Derna+39,+70017+Putignano+BA" target="_blank" class="btn btn-primary"><i class="fa-solid fa-map-location-dot"></i> Ottieni Indicazioni</a>
                         </div>
                     </div>
@@ -296,14 +298,14 @@
         </section>
     </main>
     
-    <footer><div class="container"><div class="footer-grid"><div class="footer-col"><h4>Dati Identificativi Agente</h4><ul><li><strong>Agente:</strong> Rocco Conforti</li><li><strong>RUI:</strong> Sezione A - n. A000099409</li><li><strong>Data Iscrizione:</strong> 11/05/2007</li><li><strong>Sede Legale:</strong> Via Soldato Raffaele Tinelli 14, 70015 Noci (BA)</li><li><strong>P.IVA:</strong> 02144310725</li></ul></div><div class="footer-col"><h4>Contatti e Recapiti</h4><ul><li><i class="fa-solid fa-phone"></i> Tel: <a href="tel:+390804972013">080 497 2013</a></li><li><i class="fa-solid fa-envelope"></i> Email: <a href="mailto:rocco.conf@libero.it">rocco.conf@libero.it</a></li><li><i class="fa-solid fa-at"></i> PEC: <a href="mailto:confortirocco@pec.it">confortirocco@pec.it</a></li><li><i class="fa-solid fa-check"></i> Intermediario soggetto al controllo dell'IVASS.</li></ul></div><div class="footer-col"><h4>Informazioni e Policy</h4><ul><li><a href="/privacy-policy.html" target="_blank">Privacy Policy</a></li><li><a href="/cookie-policy.html" target="_blank">Cookie Policy</a></li><li><a href="#contatti">Reclami</a></li></ul></div></div><div class="footer-bottom"><p>L’attività di intermediazione assicurativa è svolta in conformità al Regolamento IVASS n. 40/2018. Le informazioni presenti su questo sito sono puramente illustrative, non costituiscono una proposta contrattuale e non sostituiscono in alcun modo la documentazione precontrattuale obbligatoria per legge, che verrà fornita prima della sottoscrizione di qualsiasi polizza.</p><p>&copy; 2025 Rocco Conforti - Tutti i diritti riservati.</p></div></div></footer>
+    <footer><div class="container"><div class="footer-grid"><div class="footer-col"><h4>Dati Identificativi Agente</h4><ul><li><strong>Agente:</strong> Rocco Conforti</li><li><strong>RUI:</strong> Sezione A - n. A000099409</li><li><strong>Data Iscrizione:</strong> 11/05/2007</li><li><strong>Sede Legale:</strong> Via Soldato Raffaele Tinelli 14, 70015 Noci (BA)</li><li><strong>P.IVA:</strong> 02144310725</li></ul></div><div class="footer-col"><h4>Contatti e Recapiti</h4><ul><li><i class="fa-solid fa-phone"></i> Tel: <a href="tel:+390804972013">080 497 2013</a></li><li><i class="fa-solid fa-envelope"></i> Email: <a href="mailto:rocco.conf@libero.it">rocco.conf@libero.it</a></li><li><i class="fa-solid fa-at"></i> PEC: <a href="mailto:confortirocco@pec.it">confortirocco@pec.it</a></li><li><i class="fa-solid fa-check"></i> Intermediario soggetto al controllo dell'IVASS.</li></ul></div><div class="footer-col"><h4>Informazioni e Policy</h4><ul><li><a href="/privacy-policy.html" target="_blank">Privacy Policy</a></li><li><a href="/cookie-policy.html" target="_blank">Cookie Policy</a></li><li><a href="#contatti">Reclami</a></li></ul></div></div><div class="footer-bottom"><p>L’attività di intermediazione assicurativa è svolta in conformità al Regolamento IVASS n. 40/2018. Le informazioni presenti su questo sito sono puramente illustrative, non costituiscono una proposta contrattuale e non sostituiscono in alcun modo la documentazione precontrattuale obbligatoria per legge, che verrà fornita prima della sottoscrizione di qualsiasi polizza.</p><p>© 2025 Rocco Conforti - Tutti i diritti riservati.</p></div></div></footer>
 
     <!-- POP-UP IVASS -->
     <div id="ivass-modal" class="modal-overlay">
         <div class="modal-content">
             <div class="modal-header">
                 <h2>Dettagli Intermediario - RUI</h2>
-                <button class="modal-close-btn" aria-label="Chiudi finestra">&times;</button>
+                <button class="modal-close-btn" aria-label="Chiudi finestra">×</button>
             </div>
             <div class="modal-body">
                 <div class="modal-section">
@@ -389,7 +391,7 @@ class CustomMapPopup extends google.maps.OverlayView {
         // Crea e aggiunge il pulsante di chiusura
         const closeButton = document.createElement("button");
         closeButton.className = "custom-map-popup-close-button";
-        closeButton.innerHTML = "&times;";
+        closeButton.innerHTML = "×";
         this.container.appendChild(closeButton);
         
         closeButton.onclick = () => {
