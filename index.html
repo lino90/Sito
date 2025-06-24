@@ -119,29 +119,43 @@
         .footer-col a:hover { color: var(--primary-pink); }
         .footer-bottom { text-align: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.2); font-size: 0.8rem; opacity: 0.8; }
 
-        /* --- STILI PER LA FINESTRA INFO DI GOOGLE MAPS (REINTEGRATI) --- */
-        .gm-style .gm-style-iw-c { /* Contenitore della info window */
+        /* --- STILI PER LA FINESTRA INFO DI GOOGLE MAPS (CORRETTI E MIGLIORATI) --- */
+        .gm-style .gm-style-iw-c { /* Contenitore principale con freccia e pulsante chiusura */
             padding: 0 !important;
             border-radius: 12px !important;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15) !important;
+            max-width: none !important; /* Disabilita la larghezza massima di default */
+            min-width: 0 !important; /* Disabilita la larghezza minima di default */
         }
-        .gm-style .gm-style-iw-d { /* Area di contenuto scrollabile */
+        .gm-style .gm-style-iw-d { /* Contenitore interno scrollabile */
             overflow: hidden !important;
+            padding: 0 !important; /* <-- LA MODIFICA CHIAVE: Rimuove il padding interno di Google */
         }
-        /* Stili per il nostro contenuto personalizzato */
+        .gm-style .gm-style-iw-close-button { /* Posiziona il pulsante di chiusura per coerenza */
+            top: 10px !important;
+            right: 10px !important;
+            opacity: 0.8 !important;
+            transition: opacity 0.2s;
+        }
+        .gm-style .gm-style-iw-close-button:hover {
+            opacity: 1 !important;
+        }
+
+        /* Stili per il nostro contenuto personalizzato all'interno del popup */
         .map-info-window {
-            padding: 20px;
+            padding: 24px; /* Aggiungiamo il nostro padding controllato */
             font-family: 'Poppins', sans-serif;
             color: var(--text-color);
         }
         .map-info-window h3 {
-            font-size: 1.2rem;
+            font-size: 1.25rem; /* Leggermente più grande */
+            font-weight: 700;
             margin: 0 0 8px 0;
             color: var(--primary-blue);
         }
         .map-info-window p {
-            margin: 0 0 15px 0;
-            font-size: 0.95rem;
+            margin: 0 0 16px 0;
+            font-size: 1rem;
             line-height: 1.5;
         }
         .map-info-window a {
