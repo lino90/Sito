@@ -323,7 +323,7 @@
                     <h4>Imprese per cui è svolta l'attività</h4>
                     <div class="info-grid">
                         <div class="info-item"><i class="fa-solid fa-handshake-simple"></i><span>ALLIANZ NEXT S.P.A.</span></div>
-                        <div class="info-item"><i class="fa-solid fa-handshake-simple"></i><span>BENE ASSICURAZIONI S.P.A. SOCIETÀ BENEFIT</span></div>
+                        <div class="info-item"><i class="fa-solid fa-handshake-simple"></i><span>BENE ASSICURazioni S.P.A. SOCIETÀ BENEFIT</span></div>
                     </div>
                 </div>
                 <div class="modal-section">
@@ -366,7 +366,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 </script>
 
-<!-- SCRIPT GOOGLE MAPS CON FINESTRA INFO PERSONALIZZATA E ROBUSTA -->
+<!-- SCRIPT GOOGLE MAPS CON FINESTRA INFO PERSONALIZZATA E ROBUSTA (CORRETTO) -->
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA0-3ZnJlH5qnDPlLIogkvI1NcKNbW5gtI&callback=initMap" async defer></script>
 <script>
 /**
@@ -410,8 +410,15 @@ class CustomMapPopup extends google.maps.OverlayView {
     }
 
     draw() {
-        if (!this.position) return;
-        const divPosition = this.getProjection().fromLatLngToDivPixel(this.position);
+        const projection = this.getProjection();
+        // --- MODIFICA CHIAVE ---
+        // Controlliamo che la proiezione esista prima di usarla.
+        // Se non esiste, la funzione termina e attende la prossima chiamata a draw().
+        if (!projection || !this.position) {
+            return;
+        }
+        // --- FINE MODIFICA ---
+        const divPosition = projection.fromLatLngToDivPixel(this.position);
         this.container.style.left = divPosition.x + "px";
         this.container.style.top = divPosition.y + "px";
     }
@@ -455,6 +462,7 @@ function initMap() {
     });
 
     // Crea una sola istanza del popup da riutilizzare
+    // L'ordine ora è sicuro grazie alla modifica nella classe CustomMapPopup
     const popup = new CustomMapPopup(new google.maps.LatLng(0, 0), "");
     popup.setMap(map);
     popup.hide(); // Nascondila all'inizio
