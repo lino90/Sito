@@ -60,7 +60,7 @@
         section { padding: 60px 0; }
         .section-title { text-align: center; font-size: 2.2rem; color: var(--primary-blue); margin-bottom: 40px; }
 
-        /* CAROSELLO */
+        /* NUOVO APPROCCIO CAROSELLO */
         .policies-carousel-wrapper { position: relative; padding: 0 50px; }
         .policies-carousel-viewport { overflow: hidden; padding: 20px 10px; }
         .policies-carousel { display: flex; gap: 30px; transition: transform 0.5s ease-in-out; }
@@ -97,20 +97,19 @@
         .whatsapp-btn i { font-size: 1.82em; }
         .hero-section .btn-primary, #chi-sono .btn-primary { flex-grow: 0; }
         
-        /* SEZIONE TROVA AGENZIA */
+        /* Stili per la sezione Trova Agenzia */
         #trova-agenzia { background-color: var(--light-gray); }
-        .agency-finder-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
-        #map-container { position: relative; height: 550px; border-radius: 16px; overflow: hidden; box-shadow: 0 5px 20px var(--card-shadow); }
+        .agency-finder-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
+        #map-container { height: 550px; border-radius: 16px; overflow: hidden; box-shadow: 0 5px 20px var(--card-shadow); }
         #map { width: 100%; height: 100%; }
         .agency-cards-wrapper { display: flex; flex-direction: column; gap: 25px; }
         .agency-card { background-color: white; padding: 30px; border-radius: 16px; box-shadow: 0 5px 20px var(--card-shadow); text-align: center; }
         .agency-card h3 { color: var(--primary-blue); font-size: 1.5rem; margin-top: 0; margin-bottom: 15px; }
-        .agency-card p { margin: 8px 0; line-height: 1.6; color: var(--text-color); font-size: 1rem; }
+        .agency-card p { margin: 5px 0; line-height: 1.6; color: var(--text-color); font-size: 1rem; }
         .agency-card .agency-name { font-weight: 600; color: var(--primary-blue); text-transform: uppercase; font-size: 1.1rem; margin-bottom: 10px; }
         .agency-card p i { color: var(--primary-pink); margin-right: 10px; width: 20px; text-align: center; }
         .agency-card .btn { margin-top: 20px; flex-grow: 0; }
 
-        /* FOOTER */
         footer { background-color: var(--primary-blue); color: #e0e0e0; padding: 50px 0; font-size: 0.9rem; }
         .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
         .footer-col h4 { color: white; margin-bottom: 20px; font-size: 1.1rem; }
@@ -120,64 +119,42 @@
         .footer-col a:hover { color: var(--primary-pink); }
         .footer-bottom { text-align: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.2); font-size: 0.8rem; opacity: 0.8; }
 
-        /* MODALE IVASS */
-        .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(13, 44, 84, 0.7); backdrop-filter: blur(5px); display: flex; align-items: center; justify-content: center; z-index: 1000; visibility: hidden; opacity: 0; transition: opacity 0.3s ease, visibility 0s 0.3s; }
-        .modal-overlay.show { visibility: visible; opacity: 1; transition-delay: 0s; }
-        .modal-content { background: white; border-radius: 16px; max-width: 850px; width: 95%; box-shadow: 0 10px 40px rgba(0,0,0,0.2); position: relative; max-height: 90vh; display: flex; flex-direction: column; transform: scale(0.95) translateY(20px); transition: transform 0.3s ease, opacity 0.3s ease; opacity: 0; }
-        .modal-overlay.show .modal-content { transform: scale(1) translateY(0); opacity: 1; }
-        .modal-header { display: flex; justify-content: space-between; align-items: center; padding: 20px 30px; border-bottom: 1px solid #e0e4e8; flex-shrink: 0; }
-        .modal-header h2 { font-size: 1.5rem; color: var(--primary-blue); margin: 0; }
-        .modal-close-btn { background: none; border: none; font-size: 2.2rem; cursor: pointer; color: #aaa; line-height: 1; transition: color 0.3s, transform 0.3s; }
-        .modal-close-btn:hover { color: var(--primary-blue); transform: rotate(90deg); }
-        .modal-body { padding: 25px 30px; overflow-y: auto; }
-        .modal-section { margin-bottom: 25px; }
-        .modal-section h4 { color: var(--primary-blue); margin-top: 0; margin-bottom: 15px; font-size: 1.1rem; border-left: 3px solid var(--primary-pink); padding-left: 10px; }
-        .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px; }
-        .info-item { display: flex; align-items: center; background-color: var(--light-gray); padding: 12px; border-radius: 8px; }
-        .info-item i { font-size: 1.2rem; color: var(--primary-pink); width: 35px; text-align: center; }
-        .info-item span { font-size: 0.95rem; color: #555; }
-        .info-item span strong { color: var(--text-color); font-weight: 600; display: block; font-size: 1rem; }
-        .collaborators-table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 0.9rem; }
-        .collaborators-table th, .collaborators-table td { border-bottom: 1px solid #e0e4e8; padding: 12px 15px; text-align: left; }
-        .collaborators-table thead th { background-color: var(--light-gray); color: var(--primary-blue); font-weight: 600; border-bottom: 2px solid var(--primary-pink); }
-        .collaborators-table tbody tr:hover { background-color: #f7f9fc; }
-        .collaborators-table tbody tr:last-child td { border-bottom: none; }
-        
-        /* --- STILI PER LA NUOVA FINESTRA INFO DI GOOGLE MAPS --- */
-        .gm-style .gm-style-iw-c { /* Selettore per il contenitore della info window */
+        /* --- STILI PER LA FINESTRA INFO DI GOOGLE MAPS (REINTEGRATI) --- */
+        .gm-style .gm-style-iw-c { /* Contenitore della info window */
             padding: 0 !important;
             border-radius: 12px !important;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15) !important;
         }
-        .gm-style .gm-style-iw-d { /* Selettore per l'area di contenuto scrollabile */
+        .gm-style .gm-style-iw-d { /* Area di contenuto scrollabile */
             overflow: hidden !important;
         }
-        .info-window-content {
+        /* Stili per il nostro contenuto personalizzato */
+        .map-info-window {
             padding: 20px;
             font-family: 'Poppins', sans-serif;
             color: var(--text-color);
         }
-        .info-window-content h3 {
+        .map-info-window h3 {
             font-size: 1.2rem;
             margin: 0 0 8px 0;
             color: var(--primary-blue);
         }
-        .info-window-content p {
+        .map-info-window p {
             margin: 0 0 15px 0;
             font-size: 0.95rem;
             line-height: 1.5;
         }
-        .info-window-content a {
+        .map-info-window a {
             color: var(--primary-pink);
             font-weight: 700;
             text-decoration: none;
             transition: opacity 0.3s;
         }
-        .info-window-content a:hover {
+        .map-info-window a:hover {
             opacity: 0.8;
         }
-        
-        /* OTTIMIZZAZIONE MOBILE */
+
+        /* --- OTTIMIZZAZIONE MOBILE --- */
         @media (max-width: 992px) {
             html { scroll-padding-top: 80px; }
             header { display: flex; flex-direction: column; gap: 15px; padding-top: 25px; padding-bottom: 15px;}
@@ -229,9 +206,9 @@
             </div>
         </div></section>
         
-        <section id="chi-sono"><div class="container"><h2 class="section-title">Chi Sono</h2><div class="about-content"><div class="about-image"></div><div class="about-text"><h3>Rocco Conforti</h3><p>Agente assicurativo professionista iscritto al RUI, Sezione A. Da 18 anni aiuto famiglie e professionisti a trovare la serenità attraverso soluzioni assicurative chiare e convenienti. La mia missione è offrire una consulenza trasparente e personalizzata.</p><p>Opero per le seguenti compagnie: ALLIANZ NEXT S.P.A. e BENE ASSICURAZIONI S.P.A. SOCIETÀ BENEFIT.</p><a href="#" id="open-ivass-modal" class="btn btn-primary">Vedi Dati Completi IVASS</a></div></div></div></section>
+        <section id="chi-sono"><div class="container"><h2 class="section-title">Chi Sono</h2><div class="about-content"><div class="about-image"></div><div class="about-text"><h3>[Il Tuo Nome Cognome]</h3><p>Agente assicurativo professionista iscritto al RUI, Sezione A. Da [Numero] anni aiuto famiglie e professionisti a trovare la serenità attraverso soluzioni assicurative chiare e convenienti. La mia missione è offrire una consulenza trasparente e personalizzata.</p><p>Opero in [plurimandato/esclusiva] per le seguenti compagnie: [Elenco Compagnie Assicurative].</p><a href="#footer" class="btn btn-primary">Vedi Dati Completi IVASS</a></div></div></div></section>
         
-        <section id="contatti"><div class="container"><h2 class="section-title">Contattami</h2><div class="contact-container"><div class="contact-form-wrapper"><h3>Richiedi una consulenza</h3><form action="#" method="post" class="contact-form"><input type="text" name="nome" placeholder="Nome" required><input type="text" name="cognome" placeholder="Cognome" required><input type="email" name="email" placeholder="Email" required><input type="tel" name="telefono" placeholder="Telefono"><textarea name="messaggio" rows="5" placeholder="Il tuo messaggio..." required></textarea><div class="privacy-check"><input type="checkbox" id="privacy" name="privacy" required><label for="privacy">Dichiaro di aver letto e accettato la <a href="/privacy-policy.html" target="_blank">Privacy Policy</a> e acconsento al trattamento dei miei dati.</label></div><div class="form-buttons"><button type="submit" class="btn btn-primary">Invia Richiesta</button><a href="https://wa.me/393479311461" target="_blank" class="btn whatsapp-btn"><i class="fab fa-whatsapp"></i>Contattami su WhatsApp</a></div></form></div><div class="reclami-wrapper"><h3>Gestione Reclami</h3><p>La tua soddisfazione è la mia priorità. In caso di reclamo, è possibile contattare l'Agente <strong>Rocco Conforti</strong> scrivendo all'indirizzo e-mail <a href="mailto:rocco.conf@libero.it">rocco.conf@libero.it</a> oppure all'indirizzo PEC <a href="mailto:confortirocco@pec.it">confortirocco@pec.it</a>.</p><p>Il reclamo verrà gestito nel rispetto della normativa vigente. Ulteriori informazioni sulle modalità di presentazione di un reclamo sono sempre disponibili all'interno della documentazione precontrattuale.</p><p>Qualora non dovessi ritenerti soddisfatto dall'esito del reclamo o in caso di assenza di riscontro entro 45 giorni, potrai rivolgerti all'IVASS.</p></div></div></div></section>
+        <section id="contatti"><div class="container"><h2 class="section-title">Contattami</h2><div class="contact-container"><div class="contact-form-wrapper"><h3>Richiedi una consulenza</h3><form action="#" method="post" class="contact-form"><input type="text" name="nome" placeholder="Nome" required><input type="text" name="cognome" placeholder="Cognome" required><input type="email" name="email" placeholder="Email" required><input type="tel" name="telefono" placeholder="Telefono"><textarea name="messaggio" rows="5" placeholder="Il tuo messaggio..." required></textarea><div class="privacy-check"><input type="checkbox" id="privacy" name="privacy" required><label for="privacy">Dichiaro di aver letto e accettato la <a href="/privacy-policy.html" target="_blank">Privacy Policy</a> e acconsento al trattamento dei miei dati.</label></div><div class="form-buttons"><button type="submit" class="btn btn-primary">Invia Richiesta</button><a href="https://wa.me/[IlTuoNumeroWhatsApp]" target="_blank" class="btn whatsapp-btn"><i class="fab fa-whatsapp"></i>Contattami su WhatsApp</a></div></form></div><div class="reclami-wrapper"><h3>Gestione Reclami</h3><p>La tua soddisfazione è la mia priorità. In caso di reclamo, è possibile contattare l'Agente <strong>[Il Tuo Nome Cognome]</strong> scrivendo all'indirizzo e-mail <a href="mailto:[la-tua-email@esempio.com]">[la-tua-email@esempio.com]</a> oppure all'indirizzo PEC <a href="mailto:[la-tua-pec@pec.it]">[la-tua-pec@pec.it]</a>.</p><p>Il reclamo verrà gestito nel rispetto della normativa vigente. Ulteriori informazioni sulle modalità di presentazione di un reclamo sono sempre disponibili all'interno della documentazione precontrattuale che viene consegnata prima della sottoscrizione di ogni polizza.</p><p>Qualora non dovessi ritenerti soddisfatto dall'esito del reclamo o in caso di assenza di riscontro entro 45 giorni, potrai rivolgerti all'IVASS.</p></div></div></div></section>
         
         <section id="trova-agenzia">
             <div class="container">
@@ -242,106 +219,131 @@
                     </div>
                     <div class="agency-cards-wrapper">
                         <div class="agency-card">
-                            <h3>Agenzia di Noci</h3>
+                            <h3>Agenzia di Putignano</h3>
                             <p class="agency-name">Rocco Conforti</p>
-                            <p><i class="fa-solid fa-location-dot"></i> Via Sold. Raffaele Tinelli, 14<br>70015 Noci (BA)</p>
-                            <p><i class="fa-solid fa-phone"></i> <a href="tel:+390804972013" style="text-decoration:none; color:inherit;">080 497 2013</a></p>
-                            <p><i class="fa-solid fa-clock"></i> Lun-Ven: 09:00-13:00 / 16:00-18:30<br>Sabato e Domenica: Chiuso</p>
-                            <a href="https://www.google.com/maps/dir/?api=1&destination=Via+Soldato+Raffaele+Tinelli+14,+70015+Noci+BA" target="_blank" class="btn btn-primary"><i class="fa-solid fa-map-location-dot"></i> Ottieni Indicazioni</a>
+                            <p><i class="fa-solid fa-location-dot"></i> Via Derna 39/41<br>CAP: 70017 - Putignano (BA)</p>
+                            <p><i class="fa-solid fa-envelope"></i> <a href="mailto:confortirocco@pec.it" style="text-decoration:none; color:inherit;">confortirocco@pec.it</a></p>
+                            <a href="https://www.google.com/maps/dir/?api=1&destination=Via+Derna+39,+70017+Putignano+BA" target="_blank" class="btn btn-primary"><i class="fa-solid fa-map-location-dot"></i> Ottieni Indicazioni</a>
                         </div>
                         <div class="agency-card">
-                            <h3>Agenzia di Putignano</h3>
-                            <p class="agency-name">Vincenzo Montaruli</p>
-                            <p><i class="fa-solid fa-location-dot"></i> Via Derna, 39<br>70017 Putignano (BA)</p>
-                            <p><i class="fa-solid fa-phone"></i> <a href="tel:+390805247281" style="text-decoration:none; color:inherit;">080 524 7281</a></p>
-                            <p><i class="fa-solid fa-clock"></i> Lun-Ven: 09:00-13:00 / 16:30-19:00<br>Sabato e Domenica: Chiuso</p>
-                            <a href="https://www.google.com/maps/dir/?api=1&destination=Via+Derna+39,+70017+Putignano+BA" target="_blank" class="btn btn-primary"><i class="fa-solid fa-map-location-dot"></i> Ottieni Indicazioni</a>
+                            <h3>Agenzia di Noci</h3>
+                            <p class="agency-name">Bene Assicurazioni</p>
+                            <p><i class="fa-solid fa-location-dot"></i> Via J.F. Kennedy 29<br>CAP: 70015 - Noci (BA)</p>
+                            <p><i class="fa-solid fa-phone"></i> <a href="tel:+390804977465" style="text-decoration:none; color:inherit;">080 4977465</a></p>
+                            <a href="https://www.google.com/maps/dir/?api=1&destination=Via+John+Fitzgerald+Kennedy+29,+70015+Noci+BA" target="_blank" class="btn btn-primary"><i class="fa-solid fa-map-location-dot"></i> Ottieni Indicazioni</a>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
+
     </main>
     
-    <footer><div class="container"><div class="footer-grid"><div class="footer-col"><h4>Dati Identificativi Agente</h4><ul><li><strong>Agente:</strong> Rocco Conforti</li><li><strong>RUI:</strong> Sezione A - n. A000099409</li><li><strong>Data Iscrizione:</strong> 11/05/2007</li><li><strong>Sede Legale:</strong> Via Soldato Raffaele Tinelli 14, 70015 Noci (BA)</li><li><strong>P.IVA:</strong> 02144310725</li></ul></div><div class="footer-col"><h4>Contatti e Recapiti</h4><ul><li><i class="fa-solid fa-phone"></i> Tel: <a href="tel:+390804972013">080 497 2013</a></li><li><i class="fa-solid fa-envelope"></i> Email: <a href="mailto:rocco.conf@libero.it">rocco.conf@libero.it</a></li><li><i class="fa-solid fa-at"></i> PEC: <a href="mailto:confortirocco@pec.it">confortirocco@pec.it</a></li><li><i class="fa-solid fa-check"></i> Intermediario soggetto al controllo dell'IVASS.</li></ul></div><div class="footer-col"><h4>Informazioni e Policy</h4><ul><li><a href="/privacy-policy.html" target="_blank">Privacy Policy</a></li><li><a href="/cookie-policy.html" target="_blank">Cookie Policy</a></li><li><a href="#contatti">Reclami</a></li></ul></div></div><div class="footer-bottom"><p>L’attività di intermediazione assicurativa è svolta in conformità al Regolamento IVASS n. 40/2018. Le informazioni presenti su questo sito sono puramente illustrative, non costituiscono una proposta contrattuale e non sostituiscono in alcun modo la documentazione precontrattuale obbligatoria per legge, che verrà fornita prima della sottoscrizione di qualsiasi polizza.</p><p>© 2025 Rocco Conforti - Tutti i diritti riservati.</p></div></div></footer>
-
-    <!-- POP-UP IVASS -->
-    <div id="ivass-modal" class="modal-overlay">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2>Dettagli Intermediario - RUI</h2>
-                <button class="modal-close-btn" aria-label="Chiudi finestra">×</button>
-            </div>
-            <div class="modal-body">
-                <div class="modal-section">
-                    <h4>Dati Anagrafici e Iscrizione</h4>
-                    <div class="info-grid">
-                        <div class="info-item"><i class="fa-solid fa-user"></i><span><strong>Nominativo</strong>CONFORTI ROCCO</span></div>
-                        <div class="info-item"><i class="fa-solid fa-id-card"></i><span><strong>RUI (Sez. A)</strong>A000099409</span></div>
-                        <div class="info-item"><i class="fa-solid fa-calendar-check"></i><span><strong>Data Iscrizione</strong>11/05/2007</span></div>
-                        <div class="info-item"><i class="fa-solid fa-cake-candles"></i><span><strong>Data Nascita</strong>14/03/1966</span></div>
-                        <div class="info-item"><i class="fa-solid fa-map-pin"></i><span><strong>Luogo Nascita</strong>NOCI (BA)</span></div>
-                        <div class="info-item"><i class="fa-solid fa-briefcase"></i><span><strong>Operatività</strong>A titolo individuale</span></div>
-                    </div>
-                </div>
-                <div class="modal-section">
-                    <h4>Imprese per cui è svolta l'attività</h4>
-                    <div class="info-grid">
-                        <div class="info-item"><i class="fa-solid fa-handshake-simple"></i><span>ALLIANZ NEXT S.P.A.</span></div>
-                        <div class="info-item"><i class="fa-solid fa-handshake-simple"></i><span>BENE ASSICURazioni S.P.A. SOCIETÀ BENEFIT</span></div>
-                    </div>
-                </div>
-                <div class="modal-section">
-                    <h4>Lista Collaboratori (Iscritti in Sez. E)</h4>
-                    <table class="collaborators-table">
-                        <thead>
-                            <tr><th>Nominativo</th><th>Qualifica</th><th>Data Inizio Collaborazione</th></tr>
-                        </thead>
-                        <tbody>
-                            <tr><td>GENTILE ANNA MARIA</td><td>Collaboratore di Intermediario</td><td>13/06/2022</td></tr>
-                            <tr><td>MONTARULI VINCENZO</td><td>Collaboratore di Intermediario</td><td>13/01/2020</td></tr>
-                            <tr><td>CONFORTI PIETRO</td><td>Collaboratore di Intermediario</td><td>18/09/2023</td></tr>
-                            <tr><td>RESTA ADELAIDE</td><td>Collaboratore di Intermediario</td><td>03/11/2023</td></tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-    </div>
-
+    <footer><div class="container"><div class="footer-grid"><div class="footer-col"><h4>Dati Identificativi Agente</h4><ul><li><strong>Agente:</strong> [Il Tuo Nome Cognome]</li><li><strong>RUI:</strong> Sezione A - n. A000000000</li><li><strong>Data Iscrizione:</strong> [GG/MM/AAAA]</li><li><strong>Sede Legale:</strong> [Via, Numero Civico, CAP, Città (Prov)]</li><li><strong>P.IVA:</strong> [La Tua Partita IVA]</li></ul></div><div class="footer-col"><h4>Contatti e Recapiti</h4><ul><li><i class="fa-solid fa-phone"></i> Tel: <a href="tel:+39000000000">[Numero di Telefono]</a></li><li><i class="fa-solid fa-envelope"></i> Email: <a href="mailto:[la-tua-email@esempio.com]">[la-tua-email@esempio.com]</a></li><li><i class="fa-solid fa-at"></i> PEC: <a href="mailto:[la-tua-pec@pec.it]">[la-tua-pec@pec.it]</a></li><li><i class="fa-solid fa-check"></i> Intermediario soggetto al controllo dell'IVASS.</li></ul></div><div class="footer-col"><h4>Informazioni e Policy</h4><ul><li><a href="/privacy-policy.html" target="_blank">Privacy Policy</a></li><li><a href="/cookie-policy.html" target="_blank">Cookie Policy</a></li><li><a href="#contatti">Reclami</a></li></ul></div></div><div class="footer-bottom"><p>L’attività di intermediazione assicurativa è svolta in conformità al Regolamento IVASS n. 40/2018. Le informazioni presenti su questo sito sono puramente illustrative, non costituiscono una proposta contrattuale e non sostituiscono in alcun modo la documentazione precontrattuale obbligatoria per legge, che verrà fornita prima della sottoscrizione di qualsiasi polizza.</p><p>© 2024 [Il Tuo Nome Cognome] - Tutti i diritti riservati.</p></div></div></footer>
 
 <script>
-// Codice per Carosello e Modale IVASS (invariato)
-class FiniteCarousel { /* ... codice invariato ... */ constructor(element) { if (!element) return; this.wrapper = element; this.track = this.wrapper.querySelector('.policies-carousel'); this.prevBtn = this.wrapper.querySelector('.prev-arrow'); this.nextBtn = this.wrapper.querySelector('.next-arrow'); this.slides = Array.from(this.track.children); this.totalSlides = this.slides.length; this.settings = {}; this.currentIndex = 0; this.isTransitioning = false; this._init(); } _init() { if (this.totalSlides === 0) return; this._updateDimensions(); this._bindEvents(); this.updateState(); } _updateDimensions() { this.settings.visibleSlides = window.innerWidth > 992 ? 4 : 1; if (this.slides.length === 0) return; const slideStyle = window.getComputedStyle(this.slides[0]); const slideMargin = parseFloat(slideStyle.marginLeft) + parseFloat(slideStyle.marginRight); const gap = parseFloat(window.getComputedStyle(this.track).gap) || 30; this.moveDistance = this.slides[0].offsetWidth + gap + slideMargin; this.maxIndex = this.totalSlides - this.settings.visibleSlides; } _bindEvents() { this.prevBtn.addEventListener('click', () => this.moveToPrev()); this.nextBtn.addEventListener('click', () => this.moveToNext()); this.track.addEventListener('transitionend', () => { this.isTransitioning = false; }); this.wrapper.addEventListener('keydown', (e) => this._handleKeyDown(e)); let resizeTimer; window.addEventListener('resize', () => { clearTimeout(resizeTimer); resizeTimer = setTimeout(() => { this._updateDimensions(); if (this.currentIndex > this.maxIndex) { this.goTo(this.maxIndex, false); } else { this.goTo(this.currentIndex, false); } }, 250); }); } goTo(index, withTransition = true) { if (this.isTransitioning || this.slides.length === 0) return; this.currentIndex = Math.max(0, Math.min(index, this.maxIndex)); this.isTransitioning = withTransition; if (!withTransition) this.track.style.transition = 'none'; requestAnimationFrame(() => { this.track.style.transform = `translateX(-${this.currentIndex * this.moveDistance}px)`; }); if (!withTransition) { this.track.offsetHeight; this.track.style.transition = ''; } this.updateState(); } moveToPrev() { if (this.currentIndex > 0) this.goTo(this.currentIndex - 1); } moveToNext() { (this.currentIndex < this.maxIndex) ? this.goTo(this.currentIndex + 1) : this.goTo(0); } updateState() { this.prevBtn.disabled = this.currentIndex === 0; this.slides.forEach((slide, index) => { const isVisible = index >= this.currentIndex && index < this.currentIndex + this.settings.visibleSlides; slide.setAttribute('tabindex', isVisible ? '0' : '-1'); slide.setAttribute('aria-hidden', !isVisible); }); } _handleKeyDown(e) { if (document.activeElement.closest('.policy-card')) { if (e.key === 'ArrowLeft') { e.preventDefault(); this.moveToPrev(); } else if (e.key === 'ArrowRight') { e.preventDefault(); this.moveToNext(); } } } }
-
+class FiniteCarousel {
+    constructor(element) {
+        this.wrapper = element;
+        if (!this.wrapper) return;
+        this.track = this.wrapper.querySelector('.policies-carousel');
+        this.prevBtn = this.wrapper.querySelector('.prev-arrow');
+        this.nextBtn = this.wrapper.querySelector('.next-arrow');
+        this.slides = Array.from(this.track.children);
+        this.totalSlides = this.slides.length;
+        this.settings = {};
+        this.currentIndex = 0;
+        this.isTransitioning = false;
+        this._init();
+    }
+    _init() {
+        if (this.totalSlides === 0) return;
+        this._updateDimensions();
+        this._bindEvents();
+        this.updateState();
+    }
+    _updateDimensions() {
+        this.settings.visibleSlides = window.innerWidth > 992 ? 4 : 1;
+        if (this.slides.length === 0) return;
+        const slideStyle = window.getComputedStyle(this.slides[0]);
+        const slideMargin = parseFloat(slideStyle.marginLeft) + parseFloat(slideStyle.marginRight);
+        const gap = parseFloat(window.getComputedStyle(this.track).gap) || 30;
+        this.moveDistance = this.slides[0].offsetWidth + gap + slideMargin;
+        this.maxIndex = this.totalSlides - this.settings.visibleSlides;
+    }
+    _bindEvents() {
+        this.prevBtn.addEventListener('click', () => this.moveToPrev());
+        this.nextBtn.addEventListener('click', () => this.moveToNext());
+        this.track.addEventListener('transitionend', () => { this.isTransitioning = false; });
+        this.wrapper.addEventListener('keydown', (e) => this._handleKeyDown(e));
+        let resizeTimer;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(() => {
+                this._updateDimensions();
+                if (this.currentIndex > this.maxIndex) {
+                    this.goTo(this.maxIndex, false);
+                } else {
+                    this.goTo(this.currentIndex, false);
+                }
+            }, 250);
+        });
+    }
+    goTo(index, withTransition = true) {
+        if (this.isTransitioning || this.slides.length === 0) return;
+        this.currentIndex = Math.max(0, Math.min(index, this.maxIndex));
+        this.isTransitioning = withTransition;
+        if (!withTransition) this.track.style.transition = 'none';
+        requestAnimationFrame(() => {
+            this.track.style.transform = `translateX(-${this.currentIndex * this.moveDistance}px)`;
+        });
+        if (!withTransition) {
+            this.track.offsetHeight;
+            this.track.style.transition = '';
+        }
+        this.updateState();
+    }
+    moveToPrev() {
+        if (this.currentIndex > 0) this.goTo(this.currentIndex - 1);
+    }
+    moveToNext() {
+        (this.currentIndex < this.maxIndex) ? this.goTo(this.currentIndex + 1) : this.goTo(0);
+    }
+    updateState() {
+        this.prevBtn.disabled = this.currentIndex === 0;
+        this.slides.forEach((slide, index) => {
+            const isVisible = index >= this.currentIndex && index < this.currentIndex + this.settings.visibleSlides;
+            slide.setAttribute('tabindex', isVisible ? '0' : '-1');
+            slide.setAttribute('aria-hidden', !isVisible);
+        });
+    }
+    _handleKeyDown(e) {
+        if (document.activeElement.closest('.policy-card')) {
+            if (e.key === 'ArrowLeft') { e.preventDefault(); this.moveToPrev(); }
+            else if (e.key === 'ArrowRight') { e.preventDefault(); this.moveToNext(); }
+        }
+    }
+}
 document.addEventListener('DOMContentLoaded', () => {
-    // Inizializza Carosello
     const carouselElement = document.querySelector('.policies-carousel-wrapper');
-    if (carouselElement) { new FiniteCarousel(carouselElement); }
-
-    // Gestione Pop-up (Modale) IVASS
-    const openModalBtn = document.getElementById('open-ivass-modal');
-    const modal = document.getElementById('ivass-modal');
-    const closeModalBtn = modal.querySelector('.modal-close-btn');
-    openModalBtn.addEventListener('click', (e) => { e.preventDefault(); modal.classList.add('show'); });
-    const closeModal = () => modal.classList.remove('show');
-    closeModalBtn.addEventListener('click', closeModal);
-    modal.addEventListener('click', (e) => { if (e.target === modal) { closeModal(); } });
-    document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && modal.classList.contains('show')) { closeModal(); } });
+    if (carouselElement) {
+        new FiniteCarousel(carouselElement);
+    }
 });
 </script>
 
-<!-- SCRIPT GOOGLE MAPS - NUOVO APPROCCIO SEMPLIFICATO E ROBUSTO -->
+<!-- Script per Google Maps - ROBUSTO E STILIZZATO -->
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA0-3ZnJlH5qnDPlLIogkvI1NcKNbW5gtI&callback=initMap" async defer></script>
 <script>
 function initMap() {
-    // Coordinate delle sedi
+    // Coordinate delle due sedi (dal tuo nuovo file)
     const locations = [
-        { lat: 40.796801, lng: 17.118301, title: 'Agenzia di Noci', address: 'Via Sold. Raffaele Tinelli, 14, 70015 Noci BA' },
-        { lat: 40.852005, lng: 17.120535, title: 'Agenzia di Putignano', address: 'Via Derna, 39, 70017 Putignano BA' }
+        { lat: 40.852440, lng: 17.119740, title: 'Agenzia di Putignano', address: 'Via Derna 39/41, 70017 Putignano (BA)' },
+        { lat: 40.795210, lng: 17.126830, title: 'Agenzia di Noci', address: 'Via J.F. Kennedy 29, 70015 Noci (BA)' }
     ];
 
-    const mapCenter = { lat: 40.824403, lng: 17.119418 };
+    const mapCenter = { lat: 40.8238, lng: 17.1232 };
+
     const map = new google.maps.Map(document.getElementById('map'), {
         zoom: 12,
         center: mapCenter,
@@ -349,12 +351,10 @@ function initMap() {
         zoomControl: true,
         styles: [ { elementType: 'geometry', stylers: [{ color: '#f5f5f5' }] }, { elementType: 'labels.icon', stylers: [{ visibility: 'off' }] }, { elementType: 'labels.text.fill', stylers: [{ color: '#616161' }] }, { elementType: 'labels.text.stroke', stylers: [{ color: '#f5f5f5' }] }, { featureType: 'administrative.land_parcel', stylers: [{ visibility: 'off' }] }, { featureType: 'poi', elementType: 'labels.text', stylers: [{ visibility: 'off' }] }, { featureType: 'poi.park', elementType: 'geometry', stylers: [{ color: '#e5e5e5' }] }, { featureType: 'road', elementType: 'geometry', stylers: [{ color: '#ffffff' }] }, { featureType: 'road.arterial', elementType: 'labels.text.fill', stylers: [{ color: '#757575' }] }, { featureType: 'road.highway', elementType: 'geometry', stylers: [{ color: '#dadada' }] }, { featureType: 'road.highway', elementType: 'labels.text.fill', stylers: [{ color: '#616161' }] }, { featureType: 'road.local', elementType: 'labels.text.fill', stylers: [{ color: '#9e9e9e' }] }, { featureType: 'transit.line', elementType: 'geometry', stylers: [{ color: '#e5e5e5' }] }, { featureType: 'transit.station', elementType: 'geometry', stylers: [{ color: '#eeeeee' }] }, { featureType: 'water', elementType: 'geometry', stylers: [{ color: '#c9c9c9' }] }, { featureType: 'water', elementType: 'labels.text.fill', stylers: [{ color: '#9e9e9e' }] } ]
     });
-
-    // Creiamo UNA SOLA istanza di InfoWindow che riutilizzeremo per tutti i marker.
-    // Questo è più efficiente.
+    
+    // InfoWindow condiviso da riutilizzare per tutti i marker
     const infoWindow = new google.maps.InfoWindow();
 
-    // Creiamo i marker per ogni sede
     locations.forEach(location => {
         const marker = new google.maps.Marker({
             position: { lat: location.lat, lng: location.lng },
@@ -369,18 +369,18 @@ function initMap() {
                 scale: 8
             }
         });
-
-        // Aggiungiamo un listener per il click su ogni marker
+        
         marker.addListener('click', () => {
-            // Costruiamo il contenuto HTML per la InfoWindow
+            // Contenuto HTML pulito che usa le classi CSS definite sopra
             const contentString = `
-                <div class="info-window-content">
+                <div class="map-info-window">
                     <h3>${location.title}</h3>
                     <p>${location.address}</p>
-                    <a href="https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(location.address)}" target="_blank">Ottieni Indicazioni</a>
+                    <a href="https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(location.address)}" target="_blank">
+                        Ottieni Indicazioni
+                    </a>
                 </div>`;
-
-            // Impostiamo il contenuto e apriamo la InfoWindow sul marker cliccato
+            
             infoWindow.setContent(contentString);
             infoWindow.open(map, marker);
         });
