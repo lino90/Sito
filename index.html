@@ -79,7 +79,8 @@
         /* ALTRE SEZIONI */
         #chi-sono { background-color: var(--light-gray); }
         .about-content { display: flex; align-items: center; gap: 60px; }
-        .about-image { flex-shrink: 0; width: 300px; height: 300px; border-radius: 50%; background-color: #ccc; background-image: url('images/Profilo.jpg'); background-size: cover; background-position: center; box-shadow: 0 10px 30px rgba(13, 44, 84, 0.15); }
+        /* MODIFICA: Immagine del profilo aggiornata */
+        .about-image { flex-shrink: 0; width: 300px; height: 300px; border-radius: 50%; background-color: #ccc; background-image: url('Profilo.jpg'); background-size: cover; background-position: center; box-shadow: 0 10px 30px rgba(13, 44, 84, 0.15); }
         .about-text { flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; }
         .about-text h3 { color: var(--primary-blue); font-size: 1.5rem; margin: 0 0 8px 0; font-weight: 700; }
         .about-subtitle { font-size: 1.1rem; font-weight: 600; color: var(--primary-pink); margin: 0 0 20px 0; }
@@ -220,24 +221,7 @@
         
         <section id="chi-sono"><div class="container"><h2 class="section-title">Chi Sono</h2><div class="about-content"><div class="about-image"></div><div class="about-text"><h3>Rocco Conforti</h3><p class="about-subtitle">Agente assicurativo professionista iscritto al RUI, Sezione A.</p><p>Da 18 anni aiuto famiglie e professionisti a trovare la serenità attraverso soluzioni assicurative chiare e convenienti. La mia missione è offrire una consulenza trasparente e personalizzata.</p><p>Opero per le seguenti compagnie: ALLIANZ NEXT S.P.A. e BENE ASSICURAZIONI S.P.A. SOCIETÀ BENEFIT.</p><a href="#" id="open-ivass-modal" class="btn btn-primary">Vedi Dati Completi IVASS</a></div></div></div></section>
         
-        <!-- SEZIONE CONTATTI AGGIORNATA CON FORMSPREE -->
-        <section id="contatti"><div class="container"><h2 class="section-title">Contattami</h2><div class="contact-container"><div class="contact-form-wrapper"><h3>Richiedi una consulenza</h3>
-            <form action="https://formspree.io/f/xpwrodnn" method="post" class="contact-form">
-                <input type="text" name="nome" placeholder="Nome" required>
-                <input type="text" name="cognome" placeholder="Cognome" required>
-                <input type="email" name="email" placeholder="Email" required>
-                <input type="tel" name="telefono" placeholder="Telefono">
-                <textarea name="messaggio" rows="5" placeholder="Il tuo messaggio..." required></textarea>
-                <div class="privacy-check">
-                    <input type="checkbox" id="privacy" name="privacy" required>
-                    <label for="privacy">Dichiaro di aver letto e accettato la <a href="/privacy-policy.html" target="_blank">Privacy Policy</a> e acconsento al trattamento dei miei dati.</label>
-                </div>
-                <div class="form-buttons">
-                    <button type="submit" class="btn btn-primary">Invia Richiesta</button>
-                    <a href="https://wa.me/393479311461" target="_blank" class="btn whatsapp-btn"><i class="fab fa-whatsapp"></i>Contattami su WhatsApp</a>
-                </div>
-            </form>
-        </div><div class="reclami-wrapper"><h3>Gestione Reclami</h3><p>La tua soddisfazione è la mia priorità. In caso di reclamo, è possibile contattare l'Agente <strong>Rocco Conforti</strong> scrivendo all'indirizzo e-mail <a href="mailto:rocco.conf@libero.it">rocco.conf@libero.it</a> oppure all'indirizzo PEC <a href="mailto:confortirocco@pec.it">confortirocco@pec.it</a>.</p><p>Il reclamo verrà gestito nel rispetto della normativa vigente. Ulteriori informazioni sulle modalità di presentazione di un reclamo sono sempre disponibili all'interno della documentazione precontrattuale.</p><p>Qualora non dovessi ritenerti soddisfatto dall'esito del reclamo o in caso di assenza di riscontro entro 45 giorni, potrai rivolgerti all'IVASS.</p></div></div></div></section>
+        <section id="contatti"><div class="container"><h2 class="section-title">Contattami</h2><div class="contact-container"><div class="contact-form-wrapper"><h3>Richiedi una consulenza</h3><form action="#" method="post" class="contact-form"><input type="text" name="nome" placeholder="Nome" required><input type="text" name="cognome" placeholder="Cognome" required><input type="email" name="email" placeholder="Email" required><input type="tel" name="telefono" placeholder="Telefono"><textarea name="messaggio" rows="5" placeholder="Il tuo messaggio..." required></textarea><div class="privacy-check"><input type="checkbox" id="privacy" name="privacy" required><label for="privacy">Dichiaro di aver letto e accettato la <a href="privacy-policy.html" target="_blank">Privacy Policy</a> e acconsento al trattamento dei miei dati.</label></div><div class="form-buttons"><button type="submit" class="btn btn-primary">Invia Richiesta</button><a href="https://wa.me/393479311461" target="_blank" class="btn whatsapp-btn"><i class="fab fa-whatsapp"></i>Contattami su WhatsApp</a></div></form></div><div class="reclami-wrapper"><h3>Gestione Reclami</h3><p>La tua soddisfazione è la mia priorità. In caso di reclamo, è possibile contattare l'Agente <strong>Rocco Conforti</strong> scrivendo all'indirizzo e-mail <a href="mailto:rocco.conf@libero.it">rocco.conf@libero.it</a> oppure all'indirizzo PEC <a href="mailto:confortirocco@pec.it">confortirocco@pec.it</a>.</p><p>Il reclamo verrà gestito nel rispetto della normativa vigente. Ulteriori informazioni sulle modalità di presentazione di un reclamo sono sempre disponibili all'interno della documentazione precontrattuale.</p><p>Qualora non dovessi ritenerti soddisfatto dall'esito del reclamo o in caso di assenza di riscontro entro 45 giorni, potrai rivolgerti all'IVASS.</p></div></div></div></section>
         
         <!-- SEZIONE TROVA AGENZIA (AGGIORNATA) -->
         <section id="trova-agenzia">
@@ -263,6 +247,7 @@
                                 </div>
                                 <div class="contact-item">
                                     <i class="fa-solid fa-clock"></i>
+                                    <!-- MODIFICA: Orari aggiornati con a capo forzato -->
                                     <span>Lun-Ven: 09:00-13:00 / 16:00-19:00<br>Sab: 09:00-12:30</span>
                                 </div>
                             </div>
@@ -294,7 +279,7 @@
         </section>
     </main>
     
-    <footer><div class="container"><div class="footer-grid"><div class="footer-col"><h4>Dati Identificativi Agente</h4><ul><li><strong>Agente:</strong> Rocco Conforti</li><li><strong>RUI:</strong> Sezione A - n. A000099409</li><li><strong>Data Iscrizione:</strong> 11/05/2007</li><li><strong>Sede Legale:</strong> Via Sold. Raffaele Tinelli 14, 70015 Noci (BA)</li><li><strong>P.IVA:</strong> 02144310725</li></ul></div><div class="footer-col"><h4>Contatti e Recapiti</h4><ul><li><i class="fa-solid fa-phone"></i> Tel: <a href="tel:+390804972013">080 497 2013</a></li><li><i class="fa-solid fa-envelope"></i> Email: <a href="mailto:rocco.conf@libero.it">rocco.conf@libero.it</a></li><li><i class="fa-solid fa-at"></i> PEC: <a href="mailto:confortirocco@pec.it">confortirocco@pec.it</a></li><li><i class="fa-solid fa-check"></i> Intermediario soggetto al controllo dell'IVASS.</li></ul></div><div class="footer-col"><h4>Informazioni e Policy</h4><ul><li><a href="/privacy-policy.html" target="_blank">Privacy Policy</a></li><li><a href="/cookie-policy.html" target="_blank">Cookie Policy</a></li><li><a href="#contatti">Reclami</a></li></ul></div></div><div class="footer-bottom"><p>L’attività di intermediazione assicurativa è svolta in conformità al Regolamento IVASS n. 40/2018. Le informazioni presenti su questo sito sono puramente illustrative, non costituiscono una proposta contrattuale e non sostituiscono in alcun modo la documentazione precontrattuale obbligatoria per legge, che verrà fornita prima della sottoscrizione di qualsiasi polizza.</p><p>© 2025 Rocco Conforti - Tutti i diritti riservati.</p></div></div></footer>
+    <footer><div class="container"><div class="footer-grid"><div class="footer-col"><h4>Dati Identificativi Agente</h4><ul><li><strong>Agente:</strong> Rocco Conforti</li><li><strong>RUI:</strong> Sezione A - n. A000099409</li><li><strong>Data Iscrizione:</strong> 11/05/2007</li><li><strong>Sede Legale:</strong> Via Sold. Raffaele Tinelli 14, 70015 Noci (BA)</li><li><strong>P.IVA:</strong> 02144310725</li></ul></div><div class="footer-col"><h4>Contatti e Recapiti</h4><ul><li><i class="fa-solid fa-phone"></i> Tel: <a href="tel:+390804972013">080 497 2013</a></li><li><i class="fa-solid fa-envelope"></i> Email: <a href="mailto:rocco.conf@libero.it">rocco.conf@libero.it</a></li><li><i class="fa-solid fa-at"></i> PEC: <a href="mailto:confortirocco@pec.it">confortirocco@pec.it</a></li><li><i class="fa-solid fa-check"></i> Intermediario soggetto al controllo dell'IVASS.</li></ul></div><div class="footer-col"><h4>Informazioni e Policy</h4><ul><li><a href="privacy-policy.html" target="_blank">Privacy Policy</a></li><li><a href="cookie-policy.html" target="_blank">Cookie Policy</a></li><li><a href="#contatti">Reclami</a></li></ul></div></div><div class="footer-bottom"><p>L’attività di intermediazione assicurativa è svolta in conformità al Regolamento IVASS n. 40/2018. Le informazioni presenti su questo sito sono puramente illustrative, non costituiscono una proposta contrattuale e non sostituiscono in alcun modo la documentazione precontrattuale obbligatoria per legge, che verrà fornita prima della sottoscrizione di qualsiasi polizza.</p><p>© 2025 Rocco Conforti - Tutti i diritti riservati.</p></div></div></footer>
 
     <!-- POP-UP IVASS -->
     <div id="ivass-modal" class="modal-overlay">
