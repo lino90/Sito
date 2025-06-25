@@ -79,7 +79,6 @@
         /* ALTRE SEZIONI */
         #chi-sono { background-color: var(--light-gray); }
         .about-content { display: flex; align-items: center; gap: 60px; }
-        /* MODIFICA: Il percorso dell'immagine ora punta alla cartella /images/ */
         .about-image { flex-shrink: 0; width: 300px; height: 300px; border-radius: 50%; background-color: #ccc; background-image: url('images/Profilo.jpg'); background-size: cover; background-position: center; box-shadow: 0 10px 30px rgba(13, 44, 84, 0.15); }
         .about-text { flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; }
         .about-text h3 { color: var(--primary-blue); font-size: 1.5rem; margin: 0 0 8px 0; font-weight: 700; }
@@ -221,7 +220,24 @@
         
         <section id="chi-sono"><div class="container"><h2 class="section-title">Chi Sono</h2><div class="about-content"><div class="about-image"></div><div class="about-text"><h3>Rocco Conforti</h3><p class="about-subtitle">Agente assicurativo professionista iscritto al RUI, Sezione A.</p><p>Da 18 anni aiuto famiglie e professionisti a trovare la serenità attraverso soluzioni assicurative chiare e convenienti. La mia missione è offrire una consulenza trasparente e personalizzata.</p><p>Opero per le seguenti compagnie: ALLIANZ NEXT S.P.A. e BENE ASSICURAZIONI S.P.A. SOCIETÀ BENEFIT.</p><a href="#" id="open-ivass-modal" class="btn btn-primary">Vedi Dati Completi IVASS</a></div></div></div></section>
         
-        <section id="contatti"><div class="container"><h2 class="section-title">Contattami</h2><div class="contact-container"><div class="contact-form-wrapper"><h3>Richiedi una consulenza</h3><form action="#" method="post" class="contact-form"><input type="text" name="nome" placeholder="Nome" required><input type="text" name="cognome" placeholder="Cognome" required><input type="email" name="email" placeholder="Email" required><input type="tel" name="telefono" placeholder="Telefono"><textarea name="messaggio" rows="5" placeholder="Il tuo messaggio..." required></textarea><div class="privacy-check"><input type="checkbox" id="privacy" name="privacy" required><label for="privacy">Dichiaro di aver letto e accettato la <a href="/privacy-policy.html" target="_blank">Privacy Policy</a> e acconsento al trattamento dei miei dati.</label></div><div class="form-buttons"><button type="submit" class="btn btn-primary">Invia Richiesta</button><a href="https://wa.me/393479311461" target="_blank" class="btn whatsapp-btn"><i class="fab fa-whatsapp"></i>Contattami su WhatsApp</a></div></form></div><div class="reclami-wrapper"><h3>Gestione Reclami</h3><p>La tua soddisfazione è la mia priorità. In caso di reclamo, è possibile contattare l'Agente <strong>Rocco Conforti</strong> scrivendo all'indirizzo e-mail <a href="mailto:rocco.conf@libero.it">rocco.conf@libero.it</a> oppure all'indirizzo PEC <a href="mailto:confortirocco@pec.it">confortirocco@pec.it</a>.</p><p>Il reclamo verrà gestito nel rispetto della normativa vigente. Ulteriori informazioni sulle modalità di presentazione di un reclamo sono sempre disponibili all'interno della documentazione precontrattuale.</p><p>Qualora non dovessi ritenerti soddisfatto dall'esito del reclamo o in caso di assenza di riscontro entro 45 giorni, potrai rivolgerti all'IVASS.</p></div></div></div></section>
+        <!-- SEZIONE CONTATTI AGGIORNATA CON FORMSPREE -->
+        <section id="contatti"><div class="container"><h2 class="section-title">Contattami</h2><div class="contact-container"><div class="contact-form-wrapper"><h3>Richiedi una consulenza</h3>
+            <form action="https://formspree.io/f/xpwrodnn" method="post" class="contact-form">
+                <input type="text" name="nome" placeholder="Nome" required>
+                <input type="text" name="cognome" placeholder="Cognome" required>
+                <input type="email" name="email" placeholder="Email" required>
+                <input type="tel" name="telefono" placeholder="Telefono">
+                <textarea name="messaggio" rows="5" placeholder="Il tuo messaggio..." required></textarea>
+                <div class="privacy-check">
+                    <input type="checkbox" id="privacy" name="privacy" required>
+                    <label for="privacy">Dichiaro di aver letto e accettato la <a href="/privacy-policy.html" target="_blank">Privacy Policy</a> e acconsento al trattamento dei miei dati.</label>
+                </div>
+                <div class="form-buttons">
+                    <button type="submit" class="btn btn-primary">Invia Richiesta</button>
+                    <a href="https://wa.me/393479311461" target="_blank" class="btn whatsapp-btn"><i class="fab fa-whatsapp"></i>Contattami su WhatsApp</a>
+                </div>
+            </form>
+        </div><div class="reclami-wrapper"><h3>Gestione Reclami</h3><p>La tua soddisfazione è la mia priorità. In caso di reclamo, è possibile contattare l'Agente <strong>Rocco Conforti</strong> scrivendo all'indirizzo e-mail <a href="mailto:rocco.conf@libero.it">rocco.conf@libero.it</a> oppure all'indirizzo PEC <a href="mailto:confortirocco@pec.it">confortirocco@pec.it</a>.</p><p>Il reclamo verrà gestito nel rispetto della normativa vigente. Ulteriori informazioni sulle modalità di presentazione di un reclamo sono sempre disponibili all'interno della documentazione precontrattuale.</p><p>Qualora non dovessi ritenerti soddisfatto dall'esito del reclamo o in caso di assenza di riscontro entro 45 giorni, potrai rivolgerti all'IVASS.</p></div></div></div></section>
         
         <!-- SEZIONE TROVA AGENZIA (AGGIORNATA) -->
         <section id="trova-agenzia">
@@ -247,7 +263,6 @@
                                 </div>
                                 <div class="contact-item">
                                     <i class="fa-solid fa-clock"></i>
-                                    <!-- MODIFICA: Orari aggiornati con a capo forzato -->
                                     <span>Lun-Ven: 09:00-13:00 / 16:00-19:00<br>Sab: 09:00-12:30</span>
                                 </div>
                             </div>
