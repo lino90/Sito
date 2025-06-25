@@ -64,11 +64,12 @@
         .policies-carousel-wrapper { position: relative; padding: 0 50px; }
         .policies-carousel-viewport { overflow: hidden; padding: 20px 10px; }
         .policies-carousel { display: flex; gap: 30px; transition: transform 0.5s ease-in-out; }
-        .policy-card { background-color: white; border-radius: 16px; padding: 30px; text-align: center; box-shadow: 0 5px 20px var(--card-shadow); transition: all 0.3s ease; flex-shrink: 0; flex-basis: calc(25% - 22.5px); box-sizing: border-box; }
+        .policy-card { background-color: white; border-radius: 16px; padding: 30px; text-align: center; box-shadow: 0 5px 20px var(--card-shadow); transition: all 0.3s ease; flex-shrink: 0; flex-basis: calc(25% - 22.5px); box-sizing: border-box; text-decoration: none; }
         .policy-card:hover { transform: translateY(-10px); box-shadow: 0 10px 25px rgba(217, 13, 121, 0.15); }
         .policy-card:focus-visible { outline: 3px solid var(--primary-pink); outline-offset: 3px; }
         .policy-card i { font-size: 3rem; color: var(--primary-pink); margin-bottom: 20px; }
         .policy-card h3 { font-size: 1.5rem; color: var(--primary-blue); margin: 10px 0; }
+        .policy-card p { color: #555; }
         .carousel-arrow { position: absolute; top: 50%; transform: translateY(-50%); background-color: white; border: 1px solid #ddd; border-radius: 50%; width: 50px; height: 50px; font-size: 1.5rem; cursor: pointer; color: var(--primary-blue); box-shadow: 0 2px 10px rgba(0,0,0,0.1); z-index: 10; transition: all 0.3s ease; }
         .carousel-arrow:disabled { opacity: 0.4; cursor: not-allowed; border-color: #ddd; background-color: #f0f2f5; }
         .carousel-arrow:hover:not(:disabled) { background-color: var(--primary-pink); color: white; border-color: var(--primary-pink); }
@@ -204,7 +205,7 @@
                 <button class="carousel-arrow prev-arrow" aria-label="Polizza precedente"><i class="fa-solid fa-chevron-left"></i></button>
                 <div class="policies-carousel-viewport">
                     <div class="policies-carousel" id="policiesCarousel" aria-live="polite">
-                        <div class="policy-card"><i class="fa-solid fa-car"></i><h3>Auto</h3><p>Protezione completa per il tuo veicolo, con garanzie personalizzabili per viaggiare sereno.</p></div>
+                        <a href="veicoli.html" class="policy-card"><i class="fa-solid fa-car"></i><h3>Veicoli</h3><p>Protezione completa per il tuo veicolo, con garanzie personalizzabili per viaggiare sereno.</p></a>
                         <div class="policy-card"><i class="fa-solid fa-house-chimney"></i><h3>Casa</h3><p>Metti al sicuro la tua abitazione e la tua famiglia da imprevisti come furto, incendio e danni.</p></div>
                         <div class="policy-card"><i class="fa-solid fa-heart-pulse"></i><h3>Vita e Salute</h3><p>Pianifica il futuro e proteggi la tua salute e quella dei tuoi cari con soluzioni su misura.</p></div>
                         <div class="policy-card"><i class="fa-solid fa-briefcase"></i><h3>Professionale</h3><p>Assicurazioni dedicate a professionisti e aziende per tutelare l'attività da ogni rischio.</p></div>
