@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Polizza Auto | Conforti Assicurazioni</title>
+    <title>Polizza Veicoli | Conforti Assicurazioni</title>
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
     
@@ -35,19 +35,26 @@
             padding: 20px 40px; background-color: white; 
             box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 100; 
         }
-        .logo { grid-column: 1; justify-self: start; line-height: 1; cursor: default; }
-        .logo a { text-decoration: none; }
+        .logo { 
+            grid-column: 1; justify-self: start; line-height: 1;
+        }
+        .logo a {
+            text-decoration: none; cursor: pointer;
+        }
         .logo-line-1 { font-size: 2.2rem; font-weight: 700; color: var(--primary-blue); }
         .logo-line-1 span { color: var(--primary-pink); }
         .logo-line-2 { 
             font-size: 1rem; font-weight: 600; color: var(--primary-pink); 
             letter-spacing: 0.03em; white-space: nowrap; display: block; 
-            padding-left: 2.22rem; margin-top: -0.5rem; 
+            padding-left: 2.25rem;
+            margin-top: -0.5rem; 
         }
         nav { grid-column: 2; }
         nav ul { list-style: none; margin: 0; padding: 0; display: flex; gap: 30px; }
         nav a { text-decoration: none; color: var(--primary-blue); font-weight: 600; transition: color 0.3s; }
         nav a:hover { color: var(--primary-pink); }
+        header > div:last-of-type {display: block;} /* Mantiene il bilanciamento della griglia */
+
         footer { background-color: var(--primary-blue); color: #e0e0e0; padding: 50px 0; font-size: 0.9rem; margin-top: 40px;}
         .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
         .footer-col h4 { color: white; margin-bottom: 20px; font-size: 1.1rem; }
@@ -138,8 +145,12 @@
         /* --- OTTIMIZZAZIONE MOBILE --- */
         @media (max-width: 992px) {
             header { display: flex; flex-direction: column; gap: 15px; padding-top: 25px; padding-bottom: 15px;}
-            .logo { text-align: center; }
+            .logo { margin: 0 auto; display: inline-block; }
+            .logo a { text-align: center; }
+            .logo-line-2 { padding-left: 2.25rem; }
+            nav { grid-column: unset; }
             nav ul { justify-content: center; flex-wrap: wrap; }
+            header > div:last-of-type { display: none; }
             .page-header h1 { font-size: 2.2rem; }
             .section-title { font-size: 1.9rem; }
         }
@@ -155,15 +166,34 @@
     </style>
 </head>
 <body>
+    <!-- HEADER COPIATO DALLA HOMEPAGE (CON LINK CORRETTI PER PAGINA INTERNA) -->
     <header>
-        <div class="logo"><a href="index.html" aria-label="Torna alla Homepage"><div class="logo-line-1">conforti<span>.</span></div><div class="logo-line-2">assıcurazıonı</div></a></div>
-        <nav><ul><li><a href="index.html#polizze">Polizze</a></li><li><a href="index.html#chi-sono">Chi Sono</a></li><li><a href="index.html#contatti">Contatti</a></li><li><a href="index.html#trova-agenzia">Sedi</a></li></ul></nav>
+        <div class="logo">
+            <a href="index.html" aria-label="Torna alla Homepage">
+                <div class="logo-line-1">conforti<span>.</span></div>
+                <div class="logo-line-2">assıcurazıonı</div>
+            </a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html#polizze">Polizze</a></li>
+                <li><a href="index.html#chi-sono">Chi Sono</a></li>
+                <li><a href="index.html#contatti">Contatti</a></li>
+                <li><a href="index.html#trova-agenzia">Sedi</a></li>
+            </ul>
+        </nav>
+        <div></div> <!-- Elemento per bilanciare la griglia -->
     </header>
 
     <main>
         
         <section class="page-header">
-            <div class="container"><div class="icon-wrapper"><i class="fa-solid fa-car-on"></i></div><h1>Polizza Auto, Moto & Van</h1><p>La soluzione assicurativa completa per viaggiare in totale serenità. Proteggi il tuo veicolo con una polizza flessibile, personalizzabile e costruita intorno alle tue reali esigenze di guida.</p><a href="index.html#contatti" class="btn btn-primary">Richiedi Subito un Preventivo</a></div>
+            <div class="container">
+                <div class="icon-wrapper"><i class="fa-solid fa-car-on"></i></div>
+                <h1>Polizza Veicoli</h1>
+                <p>La soluzione assicurativa completa per auto, moto e van per viaggiare in totale serenità. Proteggi il tuo veicolo con una polizza flessibile, personalizzabile e costruita intorno alle tue reali esigenze di guida.</p>
+                <a href="index.html#contatti" class="btn btn-primary">Richiedi Subito un Preventivo</a>
+            </div>
         </section>
 
         <section id="dettagli-polizza">
@@ -244,7 +274,44 @@
 
     </main>
     
-    <footer><div class="container"><div class="footer-grid"><div class="footer-col"><h4>Dati Identificativi Agente</h4><ul><li><strong>Agente:</strong> [Il Tuo Nome Cognome]</li><li><strong>RUI:</strong> Sezione A - n. A000000000</li><li><strong>Data Iscrizione:</strong> [GG/MM/AAAA]</li><li><strong>Sede Legale:</strong> [Via, Numero Civico, CAP, Città (Prov)]</li><li><strong>P.IVA:</strong> [La Tua Partita IVA]</li></ul></div><div class="footer-col"><h4>Contatti e Recapiti</h4><ul><li><i class="fa-solid fa-phone"></i> Tel: <a href="tel:+39000000000">[Numero di Telefono]</a></li><li><i class="fa-solid fa-envelope"></i> Email: <a href="mailto:[la-tua-email@esempio.com]">[la-tua-email@esempio.com]</a></li><li><i class="fa-solid fa-at"></i> PEC: <a href="mailto:[la-tua-pec@pec.it]">[la-tua-pec@pec.it]</a></li><li><i class="fa-solid fa-check"></i> Intermediario soggetto al controllo dell'IVASS.</li></ul></div><div class="footer-col"><h4>Informazioni e Policy</h4><ul><li><a href="/privacy-policy.html" target="_blank">Privacy Policy</a></li><li><a href="/cookie-policy.html" target="_blank">Cookie Policy</a></li><li><a href="index.html#contatti">Reclami</a></li></ul></div></div><div class="footer-bottom"><p>L’attività di intermediazione assicurativa è svolta in conformità al Regolamento IVASS n. 40/2018. Le informazioni presenti su questo sito sono puramente illustrative, non costituiscono una proposta contrattuale e non sostituiscono in alcun modo la documentazione precontrattuale obbligatoria per legge, che verrà fornita prima della sottoscrizione di qualsiasi polizza.</p><p>&copy; 2024 [Il Tuo Nome Cognome] - Tutti i diritti riservati.</p></div></div></footer>
+    <!-- FOOTER COPIATO DALLA HOMEPAGE CON I DATI CORRETTI -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Dati Identificativi Agente</h4>
+                    <ul>
+                        <li><strong>Agente:</strong> Rocco Conforti</li>
+                        <li><strong>RUI:</strong> Sezione A - n. A000099409</li>
+                        <li><strong>Data Iscrizione:</strong> 11/05/2007</li>
+                        <li><strong>Sede Legale:</strong> Via Sold. Raffaele Tinelli 14, 70015 Noci (BA)</li>
+                        <li><strong>P.IVA:</strong> 02144310725</li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contatti e Recapiti</h4>
+                    <ul>
+                        <li><i class="fa-solid fa-phone"></i> Tel: <a href="tel:+390804972013">080 497 2013</a></li>
+                        <li><i class="fa-solid fa-envelope"></i> Email: <a href="mailto:rocco.conf@libero.it">rocco.conf@libero.it</a></li>
+                        <li><i class="fa-solid fa-at"></i> PEC: <a href="mailto:confortirocco@pec.it">confortirocco@pec.it</a></li>
+                        <li><i class="fa-solid fa-check"></i> Intermediario soggetto al controllo dell'IVASS.</li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Informazioni e Policy</h4>
+                    <ul>
+                        <li><a href="/privacy-policy.html" target="_blank">Privacy Policy</a></li>
+                        <li><a href="/cookie-policy.html" target="_blank">Cookie Policy</a></li>
+                        <li><a href="index.html#contatti">Reclami</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>L’attività di intermediazione assicurativa è svolta in conformità al Regolamento IVASS n. 40/2018. Le informazioni presenti su questo sito sono puramente illustrative, non costituiscono una proposta contrattuale e non sostituiscono in alcun modo la documentazione precontrattuale obbligatoria per legge, che verrà fornita prima della sottoscrizione di qualsiasi polizza.</p>
+                <p>© 2025 Rocco Conforti - Tutti i diritti riservati.</p>
+            </div>
+        </div>
+    </footer>
 
     <!-- NUOVO SCRIPT PER GESTIRE TAB MULTIPLI E INDIPENDENTI -->
     <script>
