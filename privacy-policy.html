@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
     
     <style>
-        /* CSS IDENTICO ALL'ULTIMA VERSIONE CORRETTA */
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
         :root { --primary-blue: #0d2c54; --primary-pink: #d7127a; --light-gray: #f0f2f5; --text-color: #333; }
         html { scroll-behavior: smooth; }
@@ -36,6 +35,10 @@
         .policy-container h1 { color: var(--primary-blue); font-size: 2.5rem; margin-bottom: 30px; }
         .policy-container h2 { color: var(--primary-blue); font-size: 1.8rem; border-bottom: 2px solid var(--primary-pink); padding-bottom: 10px; margin-top: 40px; margin-bottom: 20px; }
         .policy-container h2:first-of-type { margin-top: 0; }
+        .policy-container h3 { color: var(--primary-blue); font-weight: 600; font-size: 1.2rem; margin-top: 30px; }
+        .policy-container p, .policy-container ul { margin-bottom: 15px; }
+        .policy-container ul { padding-left: 25px; }
+        .policy-container li { margin-bottom: 8px; }
         .policy-container a { color: var(--primary-pink); font-weight: 600; text-decoration: none; }
         .policy-container a:hover { text-decoration: underline; }
         .titolare-box { background-color: var(--light-gray); border-left: 4px solid var(--primary-pink); padding: 20px; border-radius: 8px; margin-top: 20px; }
@@ -43,14 +46,17 @@
             html { scroll-padding-top: 80px; }
             header { display: flex; flex-direction: column; gap: 15px; padding-top: 25px; padding-bottom: 15px;}
             .logo { margin: 0 auto; display: inline-block; }
+            .logo-line-2 { padding-left: 2.25rem; }
             nav { grid-column: unset; }
             header > div:last-of-type { display: none; }
+            .page-content-wrapper { padding: 30px 15px; }
+            .policy-container { padding: 25px; }
+            .policy-container h1 { font-size: 2rem; }
         }
     </style>
 </head>
 <body>
 
-    <!-- HEADER CON LINK CORRETTI -->
     <header>
         <a href="/Sito/" class="logo">
             <div class="logo-line-1">conforti<span>.</span></div>
@@ -68,15 +74,82 @@
     <main class="page-content-wrapper">
         <div class="policy-container">
             <h1>Privacy Policy</h1>
-            <p>La presente Privacy Policy descrive le modalità di gestione del sito web in riferimento al trattamento dei dati personali degli utenti che lo consultano, in conformità al Regolamento (UE) 2016/679 (GDPR)... (Contenuto della policy come prima) ...</p>
-            <!-- ... IL RESTO DEL CONTENUTO DELLA PRIVACY POLICY RESTA INVARIATO ... -->
+            <p>La presente Privacy Policy descrive le modalità di gestione del sito web in riferimento al trattamento dei dati personali degli utenti che lo consultano, in conformità al Regolamento (UE) 2016/679 (GDPR). Si tratta di un'informativa che è resa a coloro che interagiscono con i servizi web accessibili dall'indirizzo del sito di Rocco Conforti.</p>
+            
+            <h2>Titolare del Trattamento dei Dati</h2>
+            <div class="titolare-box">
+                <p>Il Titolare del Trattamento dei dati personali è:</p>
+                <p>
+                    <strong>Rocco Conforti</strong><br>
+                    Sede Legale: Via Sold. Raffaele Tinelli 14, 70015 Noci (BA)<br>
+                    P.IVA: 02144310725<br>
+                    Email di contatto: <a href="mailto:rocco.conf@libero.it">rocco.conf@libero.it</a>
+                </p>
+            </div>
+    
+            <h2>Tipi di Dati Raccolti</h2>
+            <p>Fra i Dati Personali raccolti da questo sito, in modo autonomo o tramite terze parti, ci sono:</p>
+            <ul>
+                <li><strong>Dati forniti volontariamente dall'utente:</strong> nome, cognome, indirizzo email, numero di telefono e messaggio, raccolti tramite il modulo di contatto.</li>
+                <li><strong>Dati di Navigazione:</strong> i sistemi informatici e le procedure software preposte al funzionamento di questo sito acquisiscono, nel corso del loro normale esercizio, alcuni dati personali la cui trasmissione è implicita nell'uso dei protocolli di comunicazione di Internet (es. indirizzi IP, log di sistema).</li>
+                <li><strong>Cookie e Dati di Utilizzo:</strong> raccolti da servizi di terze parti come Google Maps. Per maggiori dettagli, si prega di consultare la <a href="cookie-policy.html">Cookie Policy</a>.</li>
+            </ul>
+    
+            <h2>Finalità e Base Giuridica del Trattamento</h2>
+            <p>I Dati dell’Utente sono raccolti per le seguenti finalità e sulla base delle seguenti basi giuridiche:</p>
+    
+            <h3>1. Rispondere alle richieste dell'utente</h3>
+            <p><strong>Finalità:</strong> Utilizzare i dati forniti tramite il modulo di contatto per rispondere alle richieste di informazioni, di preventivo o di qualunque altra natura indicata nel messaggio.<br>
+            <strong>Base giuridica:</strong> Esecuzione di misure precontrattuali adottate su richiesta dell'interessato (art. 6, par. 1, lett. b GDPR) o consenso dell'utente (art. 6, par. 1, lett. a GDPR).</p>
+            
+            <h3>2. Visualizzazione di contenuti da piattaforme esterne</h3>
+            <p>Questo tipo di servizi permette di visualizzare contenuti ospitati su piattaforme esterne direttamente dalle pagine di questo sito e di interagire con essi.</p>
+            <ul>
+                <li>
+                    <strong>Widget Google Maps (Google Ireland Limited)</strong><br>
+                    Google Maps è un servizio di visualizzazione di mappe gestito da Google che permette a questo sito di integrare tali contenuti all'interno delle proprie pagine.
+                    <p><strong>Dati Personali trattati:</strong> Cookie e Dati di utilizzo (es. indirizzo IP).<br>
+                    <strong>Luogo del trattamento:</strong> Irlanda.<br>
+                    <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Privacy Policy di Google</a></p>
+                </li>
+            </ul>
+    
+            <h2>Modalità di Trattamento e Misure di Sicurezza</h2>
+            <p>Il Titolare adotta le opportune misure di sicurezza volte ad impedire l’accesso, la divulgazione, la modifica o la distruzione non autorizzate dei Dati Personali. Il trattamento viene effettuato mediante strumenti informatici e/o telematici, con modalità organizzative e con logiche strettamente correlate alle finalità indicate.</p>
+            
+            <h2>Periodo di Conservazione dei Dati</h2>
+            <p>I Dati sono trattati e conservati per il tempo richiesto dalle finalità per le quali sono stati raccolti.</p>
+            <ul>
+                <li>I Dati Personali raccolti per rispondere a richieste di contatto saranno conservati per il tempo necessario a evadere la richiesta e per un massimo di 24 mesi per finalità amministrative, salvo obblighi di legge che impongano un periodo di conservazione più lungo (es. in caso di stipula di un contratto).</li>
+                <li>Per i dati raccolti tramite cookie, fare riferimento a quanto specificato nella <a href="cookie-policy.html">Cookie Policy</a>.</li>
+            </ul>
+    
+            <h2>Diritti dell'Interessato</h2>
+            <p>Ai sensi degli articoli 15-22 del GDPR, l'utente ha il diritto di:</p>
+            <ul>
+                <li><strong>Accesso:</strong> ottenere la conferma dell'esistenza o meno di dati personali che lo riguardano e di ottenerne copia.</li>
+                <li><strong>Rettifica:</strong> chiedere la rettifica dei dati personali inesatti.</li>
+                <li><strong>Cancellazione (Diritto all'oblio):</strong> chiedere la cancellazione dei propri dati personali.</li>
+                <li><strong>Limitazione:</strong> ottenere la limitazione del trattamento quando ricorrono determinate ipotesi.</li>
+                <li><strong>Portabilità:</strong> ricevere in un formato strutturato, di uso comune e leggibile da dispositivo automatico, i dati personali che lo riguardano.</li>
+                <li><strong>Opposizione:</strong> opporsi in qualsiasi momento al trattamento dei propri dati personali.</li>
+            </ul>
+    
+            <h3>Come esercitare i diritti</h3>
+            <p>Per esercitare i propri diritti, l'utente può indirizzare una richiesta agli estremi di contatto del Titolare indicati in questo documento. Le richieste sono depositate a titolo gratuito e evase dal Titolare nel più breve tempo possibile, in ogni caso entro un mese.</p>
+    
+            <h2>Diritto di Reclamo</h2>
+            <p>Gli interessati che ritengono che il trattamento dei dati personali a loro riferiti effettuato attraverso questo sito avvenga in violazione di quanto previsto dal GDPR hanno il diritto di proporre reclamo al Garante per la protezione dei dati personali, come previsto dall'art. 77 del Regolamento stesso, o di adire le opportune sedi giudiziarie (art. 79 del Regolamento).</p>
+            
+            <h2>Modifiche a questa Privacy Policy</h2>
+            <p>Il Titolare del Trattamento si riserva il diritto di apportare modifiche alla presente privacy policy in qualunque momento, dandone pubblicità agli utenti su questa pagina. Si prega dunque di consultare regolarmente questa pagina, facendo riferimento alla data di ultima modifica indicata in fondo.</p>
+    
             <p style="margin-top: 30px; text-align: center; border-top: 1px solid #ddd; padding-top: 20px;">
                 Data dell'ultimo aggiornamento: 25 Maggio 2024
             </p>
         </div>
     </main>
     
-    <!-- FOOTER CON LINK CORRETTI -->
     <footer>
         <div class="container">
             <div class="footer-grid">
