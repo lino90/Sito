@@ -63,7 +63,14 @@
         /* CAROSELLO */
         .policies-carousel-wrapper { position: relative; padding: 0 50px; }
         .policies-carousel-viewport { overflow: hidden; padding: 20px 10px; }
-        .policies-carousel { display: flex; gap: 30px; transition: transform 0.5s ease-in-out; }
+        .policies-carousel { 
+            display: flex; gap: 30px; transition: transform 0.5s ease-in-out;
+            /* MODIFICA: Stili per migliorare l'esperienza touch */
+            -webkit-user-select: none; /* Safari */
+            -ms-user-select: none; /* IE 10+ */
+            user-select: none; /* Standard */
+            touch-action: pan-y; /* Permetti lo scroll verticale ma prioritizza lo swipe orizzontale */
+        }
         .policy-card { background-color: white; border-radius: 16px; padding: 30px; text-align: center; box-shadow: 0 5px 20px var(--card-shadow); transition: all 0.3s ease; flex-shrink: 0; flex-basis: calc(25% - 22.5px); box-sizing: border-box; text-decoration: none; }
         .policy-card:hover { transform: translateY(-10px); box-shadow: 0 10px 25px rgba(217, 13, 121, 0.15); }
         .policy-card:focus-visible { outline: 3px solid var(--primary-pink); outline-offset: 3px; }
@@ -164,7 +171,6 @@
         .map-info-window a { color: var(--primary-pink); font-weight: 700; text-decoration: none; transition: opacity 0.3s; }
         .map-info-window a:hover { opacity: 0.8; }
         
-        /* MODIFICA: Nuovi stili per l'indirizzo per gestire l'a capo su mobile */
         .address-street::after {
             content: ', ';
         }
@@ -190,15 +196,15 @@
             .agency-finder-grid { grid-template-columns: 1fr; }
             #map-container { height: 350px; }
             
-            /* MODIFICA: Regole per l'indirizzo a capo su mobile */
             .address-street::after {
                 content: '';
             }
             .address-city {
                 display: block;
             }
+            /* MODIFICA: Allineamento a sinistra forzato per le info di contatto su mobile */
             .agency-card .contact-info {
-                text-align: center;
+                text-align: left;
             }
         }
     </style>
@@ -259,7 +265,6 @@
             </form>
         </div><div class="reclami-wrapper"><h3>Gestione Reclami</h3><p>La tua soddisfazione è la mia priorità. In caso di reclamo, è possibile contattare l'Agente <strong>Rocco Conforti</strong> scrivendo all'indirizzo e-mail <a href="mailto:rocco.conf@libero.it">rocco.conf@libero.it</a> oppure all'indirizzo PEC <a href="mailto:confortirocco@pec.it">confortirocco@pec.it</a>.</p><p>Il reclamo verrà gestito nel rispetto della normativa vigente. Ulteriori informazioni sulle modalità di presentazione di un reclamo sono sempre disponibili all'interno della documentazione precontrattuale.</p><p>Qualora non dovessi ritenerti soddisfatto dall'esito del reclamo o in caso di assenza di riscontro entro 45 giorni, potrai rivolgerti all'IVASS.</p></div></div></div></section>
         
-        <!-- SEZIONE TROVA AGENZIA (AGGIORNATA) -->
         <section id="trova-agenzia">
             <div class="container">
                 <h2 class="section-title">Trova le Nostre Sedi</h2>
@@ -275,7 +280,6 @@
                             <div class="contact-info">
                                 <div class="contact-item">
                                     <i class="fa-solid fa-location-dot"></i>
-                                    <!-- MODIFICA: Indirizzo suddiviso per a capo su mobile -->
                                     <span>
                                         <span class="address-street">Via Sold. Raffaele Tinelli, 14</span>
                                         <span class="address-city">70015 Noci (BA)</span>
@@ -299,7 +303,6 @@
                             <div class="contact-info">
                                 <div class="contact-item">
                                     <i class="fa-solid fa-location-dot"></i>
-                                    <!-- MODIFICA: Indirizzo suddiviso per a capo su mobile -->
                                     <span>
                                         <span class="address-street">Via Derna, 39</span>
                                         <span class="address-city">70017 Putignano (BA)</span>
@@ -373,8 +376,167 @@
 
 
 <script>
-// Codice per Carosello e Modale IVASS
-class FiniteCarousel { constructor(element) { if (!element) return; this.wrapper = element; this.track = this.wrapper.querySelector('.policies-carousel'); this.prevBtn = this.wrapper.querySelector('.prev-arrow'); this.nextBtn = this.wrapper.querySelector('.next-arrow'); this.slides = Array.from(this.track.children); this.totalSlides = this.slides.length; this.settings = {}; this.currentIndex = 0; this.isTransitioning = false; this._init(); } _init() { if (this.totalSlides === 0) return; this._updateDimensions(); this._bindEvents(); this.updateState(); } _updateDimensions() { this.settings.visibleSlides = window.innerWidth > 992 ? 4 : 1; if (this.slides.length === 0) return; const slideStyle = window.getComputedStyle(this.slides[0]); const slideMargin = parseFloat(slideStyle.marginLeft) + parseFloat(slideStyle.marginRight); const gap = parseFloat(window.getComputedStyle(this.track).gap) || 30; this.moveDistance = this.slides[0].offsetWidth + gap + slideMargin; this.maxIndex = this.totalSlides - this.settings.visibleSlides; } _bindEvents() { this.prevBtn.addEventListener('click', () => this.moveToPrev()); this.nextBtn.addEventListener('click', () => this.moveToNext()); this.track.addEventListener('transitionend', () => { this.isTransitioning = false; }); this.wrapper.addEventListener('keydown', (e) => this._handleKeyDown(e)); let resizeTimer; window.addEventListener('resize', () => { clearTimeout(resizeTimer); resizeTimer = setTimeout(() => { this._updateDimensions(); if (this.currentIndex > this.maxIndex) { this.goTo(this.maxIndex, false); } else { this.goTo(this.currentIndex, false); } }, 250); }); } goTo(index, withTransition = true) { if (this.isTransitioning || this.slides.length === 0) return; this.currentIndex = Math.max(0, Math.min(index, this.maxIndex)); this.isTransitioning = withTransition; if (!withTransition) this.track.style.transition = 'none'; requestAnimationFrame(() => { this.track.style.transform = `translateX(-${this.currentIndex * this.moveDistance}px)`; }); if (!withTransition) { this.track.offsetHeight; this.track.style.transition = ''; } this.updateState(); } moveToPrev() { if (this.currentIndex > 0) this.goTo(this.currentIndex - 1); } moveToNext() { (this.currentIndex < this.maxIndex) ? this.goTo(this.currentIndex + 1) : this.goTo(0); } updateState() { this.prevBtn.disabled = this.currentIndex === 0; this.slides.forEach((slide, index) => { const isVisible = index >= this.currentIndex && index < this.currentIndex + this.settings.visibleSlides; slide.setAttribute('tabindex', isVisible ? '0' : '-1'); slide.setAttribute('aria-hidden', !isVisible); }); } _handleKeyDown(e) { if (document.activeElement.closest('.policy-card')) { if (e.key === 'ArrowLeft') { e.preventDefault(); this.moveToPrev(); } else if (e.key === 'ArrowRight') { e.preventDefault(); this.moveToNext(); } } } }
+// MODIFICA: Classe carosello aggiornata per includere lo swipe touch
+class FiniteCarousel {
+    constructor(element) {
+        if (!element) return;
+        this.wrapper = element;
+        this.track = this.wrapper.querySelector('.policies-carousel');
+        this.prevBtn = this.wrapper.querySelector('.prev-arrow');
+        this.nextBtn = this.wrapper.querySelector('.next-arrow');
+        this.slides = Array.from(this.track.children);
+        this.totalSlides = this.slides.length;
+        this.settings = {};
+        this.currentIndex = 0;
+
+        // Variabili per il tocco e lo swipe
+        this.isTransitioning = false;
+        this.isDragging = false;
+        this.wasSwiped = false;
+        this.touchStartX = 0;
+        this.currentTranslate = 0;
+        this.prevTranslate = 0;
+
+        this._init();
+    }
+
+    _init() {
+        if (this.totalSlides === 0) return;
+        this._updateDimensions();
+        this._bindEvents();
+        this.updateState();
+    }
+
+    _updateDimensions() {
+        this.settings.visibleSlides = window.innerWidth > 992 ? 4 : 1;
+        if (this.slides.length === 0) return;
+        const slideStyle = window.getComputedStyle(this.slides[0]);
+        const slideMargin = parseFloat(slideStyle.marginLeft) + parseFloat(slideStyle.marginRight);
+        const gap = parseFloat(window.getComputedStyle(this.track).gap) || 30;
+        this.moveDistance = this.slides[0].offsetWidth + gap;
+        this.maxIndex = this.totalSlides - this.settings.visibleSlides;
+        
+        // Aggiorna la posizione quando si ridimensiona
+        this.goTo(this.currentIndex, false);
+    }
+
+    _bindEvents() {
+        this.prevBtn.addEventListener('click', () => this.moveToPrev());
+        this.nextBtn.addEventListener('click', () => this.moveToNext());
+        this.track.addEventListener('transitionend', () => { this.isTransitioning = false; });
+        this.wrapper.addEventListener('keydown', (e) => this._handleKeyDown(e));
+
+        let resizeTimer;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(() => {
+                this._updateDimensions();
+                if (this.currentIndex > this.maxIndex) {
+                    this.goTo(this.maxIndex, false);
+                } else {
+                    this.goTo(this.currentIndex, false);
+                }
+            }, 250);
+        });
+
+        // Eventi Touch
+        this.track.addEventListener('touchstart', this._touchStart.bind(this), { passive: true });
+        this.track.addEventListener('touchmove', this._touchMove.bind(this), { passive: true });
+        this.track.addEventListener('touchend', this._touchEnd.bind(this));
+        this.track.addEventListener('touchcancel', this._touchEnd.bind(this));
+
+        // Prevenzione click dopo swipe
+        this.slides.forEach(slide => {
+            slide.addEventListener('click', (e) => {
+                if (this.wasSwiped) {
+                    e.preventDefault();
+                }
+            });
+        });
+    }
+
+    _touchStart(event) {
+        this.isDragging = true;
+        this.wasSwiped = false;
+        this.touchStartX = event.touches[0].clientX;
+        this.prevTranslate = -this.currentIndex * this.moveDistance;
+        this.track.style.transition = 'none';
+    }
+
+    _touchMove(event) {
+        if (!this.isDragging) return;
+        const currentPosition = event.touches[0].clientX;
+        this.currentTranslate = this.prevTranslate + currentPosition - this.touchStartX;
+        this.track.style.transform = `translateX(${this.currentTranslate}px)`;
+
+        // Se il movimento è superiore a 10px, lo consideriamo uno swipe
+        if (Math.abs(currentPosition - this.touchStartX) > 10) {
+            this.wasSwiped = true;
+        }
+    }
+
+    _touchEnd() {
+        if (!this.isDragging) return;
+        this.isDragging = false;
+        this.track.style.transition = '';
+
+        const movedBy = this.currentTranslate - this.prevTranslate;
+        const swipeThreshold = this.moveDistance / 4;
+
+        if (movedBy < -swipeThreshold && this.currentIndex < this.maxIndex) {
+            this.goTo(this.currentIndex + 1);
+        } else if (movedBy > swipeThreshold && this.currentIndex > 0) {
+            this.goTo(this.currentIndex - 1);
+        } else {
+            this.goTo(this.currentIndex);
+        }
+        
+        // Reset wasSwiped dopo un breve istante per permettere al click event di registrarsi
+        setTimeout(() => this.wasSwiped = false, 50);
+    }
+    
+    goTo(index, withTransition = true) {
+        if (this.isTransitioning || this.slides.length === 0) return;
+        this.currentIndex = Math.max(0, Math.min(index, this.maxIndex));
+        this.isTransitioning = withTransition;
+        
+        if (!withTransition) this.track.style.transition = 'none';
+        
+        const newPosition = -this.currentIndex * this.moveDistance;
+        this.track.style.transform = `translateX(${newPosition}px)`;
+        
+        if (!withTransition) {
+            this.track.offsetHeight; // Forza il repaint del browser
+            this.track.style.transition = '';
+        }
+
+        this.updateState();
+    }
+
+    moveToPrev() {
+        if (this.currentIndex > 0) this.goTo(this.currentIndex - 1);
+    }
+
+    moveToNext() {
+        (this.currentIndex < this.maxIndex) ? this.goTo(this.currentIndex + 1) : this.goTo(0);
+    }
+    
+    updateState() {
+        this.prevBtn.disabled = this.currentIndex === 0;
+        this.slides.forEach((slide, index) => {
+            const isVisible = index >= this.currentIndex && index < this.currentIndex + this.settings.visibleSlides;
+            slide.setAttribute('tabindex', isVisible ? '0' : '-1');
+            slide.setAttribute('aria-hidden', !isVisible);
+        });
+    }
+    
+    _handleKeyDown(e) {
+        if (document.activeElement.closest('.policy-card')) {
+            if (e.key === 'ArrowLeft') { e.preventDefault(); this.moveToPrev(); } 
+            else if (e.key === 'ArrowRight') { e.preventDefault(); this.moveToNext(); }
+        }
+    }
+}
 
 document.addEventListener('DOMContentLoaded', () => {
     const carouselElement = document.querySelector('.policies-carousel-wrapper');
