@@ -79,7 +79,6 @@
         /* ALTRE SEZIONI */
         #chi-sono { background-color: var(--light-gray); }
         .about-content { display: flex; align-items: center; gap: 60px; }
-        /* MODIFICA: Immagine del profilo aggiornata */
         .about-image { flex-shrink: 0; width: 300px; height: 300px; border-radius: 50%; background-color: #ccc; background-image: url('Profilo.jpg'); background-size: cover; background-position: center; box-shadow: 0 10px 30px rgba(13, 44, 84, 0.15); }
         .about-text { flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; }
         .about-text h3 { color: var(--primary-blue); font-size: 1.5rem; margin: 0 0 8px 0; font-weight: 700; }
@@ -103,7 +102,7 @@
         .whatsapp-btn i { font-size: 1.82em; }
         #chi-sono .btn-primary { flex-grow: 0; }
         
-        /* Stili per la sezione Trova Agenzia (AGGIORNATI) */
+        /* Stili per la sezione Trova Agenzia */
         #trova-agenzia { background-color: var(--light-gray); }
         .agency-finder-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: flex-start; }
         #map-container { height: 600px; border-radius: 16px; overflow: hidden; box-shadow: 0 5px 20px var(--card-shadow); }
@@ -165,6 +164,11 @@
         .map-info-window a { color: var(--primary-pink); font-weight: 700; text-decoration: none; transition: opacity 0.3s; }
         .map-info-window a:hover { opacity: 0.8; }
         
+        /* MODIFICA: Nuovi stili per l'indirizzo per gestire l'a capo su mobile */
+        .address-street::after {
+            content: ', ';
+        }
+
         /* OTTIMIZZAZIONE MOBILE */
         @media (max-width: 992px) {
             html { scroll-padding-top: 80px; }
@@ -185,6 +189,17 @@
             .privacy-check { text-align: left; }
             .agency-finder-grid { grid-template-columns: 1fr; }
             #map-container { height: 350px; }
+            
+            /* MODIFICA: Regole per l'indirizzo a capo su mobile */
+            .address-street::after {
+                content: '';
+            }
+            .address-city {
+                display: block;
+            }
+            .agency-card .contact-info {
+                text-align: center;
+            }
         }
     </style>
     
@@ -227,7 +242,6 @@
         <section id="chi-sono"><div class="container"><h2 class="section-title">Chi Sono</h2><div class="about-content"><div class="about-image"></div><div class="about-text"><h3>Rocco Conforti</h3><p class="about-subtitle">Agente assicurativo professionista iscritto al RUI, Sezione A.</p><p>Da 18 anni aiuto famiglie e professionisti a trovare la serenità attraverso soluzioni assicurative chiare e convenienti. La mia missione è offrire una consulenza trasparente e personalizzata.</p><p>Opero per le seguenti compagnie: ALLIANZ NEXT S.P.A. e BENE ASSICURAZIONI S.P.A. SOCIETÀ BENEFIT.</p><a href="#" id="open-ivass-modal" class="btn btn-primary">Vedi Dati Completi IVASS</a></div></div></div></section>
         
         <section id="contatti"><div class="container"><h2 class="section-title">Contattami</h2><div class="contact-container"><div class="contact-form-wrapper"><h3>Richiedi una consulenza</h3>
-            <!-- MODIFICA: Inserito il link di Formspree nell'attributo "action" del form -->
             <form action="https://formspree.io/f/xpwrodnn" method="post" class="contact-form">
                 <input type="text" name="nome" placeholder="Nome" required>
                 <input type="text" name="cognome" placeholder="Cognome" required>
@@ -261,7 +275,11 @@
                             <div class="contact-info">
                                 <div class="contact-item">
                                     <i class="fa-solid fa-location-dot"></i>
-                                    <span>Via Sold. Raffaele Tinelli, 14, 70015 Noci (BA)</span>
+                                    <!-- MODIFICA: Indirizzo suddiviso per a capo su mobile -->
+                                    <span>
+                                        <span class="address-street">Via Sold. Raffaele Tinelli, 14</span>
+                                        <span class="address-city">70015 Noci (BA)</span>
+                                    </span>
                                 </div>
                                 <div class="contact-item">
                                     <i class="fa-solid fa-phone"></i>
@@ -269,7 +287,6 @@
                                 </div>
                                 <div class="contact-item">
                                     <i class="fa-solid fa-clock"></i>
-                                    <!-- MODIFICA: Orari aggiornati con a capo forzato -->
                                     <span>Lun-Ven: 09:00-13:00 / 16:00-19:00<br>Sab: 09:00-12:30</span>
                                 </div>
                             </div>
@@ -282,7 +299,11 @@
                             <div class="contact-info">
                                 <div class="contact-item">
                                     <i class="fa-solid fa-location-dot"></i>
-                                    <span>Via Derna, 39, 70017 Putignano (BA)</span>
+                                    <!-- MODIFICA: Indirizzo suddiviso per a capo su mobile -->
+                                    <span>
+                                        <span class="address-street">Via Derna, 39</span>
+                                        <span class="address-city">70017 Putignano (BA)</span>
+                                    </span>
                                 </div>
                                 <div class="contact-item">
                                     <i class="fa-solid fa-phone"></i>
@@ -376,7 +397,6 @@ document.addEventListener('DOMContentLoaded', () => {
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA0-3ZnJlH5qnDPlLIogkvI1NcKNbW5gtI&callback=initMap" async defer></script>
 <script>
 function initMap() {
-    // Coordinate corrette per le nuove sedi
     const locations = [
         { lat: 40.79680, lng: 17.11830, title: 'Agenzia di Noci', address: 'Via Sold. Raffaele Tinelli, 14, 70015 Noci (BA)' },
         { lat: 40.85201, lng: 17.12054, title: 'Agenzia di Putignano', address: 'Via Derna, 39, 70017 Putignano (BA)' }
