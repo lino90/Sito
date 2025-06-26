@@ -8,6 +8,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
     
     <style>
+        /* ================================================= */
+        /* == STILI COPIATI DALLA HOMEPAGE PER COERENZA == */
+        /* ================================================= */
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
 
         :root {
@@ -16,24 +19,25 @@
             --light-gray: #f0f2f5;
             --text-color: #333;
         }
-
-        body {
-            font-family: 'Poppins', sans-serif;
-            line-height: 1.7;
-            color: var(--text-color);
-            background-color: #f7f9fc;
-            margin: 0;
-            padding: 0;
+        
+        html {
+            scroll-behavior: smooth;
         }
 
-        /* STILI PER L'HEADER */
+        body {
+            margin: 0; font-family: 'Poppins', sans-serif; color: var(--text-color);
+            background-color: #f7f9fc; /* Sfondo per la pagina policy */
+        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+        /* HEADER & LOGO (IDENTICO ALLA HOME) */
         header { 
             display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; 
             padding: 20px 40px; background-color: white; 
             box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 100; 
         }
         .logo { 
-            grid-column: 1; justify-self: start; line-height: 1;
+            grid-column: 1; justify-self: start; line-height: 1; cursor: pointer;
             text-decoration: none;
         }
         .logo-line-1 { font-size: 2.2rem; font-weight: 700; color: var(--primary-blue); }
@@ -49,27 +53,37 @@
         nav a { text-decoration: none; color: var(--primary-blue); font-weight: 600; transition: color 0.3s; }
         nav a:hover { color: var(--primary-pink); }
         
-        /* STILI PER IL CONTENUTO DELLA PAGINA */
+        /* FOOTER (IDENTICO ALLA HOME) */
+        footer { background-color: var(--primary-blue); color: #e0e0e0; padding: 50px 0; font-size: 0.9rem; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
+        .footer-col h4 { color: white; margin-bottom: 20px; font-size: 1.1rem; }
+        .footer-col ul { list-style: none; padding: 0; }
+        .footer-col li { margin-bottom: 10px; }
+        .footer-col a { color: #e0e0e0; text-decoration: none; transition: color 0.3s; }
+        .footer-col a:hover { color: var(--primary-pink); }
+        .footer-bottom { text-align: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.2); font-size: 0.8rem; opacity: 0.8; }
+        
+        /* ================================================= */
+        /* ==   STILI SPECIFICI PER LA PAGINA DI POLICY   == */
+        /* ================================================= */
         .page-content-wrapper {
-            background-color: #f7f9fc;
-            padding: 40px 20px;
+            padding: 60px 20px;
         }
-        .container {
+        .policy-container {
             max-width: 900px;
             margin: 0 auto;
             padding: 40px;
             background-color: white;
             border-radius: 16px;
             box-shadow: 0 5px 20px rgba(13, 44, 84, 0.1);
+            line-height: 1.7;
         }
-
-        h1 {
+        .policy-container h1 {
             color: var(--primary-blue);
             font-size: 2.5rem;
             margin-bottom: 30px;
         }
-
-        h2 {
+        .policy-container h2 {
             color: var(--primary-blue);
             font-size: 1.8rem;
             border-bottom: 2px solid var(--primary-pink);
@@ -77,40 +91,18 @@
             margin-top: 40px;
             margin-bottom: 20px;
         }
-        
-        h2:first-of-type {
-            margin-top: 0;
-        }
-
-        h3 {
+        .policy-container h2:first-of-type { margin-top: 0; }
+        .policy-container h3 {
             color: var(--primary-blue);
             font-weight: 600;
             font-size: 1.2rem;
             margin-top: 30px;
         }
-
-        p, ul {
-            margin-bottom: 15px;
-        }
-
-        ul {
-            padding-left: 25px;
-        }
-
-        li {
-            margin-bottom: 8px;
-        }
-        
-        .titolare-box a, .container a {
-            color: var(--primary-pink);
-            font-weight: 600;
-            text-decoration: none;
-        }
-
-        .titolare-box a:hover, .container a:hover {
-            text-decoration: underline;
-        }
-
+        .policy-container p, .policy-container ul { margin-bottom: 15px; }
+        .policy-container ul { padding-left: 25px; }
+        .policy-container li { margin-bottom: 8px; }
+        .policy-container a { color: var(--primary-pink); font-weight: 600; text-decoration: none; }
+        .policy-container a:hover { text-decoration: underline; }
         .titolare-box {
             background-color: var(--light-gray);
             border-left: 4px solid var(--primary-pink);
@@ -119,52 +111,34 @@
             margin-top: 20px;
         }
         
-        /* STILI PER IL FOOTER (COPIATI DALLA HOMEPAGE) */
-        footer { background-color: var(--primary-blue); color: #e0e0e0; padding: 50px 0; font-size: 0.9rem; }
-        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; max-width: 1200px; margin: 0 auto; padding: 0 20px;}
-        .footer-col h4 { color: white; margin-bottom: 20px; font-size: 1.1rem; }
-        .footer-col ul { list-style: none; padding: 0; }
-        .footer-col li { margin-bottom: 10px; }
-        .footer-col a { color: #e0e0e0; text-decoration: none; transition: color 0.3s; font-weight: 400; }
-        .footer-col a:hover { color: var(--primary-pink); }
-        .footer-bottom { text-align: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.2); font-size: 0.8rem; opacity: 0.8; max-width: 1200px; margin: 40px auto 0; padding-left: 20px; padding-right: 20px;}
-
-        /* OTTIMIZZAZIONE MOBILE */
+        /* OTTIMIZZAZIONE MOBILE (IDENTICA ALLA HOME) */
         @media (max-width: 992px) {
+            html { scroll-padding-top: 80px; }
             header { display: flex; flex-direction: column; gap: 15px; padding-top: 25px; padding-bottom: 15px;}
             .logo { margin: 0 auto; display: inline-block; }
             .logo-line-2 { padding-left: 2.25rem; }
             nav { grid-column: unset; }
             header > div:last-of-type { display: none; }
-            .page-content-wrapper { padding: 25px 15px; }
-            .container {
-                padding: 25px;
-            }
-            h1 {
-                font-size: 2rem;
-            }
+            .page-content-wrapper { padding: 30px 15px; }
+            .policy-container { padding: 25px; }
+            .policy-container h1 { font-size: 2rem; }
         }
     </style>
 </head>
 <body>
 
-    <!-- HEADER IDENTICO ALLA HOMEPAGE -->
+    <!-- HEADER IDENTICO ALLA HOMEPAGE (con link corretti) -->
     <header>
         <a href="Homepage.html" class="logo">
             <div class="logo-line-1">conforti<span>.</span></div>
             <div class="logo-line-2">assıcurazıonı</div>
         </a>
-        <nav><ul>
-            <li><a href="Homepage.html#polizze">Polizze</a></li>
-            <li><a href="Homepage.html#chi-sono">Chi Sono</a></li>
-            <li><a href="Homepage.html#contatti">Contatti</a></li>
-            <li><a href="Homepage.html#trova-agenzia">Sedi</a></li>
-        </ul></nav>
-        <div></div>
+        <nav><ul><li><a href="Homepage.html#polizze">Polizze</a></li><li><a href="Homepage.html#chi-sono">Chi Sono</a></li><li><a href="Homepage.html#contatti">Contatti</a></li><li><a href="Homepage.html#trova-agenzia">Sedi</a></li></ul></nav>
+        <div></div> <!-- Questo elemento vuoto bilancia la griglia per una centratura perfetta del menu -->
     </header>
 
     <main class="page-content-wrapper">
-        <div class="container">
+        <div class="policy-container">
             <h1>Privacy Policy</h1>
             <p>La presente Privacy Policy descrive le modalità di gestione del sito web in riferimento al trattamento dei dati personali degli utenti che lo consultano, in conformità al Regolamento (UE) 2016/679 (GDPR). Si tratta di un'informativa che è resa a coloro che interagiscono con i servizi web accessibili dall'indirizzo del sito di Rocco Conforti.</p>
             
@@ -184,7 +158,7 @@
             <ul>
                 <li><strong>Dati forniti volontariamente dall'utente:</strong> nome, cognome, indirizzo email, numero di telefono e messaggio, raccolti tramite il modulo di contatto.</li>
                 <li><strong>Dati di Navigazione:</strong> i sistemi informatici e le procedure software preposte al funzionamento di questo sito acquisiscono, nel corso del loro normale esercizio, alcuni dati personali la cui trasmissione è implicita nell'uso dei protocolli di comunicazione di Internet (es. indirizzi IP, log di sistema).</li>
-                <li><strong>Cookie e Dati di Utilizzo:</strong> raccolti da servizi di terze parti come Google Maps.</li>
+                <li><strong>Cookie e Dati di Utilizzo:</strong> raccolti da servizi di terze parti come Google Maps. Per maggiori dettagli, si prega di consultare la <a href="cookie-policy.html">Cookie Policy</a>.</li>
             </ul>
     
             <h2>Finalità e Base Giuridica del Trattamento</h2>
@@ -194,19 +168,7 @@
             <p><strong>Finalità:</strong> Utilizzare i dati forniti tramite il modulo di contatto per rispondere alle richieste di informazioni, di preventivo o di qualunque altra natura indicata nel messaggio.<br>
             <strong>Base giuridica:</strong> Esecuzione di misure precontrattuali adottate su richiesta dell'interessato (art. 6, par. 1, lett. b GDPR) o consenso dell'utente (art. 6, par. 1, lett. a GDPR).</p>
             
-            <h3>2. Gestione dei moduli di contatto tramite servizio esterno</h3>
-            <p>Questo sito utilizza un servizio esterno per la gestione tecnica dell'invio dei messaggi dal modulo di contatto. Questo assicura un'alta affidabilità nella ricezione delle richieste.</p>
-            <ul>
-                <li>
-                    <strong>Formspree (Formspree, Inc.)</strong><br>
-                    Formspree è un servizio che gestisce l'inoltro dei dati inviati tramite il modulo di contatto. Agisce in qualità di Responsabile del Trattamento per conto del Titolare.
-                    <p><strong>Dati Personali trattati:</strong> nome, cognome, email, telefono, messaggio.<br>
-                    <strong>Luogo del trattamento:</strong> Stati Uniti. Il trasferimento dei dati è legittimato dall'adesione di Formspree, Inc. all'accordo <strong>EU-U.S. Data Privacy Framework</strong>, che garantisce un livello di protezione adeguato. <br>
-                    <a href="https://formspree.io/legal/privacy-policy/" target="_blank" rel="noopener noreferrer">Privacy Policy di Formspree</a></p>
-                </li>
-            </ul>
-    
-            <h3>3. Visualizzazione di contenuti da piattaforme esterne</h3>
+            <h3>2. Visualizzazione di contenuti da piattaforme esterne</h3>
             <p>Questo tipo di servizi permette di visualizzare contenuti ospitati su piattaforme esterne direttamente dalle pagine di questo sito e di interagire con essi.</p>
             <ul>
                 <li>
@@ -225,7 +187,7 @@
             <p>I Dati sono trattati e conservati per il tempo richiesto dalle finalità per le quali sono stati raccolti.</p>
             <ul>
                 <li>I Dati Personali raccolti per rispondere a richieste di contatto saranno conservati per il tempo necessario a evadere la richiesta e per un massimo di 24 mesi per finalità amministrative, salvo obblighi di legge che impongano un periodo di conservazione più lungo (es. in caso di stipula di un contratto).</li>
-                <li>I Dati di Navigazione vengono cancellati dopo poche ore o giorni, a seconda delle necessità tecniche.</li>
+                <li>Per i dati raccolti tramite cookie, fare riferimento a quanto specificato nella <a href="cookie-policy.html">Cookie Policy</a>.</li>
             </ul>
     
             <h2>Diritti dell'Interessato</h2>
@@ -249,47 +211,47 @@
             <p>Il Titolare del Trattamento si riserva il diritto di apportare modifiche alla presente privacy policy in qualunque momento, dandone pubblicità agli utenti su questa pagina. Si prega dunque di consultare regolarmente questa pagina, facendo riferimento alla data di ultima modifica indicata in fondo.</p>
     
             <p style="margin-top: 30px; text-align: center; border-top: 1px solid #ddd; padding-top: 20px;">
-                Data dell'ultimo aggiornamento: 24 Maggio 2024
+                Data dell'ultimo aggiornamento: 25 Maggio 2024
             </p>
         </div>
     </main>
     
-    <!-- FOOTER IDENTICO ALLA HOMEPAGE -->
+    <!-- FOOTER IDENTICO ALLA HOMEPAGE (con link corretti) -->
     <footer>
-        <div class="footer-grid">
-            <div class="footer-col">
-                <h4>Dati Identificativi Agente</h4>
-                <ul>
-                    <li><strong>Agente:</strong> Rocco Conforti</li>
-                    <li><strong>RUI:</strong> Sezione A - n. A000099409</li>
-                    <li><strong>Data Iscrizione:</strong> 11/05/2007</li>
-                    <li><strong>Sede Legale:</strong> Via Sold. Raffaele Tinelli 14, 70015 Noci (BA)</li>
-                    <li><strong>P.IVA:</strong> 02144310725</li>
-                </ul>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Dati Identificativi Agente</h4>
+                    <ul>
+                        <li><strong>Agente:</strong> Rocco Conforti</li>
+                        <li><strong>RUI:</strong> Sezione A - n. A000099409</li>
+                        <li><strong>Data Iscrizione:</strong> 11/05/2007</li>
+                        <li><strong>Sede Legale:</strong> Via Sold. Raffaele Tinelli 14, 70015 Noci (BA)</li>
+                        <li><strong>P.IVA:</strong> 02144310725</li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contatti e Recapiti</h4>
+                    <ul>
+                        <li><i class="fa-solid fa-phone"></i> Tel: <a href="tel:+390804972013">080 497 2013</a></li>
+                        <li><i class="fa-solid fa-envelope"></i> Email: <a href="mailto:rocco.conf@libero.it">rocco.conf@libero.it</a></li>
+                        <li><i class="fa-solid fa-at"></i> PEC: <a href="mailto:confortirocco@pec.it">confortirocco@pec.it</a></li>
+                        <li><i class="fa-solid fa-check"></i> Intermediario soggetto al controllo dell'IVASS.</li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Informazioni e Policy</h4>
+                    <ul>
+                        <li><a href="privacy-policy.html" target="_blank">Privacy Policy</a></li>
+                        <li><a href="cookie-policy.html" target="_blank">Cookie Policy</a></li>
+                        <li><a href="Homepage.html#contatti">Reclami</a></li>
+                    </ul>
+                </div>
             </div>
-            <div class="footer-col">
-                <h4>Contatti e Recapiti</h4>
-                <ul>
-                    <li><i class="fa-solid fa-phone"></i> Tel: <a href="tel:+390804972013">080 497 2013</a></li>
-                    <li><i class="fa-solid fa-envelope"></i> Email: <a href="mailto:rocco.conf@libero.it">rocco.conf@libero.it</a></li>
-                    <li><i class="fa-solid fa-at"></i> PEC: <a href="mailto:confortirocco@pec.it">confortirocco@pec.it</a></li>
-                    <li><i class="fa-solid fa-check"></i> Intermediario soggetto al controllo dell'IVASS.</li>
-                </ul>
+            <div class="footer-bottom">
+                <p>L’attività di intermediazione assicurativa è svolta in conformità al Regolamento IVASS n. 40/2018. Le informazioni presenti su questo sito sono puramente illustrative, non costituiscono una proposta contrattuale e non sostituiscono in alcun modo la documentazione precontrattuale obbligatoria per legge, che verrà fornita prima della sottoscrizione di qualsiasi polizza.</p>
+                <p>© 2025 Rocco Conforti - Tutti i diritti riservati.</p>
             </div>
-            <div class="footer-col">
-                <h4>Informazioni e Policy</h4>
-                <ul>
-                    <!-- Link alla pagina corrente, può essere non cliccabile o puntare a se stesso -->
-                    <li><a href="privacy-policy.html">Privacy Policy</a></li> 
-                    <li><a href="/cookie-policy.html" target="_blank">Cookie Policy</a></li>
-                    <!-- Link aggiornato per puntare alla sezione contatti della homepage -->
-                    <li><a href="Homepage.html#contatti">Reclami</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>L’attività di intermediazione assicurativa è svolta in conformità al Regolamento IVASS n. 40/2018. Le informazioni presenti su questo sito sono puramente illustrative, non costituiscono una proposta contrattuale e non sostituiscono in alcun modo la documentazione precontrattuale obbligatoria per legge, che verrà fornita prima della sottoscrizione di qualsiasi polizza.</p>
-            <p>© 2025 Rocco Conforti - Tutti i diritti riservati.</p>
         </div>
     </footer>
 
