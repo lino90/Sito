@@ -65,11 +65,6 @@
         .policies-carousel-viewport { overflow: hidden; padding: 20px 10px; }
         .policies-carousel { 
             display: flex; gap: 30px; transition: transform 0.5s ease-in-out;
-            /* MODIFICA: Stili per migliorare l'esperienza touch */
-            -webkit-user-select: none; /* Safari */
-            -ms-user-select: none; /* IE 10+ */
-            user-select: none; /* Standard */
-            touch-action: pan-y; /* Permetti lo scroll verticale ma prioritizza lo swipe orizzontale */
         }
         .policy-card { background-color: white; border-radius: 16px; padding: 30px; text-align: center; box-shadow: 0 5px 20px var(--card-shadow); transition: all 0.3s ease; flex-shrink: 0; flex-basis: calc(25% - 22.5px); box-sizing: border-box; text-decoration: none; }
         .policy-card:hover { transform: translateY(-10px); box-shadow: 0 10px 25px rgba(217, 13, 121, 0.15); }
@@ -202,7 +197,6 @@
             .address-city {
                 display: block;
             }
-            /* MODIFICA: Allineamento a sinistra forzato per le info di contatto su mobile */
             .agency-card .contact-info {
                 text-align: left;
             }
@@ -376,7 +370,7 @@
 
 
 <script>
-// MODIFICA: Classe carosello aggiornata per includere lo swipe touch
+// Carosello gestito solo tramite frecce
 class FiniteCarousel {
     constructor(element) {
         if (!element) return;
@@ -388,14 +382,7 @@ class FiniteCarousel {
         this.totalSlides = this.slides.length;
         this.settings = {};
         this.currentIndex = 0;
-
-        // Variabili per il tocco e lo swipe
         this.isTransitioning = false;
-        this.isDragging = false;
-        this.wasSwiped = false;
-        this.touchStartX = 0;
-        this.currentTranslate = 0;
-        this.prevTranslate = 0;
 
         this._init();
     }
@@ -410,8 +397,6 @@ class FiniteCarousel {
     _updateDimensions() {
         this.settings.visibleSlides = window.innerWidth > 992 ? 4 : 1;
         if (this.slides.length === 0) return;
-        const slideStyle = window.getComputedStyle(this.slides[0]);
-        const slideMargin = parseFloat(slideStyle.marginLeft) + parseFloat(slideStyle.marginRight);
         const gap = parseFloat(window.getComputedStyle(this.track).gap) || 30;
         this.moveDistance = this.slides[0].offsetWidth + gap;
         this.maxIndex = this.totalSlides - this.settings.visibleSlides;
@@ -438,61 +423,6 @@ class FiniteCarousel {
                 }
             }, 250);
         });
-
-        // Eventi Touch
-        this.track.addEventListener('touchstart', this._touchStart.bind(this), { passive: true });
-        this.track.addEventListener('touchmove', this._touchMove.bind(this), { passive: true });
-        this.track.addEventListener('touchend', this._touchEnd.bind(this));
-        this.track.addEventListener('touchcancel', this._touchEnd.bind(this));
-
-        // Prevenzione click dopo swipe
-        this.slides.forEach(slide => {
-            slide.addEventListener('click', (e) => {
-                if (this.wasSwiped) {
-                    e.preventDefault();
-                }
-            });
-        });
-    }
-
-    _touchStart(event) {
-        this.isDragging = true;
-        this.wasSwiped = false;
-        this.touchStartX = event.touches[0].clientX;
-        this.prevTranslate = -this.currentIndex * this.moveDistance;
-        this.track.style.transition = 'none';
-    }
-
-    _touchMove(event) {
-        if (!this.isDragging) return;
-        const currentPosition = event.touches[0].clientX;
-        this.currentTranslate = this.prevTranslate + currentPosition - this.touchStartX;
-        this.track.style.transform = `translateX(${this.currentTranslate}px)`;
-
-        // Se il movimento è superiore a 10px, lo consideriamo uno swipe
-        if (Math.abs(currentPosition - this.touchStartX) > 10) {
-            this.wasSwiped = true;
-        }
-    }
-
-    _touchEnd() {
-        if (!this.isDragging) return;
-        this.isDragging = false;
-        this.track.style.transition = '';
-
-        const movedBy = this.currentTranslate - this.prevTranslate;
-        const swipeThreshold = this.moveDistance / 4;
-
-        if (movedBy < -swipeThreshold && this.currentIndex < this.maxIndex) {
-            this.goTo(this.currentIndex + 1);
-        } else if (movedBy > swipeThreshold && this.currentIndex > 0) {
-            this.goTo(this.currentIndex - 1);
-        } else {
-            this.goTo(this.currentIndex);
-        }
-        
-        // Reset wasSwiped dopo un breve istante per permettere al click event di registrarsi
-        setTimeout(() => this.wasSwiped = false, 50);
     }
     
     goTo(index, withTransition = true) {
@@ -523,6 +453,8 @@ class FiniteCarousel {
     
     updateState() {
         this.prevBtn.disabled = this.currentIndex === 0;
+        // nextBtn non ha uno stato di disabilitato, ma si potrebbe aggiungere: this.nextBtn.disabled = this.currentIndex >= this.maxIndex;
+        
         this.slides.forEach((slide, index) => {
             const isVisible = index >= this.currentIndex && index < this.currentIndex + this.settings.visibleSlides;
             slide.setAttribute('tabindex', isVisible ? '0' : '-1');
