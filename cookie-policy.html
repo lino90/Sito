@@ -33,7 +33,7 @@
             box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 100; 
         }
         .logo { 
-            grid-column: 1; justify-self: start; line-height: 1;
+            grid-column: 1; justify-self: start; line-height: 1; cursor: pointer;
             text-decoration: none;
         }
         .logo-line-1 { font-size: 2.2rem; font-weight: 700; color: var(--primary-blue); }
@@ -148,7 +148,7 @@
 </head>
 <body>
 
-    <!-- HEADER IDENTICO ALLA HOMEPAGE -->
+    <!-- HEADER AGGIORNATO (IDENTICO ALLA HOMEPAGE) -->
     <header>
         <a href="Homepage.html" class="logo">
             <div class="logo-line-1">conforti<span>.</span></div>
@@ -160,7 +160,7 @@
             <li><a href="Homepage.html#contatti">Contatti</a></li>
             <li><a href="Homepage.html#trova-agenzia">Sedi</a></li>
         </ul></nav>
-        <div></div>
+        <div></div> <!-- Questo elemento vuoto bilancia la griglia per una centratura perfetta del menu -->
     </header>
 
     <main class="page-content-wrapper">
@@ -180,7 +180,7 @@
             <p>Questo sito utilizza diverse categorie di cookie per garantire la migliore esperienza di navigazione possibile.</p>
 
             <h3>Cookie Tecnici (Sempre attivi)</h3>
-            <p>Questi cookie sono indispensabili per il funzionamento del sito e non possono essere disattivati. Tra questi, rientrano anche i cookie utilizzati dal nostro strumento di gestione del consenso (Cookie-Script) per memorizzare le tue preferenze sulla privacy.</p>
+            <p>Questi cookie sono indispensabili per il funzionamento del sito e non possono essere disattivati. Tra questi, rientrano anche i cookie utilizzati dal nostro strumento di gestione del consenso (CookieYes) per memorizzare le tue preferenze sulla privacy.</p>
 
             <h3>Cookie di Terze Parti (soggetti a consenso)</h3>
             <p>Questi cookie sono installati da servizi esterni. Vengono attivati solo dopo che l'utente ha fornito il proprio consenso esplicito tramite il banner cookie.</p>
@@ -195,13 +195,13 @@
             </ul>
             
             <h2>Gestione del Consenso</h2>
-            <p>La gestione del tuo consenso ai cookie avviene tramite lo strumento fornito da <strong>Cookie-Script</strong>, che appare al primo accesso al sito. Attraverso il banner puoi:</p>
+            <p>La gestione del tuo consenso ai cookie avviene tramite lo strumento fornito da <strong>CookieYes</strong>, che appare al primo accesso al sito. Attraverso il banner puoi:</p>
             <ul>
                 <li><strong>Accettare</strong> tutti i cookie.</li>
                 <li><strong>Rifiutare</strong> tutti i cookie non essenziali.</li>
                 <li><strong>Personalizzare</strong> le tue scelte, attivando o disattivando le singole categorie di cookie.</li>
             </ul>
-            <p>Puoi modificare o revocare il tuo consenso in qualsiasi momento cliccando sull'icona o sul link apposito presente in ogni pagina del sito.</p>
+            <p>Puoi modificare o revocare il tuo consenso in qualsiasi momento cliccando sull'icona o sul link apposito presente in ogni pagina del sito, che ti permetterà di riaprire le impostazioni del banner.</p>
 
             <h2>Come gestire i Cookie tramite le impostazioni del Browser</h2>
             <p>Oltre al nostro strumento, puoi gestire le preferenze relative ai cookie direttamente all'interno del tuo browser per impedire, ad esempio, che terze parti possano installarne. Di seguito i link alle istruzioni per i browser più diffusi:</p>
@@ -223,47 +223,13 @@
             </div>
 
              <p style="margin-top: 30px; text-align: center; border-top: 1px solid #ddd; padding-top: 20px;">
-                Data dell'ultimo aggiornamento: 24 Maggio 2024
+                Data dell'ultimo aggiornamento: 25 Maggio 2024
             </p>
         </div>
     </main>
     
-    <!-- FOOTER IDENTICO ALLA HOMEPAGE -->
-    <footer>
-        <div class="footer-grid">
-            <div class="footer-col">
-                <h4>Dati Identificativi Agente</h4>
-                <ul>
-                    <li><strong>Agente:</strong> Rocco Conforti</li>
-                    <li><strong>RUI:</strong> Sezione A - n. A000099409</li>
-                    <li><strong>Data Iscrizione:</strong> 11/05/2007</li>
-                    <li><strong>Sede Legale:</strong> Via Sold. Raffaele Tinelli 14, 70015 Noci (BA)</li>
-                    <li><strong>P.IVA:</strong> 02144310725</li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>Contatti e Recapiti</h4>
-                <ul>
-                    <li><i class="fa-solid fa-phone"></i> Tel: <a href="tel:+390804972013">080 497 2013</a></li>
-                    <li><i class="fa-solid fa-envelope"></i> Email: <a href="mailto:rocco.conf@libero.it">rocco.conf@libero.it</a></li>
-                    <li><i class="fa-solid fa-at"></i> PEC: <a href="mailto:confortirocco@pec.it">confortirocco@pec.it</a></li>
-                    <li><i class="fa-solid fa-check"></i> Intermediario soggetto al controllo dell'IVASS.</li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>Informazioni e Policy</h4>
-                <ul>
-                    <li><a href="privacy-policy.html">Privacy Policy</a></li> 
-                    <li><a href="cookie-policy.html">Cookie Policy</a></li>
-                    <li><a href="Homepage.html#contatti">Reclami</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>L’attività di intermediazione assicurativa è svolta in conformità al Regolamento IVASS n. 40/2018. Le informazioni presenti su questo sito sono puramente illustrative, non costituiscono una proposta contrattuale e non sostituiscono in alcun modo la documentazione precontrattuale obbligatoria per legge, che verrà fornita prima della sottoscrizione di qualsiasi polizza.</p>
-            <p>© 2025 Rocco Conforti - Tutti i diritti riservati.</p>
-        </div>
-    </footer>
+    <!-- FOOTER AGGIORNATO (IDENTICO ALLA HOMEPAGE) -->
+    <footer><div class="container"><div class="footer-grid"><div class="footer-col"><h4>Dati Identificativi Agente</h4><ul><li><strong>Agente:</strong> Rocco Conforti</li><li><strong>RUI:</strong> Sezione A - n. A000099409</li><li><strong>Data Iscrizione:</strong> 11/05/2007</li><li><strong>Sede Legale:</strong> Via Sold. Raffaele Tinelli 14, 70015 Noci (BA)</li><li><strong>P.IVA:</strong> 02144310725</li></ul></div><div class="footer-col"><h4>Contatti e Recapiti</h4><ul><li><i class="fa-solid fa-phone"></i> Tel: <a href="tel:+390804972013">080 497 2013</a></li><li><i class="fa-solid fa-envelope"></i> Email: <a href="mailto:rocco.conf@libero.it">rocco.conf@libero.it</a></li><li><i class="fa-solid fa-at"></i> PEC: <a href="mailto:confortirocco@pec.it">confortirocco@pec.it</a></li><li><i class="fa-solid fa-check"></i> Intermediario soggetto al controllo dell'IVASS.</li></ul></div><div class="footer-col"><h4>Informazioni e Policy</h4><ul><li><a href="privacy-policy.html" target="_blank">Privacy Policy</a></li><li><a href="cookie-policy.html" target="_blank">Cookie Policy</a></li><li><a href="Homepage.html#contatti">Reclami</a></li></ul></div></div><div class="footer-bottom"><p>L’attività di intermediazione assicurativa è svolta in conformità al Regolamento IVASS n. 40/2018. Le informazioni presenti su questo sito sono puramente illustrative, non costituiscono una proposta contrattuale e non sostituiscono in alcun modo la documentazione precontrattuale obbligatoria per legge, che verrà fornita prima della sottoscrizione di qualsiasi polizza.</p><p>© 2025 Rocco Conforti - Tutti i diritti riservati.</p></div></div></footer>
 
 </body>
 </html>
