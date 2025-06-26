@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
     
     <style>
-        /* CSS IDENTICO ALL'ULTIMA VERSIONE CORRETTA */
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
         :root { --primary-blue: #0d2c54; --primary-pink: #d7127a; --light-gray: #f0f2f5; --text-color: #333; }
         html { scroll-behavior: smooth; }
@@ -36,20 +35,28 @@
         .policy-container h1 { color: var(--primary-blue); font-size: 2.5rem; margin-bottom: 30px; }
         .policy-container h2 { color: var(--primary-blue); font-size: 1.8rem; border-bottom: 2px solid var(--primary-pink); padding-bottom: 10px; margin-top: 40px; margin-bottom: 20px; }
         .policy-container h2:first-of-type { margin-top: 0; }
+        .policy-container h3 { color: var(--primary-blue); font-weight: 600; font-size: 1.2rem; margin-top: 30px; }
+        .policy-container p, .policy-container ul { margin-bottom: 15px; }
+        .policy-container ul { padding-left: 25px; }
+        .policy-container li { margin-bottom: 8px; }
         .policy-container a { color: var(--primary-pink); font-weight: 600; text-decoration: none; }
         .policy-container a:hover { text-decoration: underline; }
+        .info-box { background-color: var(--light-gray); border-left: 4px solid var(--primary-pink); padding: 20px; border-radius: 8px; margin-top: 20px; }
         @media (max-width: 992px) {
             html { scroll-padding-top: 80px; }
             header { display: flex; flex-direction: column; gap: 15px; padding-top: 25px; padding-bottom: 15px;}
             .logo { margin: 0 auto; display: inline-block; }
+            .logo-line-2 { padding-left: 2.25rem; }
             nav { grid-column: unset; }
             header > div:last-of-type { display: none; }
+            .page-content-wrapper { padding: 30px 15px; }
+            .policy-container { padding: 25px; }
+            .policy-container h1 { font-size: 2rem; }
         }
     </style>
 </head>
 <body>
 
-    <!-- HEADER CON LINK CORRETTI -->
     <header>
         <a href="/Sito/" class="logo">
             <div class="logo-line-1">conforti<span>.</span></div>
@@ -67,15 +74,68 @@
     <main class="page-content-wrapper">
         <div class="policy-container">
             <h1>Cookie Policy</h1>
-             <p>La presente Cookie Policy ha lo scopo di descrivere le tipologie di cookie utilizzati da questo sito web... (Contenuto della policy come prima) ...</p>
-            <!-- ... IL RESTO DEL CONTENUTO DELLA COOKIE POLICY RESTA INVARIATO ... -->
-            <p style="margin-top: 30px; text-align: center; border-top: 1px solid #ddd; padding-top: 20px;">
+            <p>La presente Cookie Policy ha lo scopo di descrivere le tipologie di cookie utilizzati da questo sito web, le finalità, i tempi di conservazione e le modalità con cui l'Utente può gestire il proprio consenso, in conformità con la normativa vigente in materia di protezione dei dati personali.</p>
+            
+            <h2>Cosa sono i Cookie</h2>
+            <p>I cookie sono piccoli file di testo che i siti visitati dall'utente inviano e registrano sul suo computer o dispositivo mobile, per essere poi ritrasmessi agli stessi siti alla successiva visita. Esistono diverse tipologie di cookie:</p>
+            <ul>
+                <li><strong>Cookie tecnici:</strong> sono essenziali per il corretto funzionamento del sito e per fornire il servizio richiesto. Non richiedono il consenso dell'utente.</li>
+                <li><strong>Cookie analitici:</strong> sono utilizzati per raccogliere informazioni, in forma aggregata, sul numero degli utenti e su come questi visitano il sito. Se anonimizzati, sono assimilati ai cookie tecnici.</li>
+                <li><strong>Cookie di profilazione o marketing:</strong> sono utilizzati per creare profili relativi all'utente al fine di inviare messaggi pubblicitari in linea con le preferenze manifestate dallo stesso nell'ambito della navigazione in rete. Richiedono il consenso esplicito dell'utente.</li>
+            </ul>
+
+            <h2>Come Utilizziamo i Cookie</h2>
+            <p>Questo sito utilizza diverse categorie di cookie per garantire la migliore esperienza di navigazione possibile.</p>
+
+            <h3>Cookie Tecnici (Sempre attivi)</h3>
+            <p>Questi cookie sono indispensabili per il funzionamento del sito e non possono essere disattivati. Tra questi, rientrano anche i cookie utilizzati dal nostro strumento di gestione del consenso (CookieYes) per memorizzare le tue preferenze sulla privacy.</p>
+
+            <h3>Cookie di Terze Parti (soggetti a consenso)</h3>
+            <p>Questi cookie sono installati da servizi esterni. Vengono attivati solo dopo che l'utente ha fornito il proprio consenso esplicito tramite il banner cookie.</p>
+            <ul>
+                <li>
+                    <strong>Google Maps (Google Ireland Limited)</strong><br>
+                    Utilizziamo il servizio Google Maps per mostrare le mappe interattive delle nostre sedi. Questo servizio installa cookie per memorizzare le preferenze dell'utente sulla mappa (come il livello di zoom) e per raccogliere dati di utilizzo a fini statistici e di marketing da parte di Google.
+                    <p><strong>Finalità:</strong> Visualizzazione di contenuti esterni.<br>
+                    <strong>Dati trattati:</strong> Dati di utilizzo e Cookie.<br>
+                    <strong>Luogo del trattamento:</strong> Irlanda. <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Privacy Policy di Google</a></p>
+                </li>
+            </ul>
+            
+            <h2>Gestione del Consenso</h2>
+            <p>La gestione del tuo consenso ai cookie avviene tramite lo strumento fornito da <strong>CookieYes</strong>, che appare al primo accesso al sito. Attraverso il banner puoi:</p>
+            <ul>
+                <li><strong>Accettare</strong> tutti i cookie.</li>
+                <li><strong>Rifiutare</strong> tutti i cookie non essenziali.</li>
+                <li><strong>Personalizzare</strong> le tue scelte, attivando o disattivando le singole categorie di cookie.</li>
+            </ul>
+            <p>Puoi modificare o revocare il tuo consenso in qualsiasi momento cliccando sull'icona o sul link apposito presente in ogni pagina del sito, che ti permetterà di riaprire le impostazioni del banner.</p>
+
+            <h2>Come gestire i Cookie tramite le impostazioni del Browser</h2>
+            <p>Oltre al nostro strumento, puoi gestire le preferenze relative ai cookie direttamente all'interno del tuo browser per impedire, ad esempio, che terze parti possano installarne. Di seguito i link alle istruzioni per i browser più diffusi:</p>
+            <ul>
+                <li><a href="https://support.google.com/chrome/answer/95647" target="_blank" rel="noopener noreferrer">Google Chrome</a></li>
+                <li><a href="https://support.mozilla.org/it/kb/gestione-dei-cookie" target="_blank" rel="noopener noreferrer">Mozilla Firefox</a></li>
+                <li><a href="https://support.apple.com/it-it/guide/safari/sfri11471/mac" target="_blank" rel="noopener noreferrer">Apple Safari</a></li>
+                <li><a href="https://support.microsoft.com/it-it/windows/eliminare-e-gestire-i-cookie-168dab11-0753-043d-7c16-ede5947fc64d" target="_blank" rel="noopener noreferrer">Microsoft Edge</a></li>
+            </ul>
+
+            <h2>Titolare del Trattamento</h2>
+            <div class="info-box">
+                <p>Il Titolare del Trattamento dei dati è lo stesso indicato nella <a href="privacy-policy.html">Privacy Policy</a> del sito.</p>
+                <p>
+                    <strong>Rocco Conforti</strong><br>
+                    Sede Legale: Via Sold. Raffaele Tinelli 14, 70015 Noci (BA)<br>
+                    Email: <a href="mailto:rocco.conf@libero.it">rocco.conf@libero.it</a>
+                </p>
+            </div>
+
+             <p style="margin-top: 30px; text-align: center; border-top: 1px solid #ddd; padding-top: 20px;">
                 Data dell'ultimo aggiornamento: 25 Maggio 2024
             </p>
         </div>
     </main>
-
-    <!-- FOOTER CON LINK CORRETTI -->
+    
     <footer>
         <div class="container">
             <div class="footer-grid">
