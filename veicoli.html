@@ -85,27 +85,110 @@
         .cta-section h2 { font-size: 2rem; margin-top: 0; margin-bottom: 15px; }
         .cta-section p { max-width: 600px; margin: 0 auto 30px auto; opacity: 0.9; }
 
-        /* --- STILI SEZIONE DOCUMENTI CON GRUPPI E TAB --- */
+        /* --- NUOVI STILI SEZIONE DOCUMENTI COMPATTA E MINIMAL --- */
         .section-subtitle { text-align: center; max-width: 800px; margin: -20px auto 40px auto; color: #555; line-height: 1.6; }
-        .docs-container { max-width: 900px; margin: 0 auto; display: grid; gap: 40px; }
-        .product-docs-group { background-color: white; border: 1px solid #e0e6f0; border-radius: 16px; padding: 30px; box-shadow: 0 4px 15px var(--card-shadow); }
-        .product-docs-group h3 { font-size: 1.8rem; color: var(--primary-blue); margin: 0 0 25px 0; padding-bottom: 15px; border-bottom: 1px solid #e0e6f0; display: flex; align-items: center; gap: 15px; }
-        .product-docs-group h3 i { color: var(--primary-pink); }
-        .tabs-nav { display: flex; gap: 20px; margin-bottom: 30px; }
-        .tab-btn { font-family: 'Poppins', sans-serif; font-size: 1.1rem; font-weight: 600; color: #555; background-color: transparent; border: none; padding: 10px 20px; cursor: pointer; border-radius: 8px; transition: all 0.3s ease; }
-        .tab-btn:hover { background-color: var(--light-gray); color: var(--primary-pink); }
-        .tab-btn.active { background-color: var(--primary-pink); color: white; }
-        .tab-panel { display: none; animation: fadeIn 0.5s ease; }
-        .tab-panel.active { display: block; }
+        
+        .unified-tabs-nav {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+        .unified-tab-btn {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #555;
+            background-color: transparent;
+            border: 2px solid #ddd;
+            padding: 10px 25px;
+            cursor: pointer;
+            border-radius: 999px;
+            transition: all 0.3s ease;
+        }
+        .unified-tab-btn:hover {
+            border-color: var(--primary-pink);
+            color: var(--primary-pink);
+        }
+        .unified-tab-btn.active {
+            background-color: var(--primary-pink);
+            color: white;
+            border-color: var(--primary-pink);
+        }
+
+        .unified-tab-panel {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+        .unified-tab-panel.active {
+            display: block;
+        }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-        .document-item { display: flex; align-items: center; background-color: var(--light-gray); padding: 15px 20px; border-radius: 12px; margin-bottom: 15px; }
-        .document-item .doc-icon { font-size: 2.2rem; color: var(--primary-pink); margin-right: 20px; }
-        .document-item .doc-info { flex-grow: 1; }
-        .document-item .doc-info h4 { margin: 0 0 5px 0; font-size: 1.1rem; color: var(--primary-blue); }
-        .document-item .doc-info p { margin: 0; font-size: 0.9rem; color: #666; line-height: 1.5; }
-        .document-item .document-link { text-decoration: none; color: var(--primary-blue); font-weight: 600; padding: 10px 20px; border: 2px solid var(--primary-blue); border-radius: 999px; transition: all 0.3s ease; white-space: nowrap; margin-left: 20px; }
-        .document-item .document-link:hover { background-color: var(--primary-blue); color: white; }
-        .document-item .document-link i { margin-left: 8px; }
+
+        .document-group-title {
+            font-size: 1.5rem;
+            color: var(--primary-blue);
+            margin: 40px 0 20px 0;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #e0e6f0;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .document-group-title:first-child {
+            margin-top: 0;
+        }
+        .document-group-title i {
+            color: var(--primary-pink);
+            font-size: 1.2em;
+        }
+        .document-list-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 10px;
+            border-bottom: 1px solid var(--light-gray);
+            gap: 20px;
+        }
+        .document-list-item:last-child {
+            border-bottom: none;
+        }
+        .doc-list-info {
+            flex-grow: 1;
+        }
+        .doc-list-info h4 {
+            margin: 0 0 5px 0;
+            font-size: 1.1rem;
+            color: var(--primary-blue);
+            font-weight: 600;
+        }
+        .doc-list-info p {
+            margin: 0;
+            font-size: 0.9rem;
+            color: #666;
+            line-height: 1.5;
+        }
+        .doc-list-link {
+            text-decoration: none;
+            color: var(--primary-blue);
+            font-weight: 600;
+            padding: 8px 16px;
+            border: 2px solid transparent;
+            border-radius: 999px;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .doc-list-link i {
+            font-size: 1rem;
+        }
+        .doc-list-link:hover {
+            color: var(--primary-pink);
+            background-color: #fdf6fa;
+        }
+
 
         /* --- OTTIMIZZAZIONE MOBILE --- */
         @media (max-width: 992px) {
@@ -121,11 +204,19 @@
         @media (max-width: 768px) {
             .guarantees-grid { grid-template-columns: 1fr; }
             .features-grid { grid-template-columns: 1fr; }
-            .document-item { flex-direction: column; align-items: flex-start; text-align: left; gap: 15px; }
-            .document-item .document-link { margin-left: 0; align-self: flex-start; }
-            .tabs-nav { gap: 10px; }
-            .tab-btn { padding: 10px 15px; font-size: 1rem; flex-grow: 1; text-align: center; }
-            .product-docs-group { padding: 20px; }
+            
+            /* Mobile per la nuova sezione documenti */
+            .unified-tab-btn { padding: 8px 18px; font-size: 1rem; }
+            .document-list-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+            .doc-list-link {
+                background-color: var(--light-gray);
+                padding-left: 20px;
+                padding-right: 20px;
+            }
         }
     </style>
 </head>
@@ -171,55 +262,74 @@
         </div>
 
         <section id="documentazione" style="padding-top: 20px;">
-            <div class="container">
+            <div class="container" style="max-width: 900px;">
                 <h2 class="section-title">Documentazione e Set Informativi</h2>
                 <p class="section-subtitle">Consulta i set informativi per conoscere tutti i dettagli, le condizioni e le esclusioni della polizza. La trasparenza è la nostra prima garanzia.</p>
-                <div class="docs-container">
-                    <div class="product-docs-group">
-                        <h3><i class="fa-solid fa-car"></i> Documenti Polizza Auto</h3>
-                        <nav class="tabs-nav">
-                            <button class="tab-btn active" data-tab="vigore-auto">In Vigore</button>
-                            <button class="tab-btn" data-tab="archivio-auto">Archivio</button>
-                        </nav>
-                        <div class="tabs-content">
-                            <div id="vigore-auto" class="tab-panel active">
-                                <div class="document-item"><div class="doc-icon"><i class="fa-solid fa-file-pdf"></i></div><div class="doc-info"><h4>Set Informativo Auto - Ed. 2024</h4><p>DIP, DIP Aggiuntivo e Condizioni valide dal 01/01/2024.</p></div><a href="/Sito/documenti/set-informativo-auto-2024.pdf" target="_blank" class="document-link">Scarica <i class="fa-solid fa-download"></i></a></div>
-                                <div class="document-item"><div class="doc-icon"><i class="fa-solid fa-file-pdf"></i></div><div class="doc-info"><h4>Allegato 3 e 4</h4><p>Informazioni sull'intermediario e sulla distribuzione del prodotto.</p></div><a href="/Sito/documenti/allegati-3-4.pdf" target="_blank" class="document-link">Scarica <i class="fa-solid fa-download"></i></a></div>
-                            </div>
-                            <div id="archivio-auto" class="tab-panel">
-                                 <div class="document-item"><div class="doc-icon"><i class="fa-solid fa-file-archive"></i></div><div class="doc-info"><h4>Set Informativo Auto - Ed. 2023</h4><p>Documentazione valida per i contratti stipulati nel 2023.</p></div><a href="/Sito/documenti/archivio/set-informativo-auto-2023.pdf" target="_blank" class="document-link">Scarica <i class="fa-solid fa-download"></i></a></div>
-                            </div>
+                
+                <!-- NUOVA NAVIGAZIONE A TAB UNIFICATA -->
+                <nav class="unified-tabs-nav">
+                    <button class="unified-tab-btn active" data-tab="vigore">In Vigore</button>
+                    <button class="unified-tab-btn" data-tab="archivio">Archivio</button>
+                </nav>
+
+                <!-- NUOVO PANNELLO PER I DOCUMENTI "IN VIGORE" -->
+                <div id="vigore" class="unified-tab-panel active">
+                    <h3 class="document-group-title"><i class="fa-solid fa-car"></i> Polizza Auto</h3>
+                    <div class="document-list-item">
+                        <div class="doc-list-info">
+                            <h4>Set Informativo Auto - Ed. 2024</h4>
+                            <p>DIP, DIP Aggiuntivo e Condizioni valide dal 01/01/2024.</p>
                         </div>
+                        <a href="/Sito/documenti/set-informativo-auto-2024.pdf" target="_blank" class="doc-list-link">Scarica <i class="fa-solid fa-download"></i></a>
                     </div>
-                    <div class="product-docs-group">
-                        <h3><i class="fa-solid fa-motorcycle"></i> Documenti Polizza Moto</h3>
-                        <nav class="tabs-nav">
-                            <button class="tab-btn active" data-tab="vigore-moto">In Vigore</button>
-                            <button class="tab-btn" data-tab="archivio-moto">Archivio</button>
-                        </nav>
-                        <div class="tabs-content">
-                            <div id="vigore-moto" class="tab-panel active">
-                                <div class="document-item"><div class="doc-icon"><i class="fa-solid fa-file-pdf"></i></div><div class="doc-info"><h4>Set Informativo Moto - Ed. 2024</h4><p>DIP, DIP Aggiuntivo e Condizioni valide dal 01/01/2024.</p></div><a href="/Sito/documenti/set-informativo-moto-2024.pdf" target="_blank" class="document-link">Scarica <i class="fa-solid fa-download"></i></a></div>
-                            </div>
-                            <div id="archivio-moto" class="tab-panel"></div>
+                    <div class="document-list-item">
+                        <div class="doc-list-info">
+                            <h4>Allegato 3 e 4</h4>
+                            <p>Informazioni sull'intermediario e sulla distribuzione del prodotto.</p>
                         </div>
+                        <a href="/Sito/documenti/allegati-3-4.pdf" target="_blank" class="doc-list-link">Scarica <i class="fa-solid fa-download"></i></a>
                     </div>
-                    <div class="product-docs-group">
-                        <h3><i class="fa-solid fa-van-shuttle"></i> Documenti Altri Veicoli (Van, Autocarri)</h3>
-                        <nav class="tabs-nav">
-                            <button class="tab-btn active" data-tab="vigore-van">In Vigore</button>
-                            <button class="tab-btn" data-tab="archivio-van">Archivio</button>
-                        </nav>
-                        <div class="tabs-content">
-                            <div id="vigore-van" class="tab-panel active">
-                                 <div class="document-item"><div class="doc-icon"><i class="fa-solid fa-file-pdf"></i></div><div class="doc-info"><h4>Set Informativo Autocarri - Ed. 2024</h4><p>DIP, DIP Aggiuntivo e Condizioni valide dal 01/01/2024.</p></div><a href="/Sito/documenti/set-informativo-autocarri-2024.pdf" target="_blank" class="document-link">Scarica <i class="fa-solid fa-download"></i></a></div>
-                            </div>
-                            <div id="archivio-van" class="tab-panel">
-                                 <div class="document-item"><div class="doc-icon"><i class="fa-solid fa-file-archive"></i></div><div class="doc-info"><h4>Set Informativo Autocarri - Ed. 2023</h4><p>Documentazione valida per i contratti stipulati nel 2023.</p></div><a href="/Sito/documenti/archivio/set-informativo-autocarri-2023.pdf" target="_blank" class="document-link">Scarica <i class="fa-solid fa-download"></i></a></div>
-                            </div>
+
+                    <h3 class="document-group-title"><i class="fa-solid fa-motorcycle"></i> Polizza Moto</h3>
+                    <div class="document-list-item">
+                        <div class="doc-list-info">
+                            <h4>Set Informativo Moto - Ed. 2024</h4>
+                            <p>DIP, DIP Aggiuntivo e Condizioni valide dal 01/01/2024.</p>
                         </div>
+                        <a href="/Sito/documenti/set-informativo-moto-2024.pdf" target="_blank" class="doc-list-link">Scarica <i class="fa-solid fa-download"></i></a>
+                    </div>
+
+                    <h3 class="document-group-title"><i class="fa-solid fa-van-shuttle"></i> Altri Veicoli (Van, Autocarri)</h3>
+                    <div class="document-list-item">
+                        <div class="doc-list-info">
+                            <h4>Set Informativo Autocarri - Ed. 2024</h4>
+                            <p>DIP, DIP Aggiuntivo e Condizioni valide dal 01/01/2024.</p>
+                        </div>
+                        <a href="/Sito/documenti/set-informativo-autocarri-2024.pdf" target="_blank" class="doc-list-link">Scarica <i class="fa-solid fa-download"></i></a>
                     </div>
                 </div>
+
+                <!-- NUOVO PANNELLO PER I DOCUMENTI "ARCHIVIO" -->
+                <div id="archivio" class="unified-tab-panel">
+                    <h3 class="document-group-title"><i class="fa-solid fa-car"></i> Polizza Auto</h3>
+                    <div class="document-list-item">
+                        <div class="doc-list-info">
+                            <h4>Set Informativo Auto - Ed. 2023</h4>
+                            <p>Documentazione valida per i contratti stipulati nel 2023.</p>
+                        </div>
+                        <a href="/Sito/documenti/archivio/set-informativo-auto-2023.pdf" target="_blank" class="doc-list-link">Scarica <i class="fa-solid fa-download"></i></a>
+                    </div>
+
+                    <h3 class="document-group-title"><i class="fa-solid fa-van-shuttle"></i> Altri Veicoli (Van, Autocarri)</h3>
+                    <div class="document-list-item">
+                        <div class="doc-list-info">
+                            <h4>Set Informativo Autocarri - Ed. 2023</h4>
+                            <p>Documentazione valida per i contratti stipulati nel 2023.</p>
+                        </div>
+                        <a href="/Sito/documenti/archivio/set-informativo-autocarri-2023.pdf" target="_blank" class="doc-list-link">Scarica <i class="fa-solid fa-download"></i></a>
+                    </div>
+                </div>
+
             </div>
         </section>
 
@@ -265,18 +375,21 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const productGroups = document.querySelectorAll('.product-docs-group');
-            productGroups.forEach(group => {
-                const tabButtons = group.querySelectorAll('.tab-btn');
-                const tabPanels = group.querySelectorAll('.tab-panel');
-                tabButtons.forEach(button => {
-                    button.addEventListener('click', () => {
-                        const targetTabId = button.dataset.tab;
-                        tabButtons.forEach(btn => btn.classList.remove('active'));
-                        tabPanels.forEach(panel => panel.classList.remove('active'));
-                        button.classList.add('active');
-                        group.querySelector('#' + targetTabId).classList.add('active');
-                    });
+            // Script per la nuova gestione dei tab unificati
+            const tabButtons = document.querySelectorAll('.unified-tab-btn');
+            const tabPanels = document.querySelectorAll('.unified-tab-panel');
+
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const targetTabId = button.dataset.tab;
+
+                    // Rimuove la classe 'active' da tutti i bottoni e pannelli
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+                    tabPanels.forEach(panel => panel.classList.remove('active'));
+
+                    // Aggiunge la classe 'active' al bottone cliccato e al pannello corrispondente
+                    button.classList.add('active');
+                    document.getElementById(targetTabId).classList.add('active');
                 });
             });
         });
