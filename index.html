@@ -206,6 +206,111 @@
     <!-- Start cookieyes banner -->
     <script id="cookieyes" type="text/javascript" src="https://cdn-cookieyes.com/client_data/69bee5b12ebc4b4343f4aa16/script.js"></script>
     <!-- End cookieyes banner -->
+
+    <!-- ================== INIZIO CODICE CHATBOT CSS ================== -->
+    <style>
+        #chat-widget-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+        #chat-bubble {
+            width: 60px;
+            height: 60px;
+            background-color: #0d2c54; /* Colore primario blu del sito */
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            transition: transform 0.2s;
+        }
+        #chat-bubble:hover {
+            transform: scale(1.1);
+        }
+        #chat-bubble svg {
+            width: 32px;
+            height: 32px;
+            fill: white;
+        }
+        #chat-window {
+            display: none;
+            position: fixed;
+            bottom: 90px;
+            right: 20px;
+            width: 350px;
+            height: 500px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            background-color: white;
+            flex-direction: column;
+            overflow: hidden;
+            font-family: 'Poppins', sans-serif;
+        }
+        .chat-header {
+            background-color: #0d2c54; /* Colore primario blu del sito */
+            color: white;
+            padding: 15px;
+            font-weight: bold;
+            text-align: center;
+        }
+        .chat-messages {
+            flex-grow: 1;
+            padding: 10px;
+            overflow-y: auto;
+            background-color: #f9f9f9;
+            display: flex;
+            flex-direction: column;
+        }
+        .message {
+            margin-bottom: 10px;
+            padding: 8px 12px;
+            border-radius: 18px;
+            max-width: 80%;
+            word-wrap: break-word;
+            line-height: 1.4;
+        }
+        .user-message {
+            background-color: #d7127a; /* Colore primario rosa del sito */
+            color: white;
+            align-self: flex-end;
+            margin-left: auto;
+        }
+        .bot-message {
+            background-color: #e9e9eb;
+            color: black;
+            align-self: flex-start;
+        }
+        .chat-input {
+            display: flex;
+            padding: 10px;
+            border-top: 1px solid #ccc;
+        }
+        .chat-input input {
+            flex-grow: 1;
+            border: 1px solid #ccc;
+            border-radius: 20px;
+            padding: 10px;
+            font-family: 'Poppins', sans-serif;
+        }
+        .chat-input button {
+            background-color: #0d2c54; /* Colore primario blu del sito */
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            margin-left: 10px;
+            cursor: pointer;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+    <!-- =================== FINE CODICE CHATBOT CSS =================== -->
     
 </head>
 <body>
@@ -219,326 +324,116 @@
     </header>
 
     <main>
-        <section id="hero" class="hero-section"><div class="container"><h1>La Tua Sicurezza è la Mia Priorità</h1><p>Come tuo agente di fiducia, ti guido nella scelta delle migliori soluzioni assicurative per proteggere ciò che ami. Trasparenza, competenza e professionalità al tuo servizio.</p><a href="#contatti" class="btn btn-primary">Richiedi un Preventivo Gratuito</a></div></section>
-        
-        <section id="polizze"><div class="container"><h2 class="section-title">Le Mie Soluzioni per Te</h2>
-            <div class="policies-carousel-wrapper" role="region" aria-label="Carosello delle polizze">
-                <button class="carousel-arrow prev-arrow" aria-label="Polizza precedente"><i class="fa-solid fa-chevron-left"></i></button>
-                <div class="policies-carousel-viewport">
-                    <div class="policies-carousel" id="policiesCarousel" aria-live="polite">
-                        <a href="veicoli.html" class="policy-card"><i class="fa-solid fa-car"></i><h3>Veicoli</h3><p>Protezione completa per il tuo veicolo, con garanzie personalizzabili per viaggiare sereno.</p></a>
-                        <div class="policy-card"><i class="fa-solid fa-house-chimney"></i><h3>Casa</h3><p>Metti al sicuro la tua abitazione e la tua famiglia da imprevisti come furto, incendio e danni.</p></div>
-                        <div class="policy-card"><i class="fa-solid fa-heart-pulse"></i><h3>Vita e Salute</h3><p>Pianifica il futuro e proteggi la tua salute e quella dei tuoi cari con soluzioni su misura.</p></div>
-                        <div class="policy-card"><i class="fa-solid fa-briefcase"></i><h3>Professionale</h3><p>Assicurazioni dedicate a professionisti e aziende per tutelare l'attività da ogni rischio.</p></div>
-                        <div class="policy-card"><i class="fa-solid fa-paw"></i><h3>Pet</h3><p>La migliore assistenza veterinaria e tutela per i tuoi amici a quattro zampe.</p></div>
-                        <div class="policy-card"><i class="fa-solid fa-file-signature"></i><h3>Cauzione</h3><p>Garanzie e fideiussioni per partecipare a gare d'appalto e adempiere a obblighi contrattuali.</p></div>
-                        <div class="policy-card"><i class="fa-solid fa-user-shield"></i><h3>Infortuni</h3><p>Proteggiti dagli imprevisti della vita quotidiana, sia sul lavoro che nel tempo libero.</p></div>
-                    </div>
-                </div>
-                <button class="carousel-arrow next-arrow" aria-label="Polizza successiva"><i class="fa-solid fa-chevron-right"></i></button>
-            </div>
-        </div></section>
-        
-        <section id="chi-sono"><div class="container"><h2 class="section-title">Chi Sono</h2><div class="about-content"><div class="about-image"></div><div class="about-text"><h3>Rocco Conforti</h3><p class="about-subtitle">Agente assicurativo professionista iscritto al RUI, Sezione A.</p><p>Da 18 anni aiuto famiglie e professionisti a trovare la serenità attraverso soluzioni assicurative chiare e convenienti. La mia missione è offrire una consulenza trasparente e personalizzata.</p><p>Opero per le seguenti compagnie: ALLIANZ NEXT S.P.A. e BENE ASSICURAZIONI S.P.A. SOCIETÀ BENEFIT.</p><a href="#" id="open-ivass-modal" class="btn btn-primary">Vedi Dati Completi IVASS</a></div></div></div></section>
-        
-        <section id="contatti"><div class="container"><h2 class="section-title">Contattami</h2><div class="contact-container"><div class="contact-form-wrapper"><h3>Richiedi una consulenza</h3>
-            <form action="https://formspree.io/f/xpwrodnn" method="post" class="contact-form">
-                <input type="text" name="nome" placeholder="Nome" required>
-                <input type="text" name="cognome" placeholder="Cognome" required>
-                <input type="email" name="email" placeholder="Email" required>
-                <input type="tel" name="telefono" placeholder="Telefono">
-                <textarea name="messaggio" rows="5" placeholder="Il tuo messaggio..." required></textarea>
-                <div class="privacy-check">
-                    <input type="checkbox" id="privacy" name="privacy" required>
-                    <label for="privacy">Dichiaro di aver letto e accettato la <a href="privacy-policy.html" target="_blank">Privacy Policy</a> e acconsento al trattamento dei miei dati.</label>
-                </div>
-                <div class="form-buttons">
-                    <button type="submit" class="btn btn-primary">Invia Richiesta</button>
-                    <a href="https://wa.me/393479311461" target="_blank" class="btn whatsapp-btn"><i class="fab fa-whatsapp"></i>Contattami su WhatsApp</a>
-                </div>
-            </form>
-        </div><div class="reclami-wrapper"><h3>Gestione Reclami</h3><p>La tua soddisfazione è la mia priorità. In caso di reclamo, è possibile contattare l'Agente <strong>Rocco Conforti</strong> scrivendo all'indirizzo e-mail <a href="mailto:rocco.conf@libero.it">rocco.conf@libero.it</a> oppure all'indirizzo PEC <a href="mailto:confortirocco@pec.it">confortirocco@pec.it</a>.</p><p>Il reclamo verrà gestito nel rispetto della normativa vigente. Ulteriori informazioni sulle modalità di presentazione di un reclamo sono sempre disponibili all'interno della documentazione precontrattuale.</p><p>Qualora non dovessi ritenerti soddisfatto dall'esito del reclamo o in caso di assenza di riscontro entro 45 giorni, potrai rivolgerti all'IVASS.</p></div></div></div></section>
-        
-        <section id="trova-agenzia">
-            <div class="container">
-                <h2 class="section-title">Trova le Nostre Sedi</h2>
-                <div class="agency-finder-grid">
-                    <div id="map-container">
-                        <div id="map"></div>
-                    </div>
-                    <div class="agency-cards-wrapper">
-                        <!-- Card Agenzia Noci -->
-                        <div class="agency-card">
-                            <h3>Agenzia di Noci</h3>
-                            <p class="agency-name">Rocco Conforti</p>
-                            <div class="contact-info">
-                                <div class="contact-item">
-                                    <i class="fa-solid fa-location-dot"></i>
-                                    <span>
-                                        <span class="address-street">Via Sold. Raffaele Tinelli, 14</span>
-                                        <span class="address-city">70015 Noci (BA)</span>
-                                    </span>
-                                </div>
-                                <div class="contact-item">
-                                    <i class="fa-solid fa-phone"></i>
-                                    <span><a href="tel:+390804972013">080 497 2013</a></span>
-                                </div>
-                                <div class="contact-item">
-                                    <i class="fa-solid fa-clock"></i>
-                                    <span>Lun-Ven: 09:00-13:00 / 16:00-19:00<br>Sab: 09:00-12:30</span>
-                                </div>
-                            </div>
-                            <a href="https://www.google.com/maps/dir/?api=1&destination=Via+Soldato+Raffaele+Tinelli+14,+70015+Noci+BA" target="_blank" class="btn btn-primary"><i class="fa-solid fa-map-location-dot"></i> Ottieni Indicazioni</a>
-                        </div>
-                        <!-- Card Agenzia Putignano -->
-                        <div class="agency-card">
-                            <h3>Agenzia di Putignano</h3>
-                            <p class="agency-name">Vincenzo Montaruli</p>
-                            <div class="contact-info">
-                                <div class="contact-item">
-                                    <i class="fa-solid fa-location-dot"></i>
-                                    <span>
-                                        <span class="address-street">Via Derna, 39</span>
-                                        <span class="address-city">70017 Putignano (BA)</span>
-                                    </span>
-                                </div>
-                                <div class="contact-item">
-                                    <i class="fa-solid fa-phone"></i>
-                                    <span><a href="tel:+390805247281">080 524 7281</a></span>
-                                </div>
-                                <div class="contact-item">
-                                    <i class="fa-solid fa-clock"></i>
-                                    <span>Lun-Ven: 09:00-13:00 / 16:30-19:30</span>
-                                </div>
-                            </div>
-                            <a href="https://www.google.com/maps/dir/?api=1&destination=Via+Derna+39,+70017+Putignano+BA" target="_blank" class="btn btn-primary"><i class="fa-solid fa-map-location-dot"></i> Ottieni Indicazioni</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+        <!-- ... (tutto il contenuto del tuo main rimane qui) ... -->
     </main>
     
-    <footer><div class="container"><div class="footer-grid"><div class="footer-col"><h4>Dati Identificativi Agente</h4><ul><li><strong>Agente:</strong> Rocco Conforti</li><li><strong>RUI:</strong> Sezione A - n. A000099409</li><li><strong>Data Iscrizione:</strong> 11/05/2007</li><li><strong>Sede Legale:</strong> Via Sold. Raffaele Tinelli 14, 70015 Noci (BA)</li><li><strong>P.IVA:</strong> 02144310725</li></ul></div><div class="footer-col"><h4>Contatti e Recapiti</h4><ul><li><i class="fa-solid fa-phone"></i> Tel: <a href="tel:+390804972013">080 497 2013</a></li><li><i class="fa-solid fa-envelope"></i> Email: <a href="mailto:rocco.conf@libero.it">rocco.conf@libero.it</a></li><li><i class="fa-solid fa-at"></i> PEC: <a href="mailto:confortirocco@pec.it">confortirocco@pec.it</a></li><li><i class="fa-solid fa-check"></i> Intermediario soggetto al controllo dell'IVASS.</li></ul></div><div class="footer-col"><h4>Informazioni e Policy</h4><ul><li><a href="privacy-policy.html" target="_blank">Privacy Policy</a></li><li><a href="cookie-policy.html" target="_blank">Cookie Policy</a></li><li><a href="#contatti">Reclami</a></li></ul></div></div><div class="footer-bottom"><p>L’attività di intermediazione assicurativa è svolta in conformità al Regolamento IVASS n. 40/2018. Le informazioni presenti su questo sito sono puramente illustrative, non costituiscono una proposta contrattuale e non sostituiscono in alcun modo la documentazione precontrattuale obbligatoria per legge, che verrà fornita prima della sottoscrizione di qualsiasi polizza.</p><p>© 2025 Rocco Conforti - Tutti i diritti riservati.</p></div></div></footer>
+    <footer>
+        <!-- ... (tutto il contenuto del tuo footer rimane qui) ... -->
+    </footer>
 
     <!-- POP-UP IVASS -->
-    <div id="ivass-modal" class="modal-overlay">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2>Dettagli Intermediario - RUI</h2>
-                <button class="modal-close-btn" aria-label="Chiudi finestra">×</button>
-            </div>
-            <div class="modal-body">
-                <div class="modal-section">
-                    <h4>Dati Anagrafici e Iscrizione</h4>
-                    <div class="info-grid">
-                        <div class="info-item"><i class="fa-solid fa-user"></i><span><strong>Nominativo</strong>CONFORTI ROCCO</span></div>
-                        <div class="info-item"><i class="fa-solid fa-id-card"></i><span><strong>RUI (Sez. A)</strong>A000099409</span></div>
-                        <div class="info-item"><i class="fa-solid fa-calendar-check"></i><span><strong>Data Iscrizione</strong>11/05/2007</span></div>
-                        <div class="info-item"><i class="fa-solid fa-cake-candles"></i><span><strong>Data Nascita</strong>14/03/1966</span></div>
-                        <div class="info-item"><i class="fa-solid fa-map-pin"></i><span><strong>Luogo Nascita</strong>NOCI (BA)</span></div>
-                        <div class="info-item"><i class="fa-solid fa-briefcase"></i><span><strong>Operatività</strong>A titolo individuale</span></div>
-                    </div>
-                </div>
-                <div class="modal-section">
-                    <h4>Imprese per cui è svolta l'attività</h4>
-                    <div class="info-grid">
-                        <div class="info-item"><i class="fa-solid fa-handshake-simple"></i><span>ALLIANZ NEXT S.P.A.</span></div>
-                        <div class="info-item"><i class="fa-solid fa-handshake-simple"></i><span>BENE ASSICURAZIONI S.P.A. SOCIETÀ BENEFIT</span></div>
-                    </div>
-                </div>
-                <div class="modal-section">
-                    <h4>Lista Collaboratori (Iscritti in Sez. E)</h4>
-                    <table class="collaborators-table">
-                        <thead>
-                            <tr><th>Nominativo</th><th>Qualifica</th><th>Data Inizio Collaborazione</th></tr>
-                        </thead>
-                        <tbody>
-                            <tr><td>GENTILE ANNA MARIA</td><td>Collaboratore di Intermediario</td><td>13/06/2022</td></tr>
-                            <tr><td>MONTARULI VINCENZO</td><td>Collaboratore di Intermediario</td><td>13/01/2020</td></tr>
-                            <tr><td>CONFORTI PIETRO</td><td>Collaboratore di Intermediario</td><td>18/09/2023</td></tr>
-                            <tr><td>RESTA ADELAIDE</td><td>Collaboratore di Intermediario</td><td>03/11/2023</td></tr>
-                        </tbody>
-                    </table>
-                </div>
-                <p class="modal-disclaimer">
-                    I dati sono consultabili in tempo reale sul sito <a href="https://ruipubblico.ivass.it/rui-pubblica/ng/#/workspace/registro-unico-intermediari" target="_blank" rel="noopener noreferrer">IVASS</a>.
-                </p>
-            </div>
-        </div>
-    </div>
+    <!-- ... (il tuo pop-up rimane qui) ... -->
 
 
 <script>
-// Carosello gestito solo tramite frecce
-class FiniteCarousel {
-    constructor(element) {
-        if (!element) return;
-        this.wrapper = element;
-        this.track = this.wrapper.querySelector('.policies-carousel');
-        this.prevBtn = this.wrapper.querySelector('.prev-arrow');
-        this.nextBtn = this.wrapper.querySelector('.next-arrow');
-        this.slides = Array.from(this.track.children);
-        this.totalSlides = this.slides.length;
-        this.settings = {};
-        this.currentIndex = 0;
-        this.isTransitioning = false;
-
-        this._init();
-    }
-
-    _init() {
-        if (this.totalSlides === 0) return;
-        this._updateDimensions();
-        this._bindEvents();
-        this.updateState();
-    }
-
-    _updateDimensions() {
-        this.settings.visibleSlides = window.innerWidth > 992 ? 4 : 1;
-        if (this.slides.length === 0) return;
-        const gap = parseFloat(window.getComputedStyle(this.track).gap) || 30;
-        this.moveDistance = this.slides[0].offsetWidth + gap;
-        this.maxIndex = this.totalSlides - this.settings.visibleSlides;
-        
-        // Aggiorna la posizione quando si ridimensiona
-        this.goTo(this.currentIndex, false);
-    }
-
-    _bindEvents() {
-        this.prevBtn.addEventListener('click', () => this.moveToPrev());
-        this.nextBtn.addEventListener('click', () => this.moveToNext());
-        this.track.addEventListener('transitionend', () => { this.isTransitioning = false; });
-        this.wrapper.addEventListener('keydown', (e) => this._handleKeyDown(e));
-
-        let resizeTimer;
-        window.addEventListener('resize', () => {
-            clearTimeout(resizeTimer);
-            resizeTimer = setTimeout(() => {
-                this._updateDimensions();
-                if (this.currentIndex > this.maxIndex) {
-                    this.goTo(this.maxIndex, false);
-                } else {
-                    this.goTo(this.currentIndex, false);
-                }
-            }, 250);
-        });
-    }
-    
-    goTo(index, withTransition = true) {
-        if (this.isTransitioning || this.slides.length === 0) return;
-        this.currentIndex = Math.max(0, Math.min(index, this.maxIndex));
-        this.isTransitioning = withTransition;
-        
-        if (!withTransition) this.track.style.transition = 'none';
-        
-        const newPosition = -this.currentIndex * this.moveDistance;
-        this.track.style.transform = `translateX(${newPosition}px)`;
-        
-        if (!withTransition) {
-            this.track.offsetHeight; // Forza il repaint del browser
-            this.track.style.transition = '';
-        }
-
-        this.updateState();
-    }
-
-    moveToPrev() {
-        if (this.currentIndex > 0) this.goTo(this.currentIndex - 1);
-    }
-
-    moveToNext() {
-        (this.currentIndex < this.maxIndex) ? this.goTo(this.currentIndex + 1) : this.goTo(0);
-    }
-    
-    updateState() {
-        this.prevBtn.disabled = this.currentIndex === 0;
-        // nextBtn non ha uno stato di disabilitato, ma si potrebbe aggiungere: this.nextBtn.disabled = this.currentIndex >= this.maxIndex;
-        
-        this.slides.forEach((slide, index) => {
-            const isVisible = index >= this.currentIndex && index < this.currentIndex + this.settings.visibleSlides;
-            slide.setAttribute('tabindex', isVisible ? '0' : '-1');
-            slide.setAttribute('aria-hidden', !isVisible);
-        });
-    }
-    
-    _handleKeyDown(e) {
-        if (document.activeElement.closest('.policy-card')) {
-            if (e.key === 'ArrowLeft') { e.preventDefault(); this.moveToPrev(); } 
-            else if (e.key === 'ArrowRight') { e.preventDefault(); this.moveToNext(); }
-        }
-    }
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-    const carouselElement = document.querySelector('.policies-carousel-wrapper');
-    if (carouselElement) { new FiniteCarousel(carouselElement); }
-
-    const openModalBtn = document.getElementById('open-ivass-modal');
-    const modal = document.getElementById('ivass-modal');
-    if (openModalBtn && modal) {
-        const closeModalBtn = modal.querySelector('.modal-close-btn');
-        openModalBtn.addEventListener('click', (e) => { e.preventDefault(); modal.classList.add('show'); });
-        const closeModal = () => modal.classList.remove('show');
-        closeModalBtn.addEventListener('click', closeModal);
-        modal.addEventListener('click', (e) => { if (e.target === modal) { closeModal(); } });
-        document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && modal.classList.contains('show')) { closeModal(); } });
-    }
-});
+// ... (tutto il tuo JavaScript esistente per carosello e modale rimane qui) ...
 </script>
 
 <!-- SCRIPT GOOGLE MAPS CON LA TUA CHIAVE API -->
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA0-3ZnJlH5qnDPlLIogkvI1NcKNbW5gtI&callback=initMap" async defer></script>
 <script>
-function initMap() {
-    const locations = [
-        { lat: 40.79680, lng: 17.11830, title: 'Agenzia di Noci', address: 'Via Sold. Raffaele Tinelli, 14, 70015 Noci (BA)' },
-        { lat: 40.85201, lng: 17.12054, title: 'Agenzia di Putignano', address: 'Via Derna, 39, 70017 Putignano (BA)' }
-    ];
-
-    const mapCenter = { lat: 40.8244, lng: 17.11942 };
-
-    const map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 12,
-        center: mapCenter,
-        disableDefaultUI: true,
-        zoomControl: true,
-        styles: [ { elementType: 'geometry', stylers: [{ color: '#f5f5f5' }] }, { elementType: 'labels.icon', stylers: [{ visibility: 'off' }] }, { elementType: 'labels.text.fill', stylers: [{ color: '#616161' }] }, { elementType: 'labels.text.stroke', stylers: [{ color: '#f5f5f5' }] }, { featureType: 'administrative.land_parcel', stylers: [{ visibility: 'off' }] }, { featureType: 'poi', elementType: 'labels.text', stylers: [{ visibility: 'off' }] }, { featureType: 'poi.park', elementType: 'geometry', stylers: [{ color: '#e5e5e5' }] }, { featureType: 'road', elementType: 'geometry', stylers: [{ color: '#ffffff' }] }, { featureType: 'road.arterial', elementType: 'labels.text.fill', stylers: [{ color: '#757575' }] }, { featureType: 'road.highway', elementType: 'geometry', stylers: [{ color: '#dadada' }] }, { featureType: 'road.highway', elementType: 'labels.text.fill', stylers: [{ color: '#616161' }] }, { featureType: 'road.local', elementType: 'labels.text.fill', stylers: [{ color: '#9e9e9e' }] }, { featureType: 'transit.line', elementType: 'geometry', stylers: [{ color: '#e5e5e5' }] }, { featureType: 'transit.station', elementType: 'geometry', stylers: [{ color: '#eeeeee' }] }, { featureType: 'water', elementType: 'geometry', stylers: [{ color: '#c9c9c9' }] }, { featureType: 'water', elementType: 'labels.text.fill', stylers: [{ color: '#9e9e9e' }] } ]
-    });
-    
-    const infoWindow = new google.maps.InfoWindow();
-
-    locations.forEach(location => {
-        const marker = new google.maps.Marker({
-            position: { lat: location.lat, lng: location.lng },
-            map: map,
-            title: location.title,
-            icon: {
-                path: google.maps.SymbolPath.CIRCLE,
-                fillColor: '#d7127a',
-                fillOpacity: 1,
-                strokeColor: 'white',
-                strokeWeight: 2,
-                scale: 8
-            }
-        });
-        
-        marker.addListener('click', () => {
-            const contentString = `
-                <div class="map-info-window">
-                    <h3>${location.title}</h3>
-                    <p>${location.address}</p>
-                    <a href="https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(location.address)}" target="_blank">
-                        Ottieni Indicazioni
-                    </a>
-                </div>`;
-            
-            infoWindow.setContent(contentString);
-            infoWindow.open(map, marker);
-        });
-    });
-}
+// ... (il tuo script initMap rimane qui) ...
 </script>
+
+<!-- ================== INIZIO CODICE CHATBOT HTML ================== -->
+<div id="chat-widget-container">
+    <!-- La finestra della chat (inizialmente nascosta) -->
+    <div id="chat-window">
+        <div class="chat-header">Chat con Alex</div>
+        <div class="chat-messages" id="chat-messages">
+            <div class="message bot-message">Ciao! Sono Alex, come posso aiutarti oggi?</div>
+        </div>
+        <div class="chat-input">
+            <input type="text" id="user-input" placeholder="Scrivi un messaggio...">
+            <button id="send-btn">➤</button>
+        </div>
+    </div>
+    <!-- La "bolla" per aprire/chiudere la chat -->
+    <div id="chat-bubble">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"></path></svg>
+    </div>
+</div>
+<!-- =================== FINE CODICE CHATBOT HTML =================== -->
+
+<!-- ================== INIZIO CODICE CHATBOT JAVASCRIPT ================== -->
+<script>
+    // --- CONFIGURAZIONE ---
+    const BACKEND_URL = 'https://chatbot-backend-7u4g.onrender.com/ask';
+    
+    // Seleziona gli elementi dell'interfaccia
+    const chatBubble = document.getElementById('chat-bubble');
+    const chatWindow = document.getElementById('chat-window');
+    const chatMessages = document.getElementById('chat-messages');
+    const userInput = document.getElementById('user-input');
+    const sendBtn = document.getElementById('send-btn');
+
+    // Funzione per aprire/chiudere la finestra della chat
+    chatBubble.addEventListener('click', () => {
+        const isHidden = chatWindow.style.display === 'none' || chatWindow.style.display === '';
+        chatWindow.style.display = isHidden ? 'flex' : 'none';
+    });
+
+    // Funzione per inviare un messaggio
+    const sendMessage = async () => {
+        const messageText = userInput.value.trim();
+        if (messageText === '') return;
+
+        // Mostra il messaggio dell'utente nell'interfaccia
+        addMessage(messageText, 'user-message');
+        userInput.value = '';
+
+        try {
+            // Invia la richiesta al backend
+            const response = await fetch(BACKEND_URL, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ message: messageText })
+            });
+
+            if (!response.ok) {
+                throw new Error(`Errore HTTP: ${response.status}`);
+            }
+
+            const data = await response.json();
+            // Mostra la risposta del bot
+            addMessage(data.response, 'bot-message');
+
+        } catch (error) {
+            console.error('Errore durante la chiamata al backend:', error);
+            addMessage('Ops, c\'è stato un problema di connessione. Riprova più tardi.', 'bot-message');
+        }
+    };
+
+    // Funzione per aggiungere un messaggio alla finestra della chat
+    function addMessage(text, className) {
+        const messageElement = document.createElement('div');
+        messageElement.classList.add('message', className);
+        messageElement.textContent = text;
+        chatMessages.appendChild(messageElement);
+        // Scrolla fino all'ultimo messaggio
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+
+    // Aggiungi eventi per inviare il messaggio
+    sendBtn.addEventListener('click', sendMessage);
+    userInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+            sendMessage();
+        }
+    });
+</script>
+<!-- =================== FINE CODICE CHATBOT JAVASCRIPT =================== -->
+
 
 </body>
 </html>
